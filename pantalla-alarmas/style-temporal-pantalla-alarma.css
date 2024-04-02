@@ -110,18 +110,33 @@ body{
 }
 
 /* contenedor de alarma */
-.alarma{
+/*.alarma{
 	margin:			30px;
 	padding:		10px;
 	height:			175px;
 	background:		#ffffff;
 	border:			1px solid #ccc;
 	display:		flex;	
+}*/
+.alarma{
+	margin:			30px;
+	padding:		0;
+	height:			175px;
+	background:		#ffffff;
+	border:			1px solid #ccc;
+	display:		flex;
 }
 
 /* contenedor de alarma > imagen */
 .alarma img{
 	margin-right:		10px;
+}
+
+.alarma-info {
+    flex-grow: 1; /* Para asegurarse de que ocupe todo el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* contenedor de la alarma > informacion de alarma */
@@ -130,9 +145,15 @@ body{
 }
 
 /*	problema  al formarse el espacio entre labels	   */
-.alarma-info > div > label{
+/*.alarma-info > div > label{
 	padding:		16px 16px 16px 16px;
+}*/
+
+.alarma-info > div > label{
+	padding:		16px; /* Ajustar el padding para que los labels se ajusten completamente */
+    margin: 0; /* Asegurarse de que no haya margen adicional */
 }
+
 #Nombre-etiqueta{
 	font-size:		25px;
 }
@@ -221,4 +242,6 @@ body{
 #boton-borrar {
 	right: 			60px;
 }
+
+
 
