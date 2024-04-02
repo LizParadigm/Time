@@ -1,0 +1,224 @@
+/* Estilo general */
+*{
+	margin: 		0;
+	padding: 		0;
+	-webkit-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:		border-box;
+}
+
+body{
+	font-size:		20px;
+	background:		#242424;
+}
+
+/* barra de navegacion */
+.navegacion{
+	width:			100%;
+	margin:			0px ;
+	background:		#af59c9;
+}
+
+.navegacion ul{
+	list-style:		none;
+}
+
+/* barra de navegacion > menu (la barra visible) */
+.menu>li{
+	position:		relative;
+	display:		inline-block;
+}
+
+.menu > li > a{
+	display:		block;
+	padding:		15px 10px;
+	color:			#ffffff;
+	font-family:		'Open sans';
+	text-decoration:	none;
+}
+
+.menu > li > a:hover{
+	color:			#f1c2ff;
+	transition:		all .3s;
+}
+
+.menu {
+	display:                    flex;
+	justify-content:            flex-start;
+}
+
+.menu > li {
+	display:                    inline-block;
+}
+
+.menu > li:last-child {
+	margin-left:                auto;
+}
+
+#seccion {
+	padding:		7px 10px;
+	text-align: 		center;
+	color:			white;
+	font-family:		'Open sans';
+	font-size:		30px;
+}
+
+/* barra de navegacion > menu > submenu*/
+.submenu {
+	position:		absolute;
+	visibility:		hidden;
+	background:		#782c8f;
+	width:			300px;
+	height:			auto;
+	opacity:		0;
+	transition:		opacity 1.5s;
+}
+
+.submenu > li > a{
+	display:		block;
+	padding:		10px;
+	color:			#ffffff;
+	font-family:		'Open sans';
+	text-decoration:	none;
+}
+
+.submenu > li{
+	color:			#ffffff;
+	font-family:		'Open sans';
+	text-decoration:	none;
+}
+
+.menu > li:hover .submenu {
+        visibility:             visible;
+        opacity:                1;
+}
+
+.submenu > li > a:hover{
+	color:                  #f1c2ff;
+        transition:             all .3s;
+}
+
+
+.menu {
+    display: 			flex;
+    justify-content: 		flex-start;
+}
+
+/* barra de navegacion > este estilo si no se que haga, pero soluciono un problema jajjaj*/
+#seccion {
+    flex-grow: 			1;
+}
+
+/* contenedor de alarma */
+.alarma{
+	margin:			30px;
+	padding:		10px;
+	height:			175px;
+	background:		#ffffff;
+	border:			1px solid #ccc;
+	display:		flex;	
+}
+
+/* contenedor de alarma > imagen */
+.alarma img{
+	margin-right:		10px;
+}
+
+/* contenedor de la alarma > informacion de alarma */
+.alarma-info > div{
+	margin: 		0px 10px 10px 10px;
+}
+
+/*	problema  al formarse el espacio entre labels	   */
+.alarma-info > div > label{
+	padding:		16px 16px 16px 16px;
+}
+#Nombre-etiqueta{
+	font-size:		25px;
+}
+
+/* dias de la semana que sonara la alarma */
+.semana > ul{
+	list-style:		none;
+}
+
+.semana  li{
+	margin:			5px;
+	text-decoration:	none;
+	display:		inline-block;
+}
+
+.lunes{
+	height:			20px;
+	width:			20px;
+	background:		#000000;
+	color:			white;
+	border:			1px solid;
+}
+
+.martes{
+        height:                 20px;
+        width:                  20px;
+        background:             #000000;
+        color:                  white;
+	border:                 1px solid;
+}
+
+.miercoles{
+        height:                 20px;
+        width:                  20px;
+        background:             #000000;
+        color:                  white;
+	border:                 1px solid;
+}
+
+.jueves{
+        height:                 20px;
+        width:                  20px;
+        background:             #000000;
+        color:                  white;
+	border:                 1px solid;
+}
+
+.viernes{
+        height:                 20px;
+        width:                  20px;
+        background:             #000000;
+        color:                  white;
+	border:                 1px solid;
+}
+
+.sabado{
+        height:                 20px;
+        width:                  20px;
+        /*background:             #000000;
+        color:                  white;*/
+	border:                 1px solid;
+}
+
+.domingo{
+        height:                 20px;
+        width:                  20px;
+        /*background:             #000000;
+        color:                  white;*/
+        border:                 1px solid;
+}
+
+/* botones */
+.alarma-info {
+	position: 		relative;
+}
+
+#boton-borrar, #boton-configurar {
+	position: 		absolute;
+	bottom: 		10px;
+}
+
+#boton-configurar {
+	right: 			10px;
+}
+
+#boton-borrar {
+	right: 			60px;
+}
+

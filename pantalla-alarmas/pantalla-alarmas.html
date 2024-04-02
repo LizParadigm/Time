@@ -5,16 +5,77 @@
                 <meta http-equiv"X-UA-Compatible" content="IE-edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Alarmas</title>
-                <link rel="stylesheet" href="pantalla-alarmas.css">
+                <link rel="stylesheet" href="style-temporal-pantalla-alarma.css">
         </head>
 
         <body>
+		<!-- Inicio de la barra navegadora -->
+                <header>
+                        <nav class="navegacion">
+                                <ul class="menu">
+                                        <li><a href="#">Menu</a>
+                                                <ul class="submenu">
+                                                        <li>Menu</li>
+                                                        <li>Secciones</li>
+                                                        <li><a href="#">Alarmas</a></li>
+                                                        <li><a href="#">Recordatorios</a></li>
+                                                        <li><a href="#">Medicamentos</a></li>
+                                                        <li><a href="#">Crear nueva seccion</a></li>
+                                                        <li>Otros</li>
+                                                        <li><a href="#">Ajustes</a></li>
+                                                </ul>
+                                        </li>
+                                        <li id="seccion">A l e r t a s</li>
+                                        <li><a href="#">crear nueva</a></li>
+                                </ul>
+                        </nav>
+                </header>
+                <!-- Fin de la barra navegadora -->
 
-		<iframe class="barra-de-navegacion" src="../index.html" frameborder="0"></iframe>
-		<h1>
-			<div class="alarma">
+		<!-- Inicio de contenedor de informacion de alarma -->
+		<div class="alarma">
+			
+
+			<!-- Inicio de la imagen del relog -->
+			<div>
+				<img src="../media/relog-vacio.png" alt="error :(" width="155" height="155">
+			</div>
+			<!-- Fin de la imagen del relog -->
+
+
+			<!-- Inicio de informacion de la alarma -->
+			<div class="alarma-info">
+				<div id="Nombre-etiqueta">¡Hora de despertar!</div>
+				<div></div>
+				<div> 
+					<label id="Hora-de-inicio">Hora de inicio: 5:15 AM</label>
+					<label id="Hora-de-fin">Hora de fin: 6:15 AM</label>
+					<label id="Repetir-cada">Repetir cada: 6 minutos</label>
+					<label id="Nombre-alarma">Tono de alarma: Pedeterminado</label>
+				
+
+					<!-- Dias de la semana -->
+					<ul class="semana">
+						<li class="lunes">L</li>
+						<li class="martes">M</li>
+						<li class="miercoles">M</li>
+						<li class="jueves">J</li>
+						<li class="viernes">V</li>
+						<li class="sabado">S</li>
+						<li class="domingo">D</li>
+					</ul>
+					<!-- Fin de los dias de la semana -->
+
+				</div>
+				<!-- Fin de la informacion de la alarma -->
+			
+				<!-- Botones -->
+				<button id="boton-borrar"><img src="../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+<button id="boton-configurar"><img src="../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+				<!-------------->			
 
 			</div>
-		</h1>
+			<!-- Fin de contenedor de informacion de alarma -->
+		</div>
 	</body>
 </html>
