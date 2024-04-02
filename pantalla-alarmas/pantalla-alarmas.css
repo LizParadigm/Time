@@ -1,0 +1,24 @@
+*{
+	margin:			0;
+	padding:		0;
+	-webkit-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:		border-box;
+}
+
+body{
+	background:		#242424;
+}	
+	
+.barra-de-navegacion{
+	width:			100%;
+	height:			auto;
+	border:			none;
+}
+
+.alarma{
+	margin:			30px;
+	padding:		10px;
+	background:		#ffffff;
+	border:			1px solid #ccc;
+}
