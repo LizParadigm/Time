@@ -1,0 +1,28 @@
+*{
+	margin:			0;
+	padding:		0;
+	-webkit-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:		border-box;
+}
+
+body{
+	font-size:		50px;
+	background:		#0D0D0D;
+}
+
+.imagen-cargando{	
+	position:		fixed;
+	top: 			50%;
+	left: 			50%;
+	transform: 		translate(-50%, -50%);
+	text-align:		center;
+}
+
+label {
+    position: 			absolute;
+    bottom: 			0;
+    left: 			50%;
+    transform: 			translateX(-50%);
+    color:			#4F975D;
+}

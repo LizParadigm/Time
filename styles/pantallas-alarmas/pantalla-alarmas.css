@@ -110,14 +110,6 @@ body{
 }
 
 /* contenedor de alarma */
-/*.alarma{
-	margin:			30px;
-	padding:		10px;
-	height:			175px;
-	background:		#ffffff;
-	border:			1px solid #ccc;
-	display:		flex;	
-}*/
 .alarma{
 	margin:			30px;
 	padding:		0;
@@ -242,6 +234,5 @@ body{
 #boton-borrar {
 	right: 			60px;
 }
-
 
 
