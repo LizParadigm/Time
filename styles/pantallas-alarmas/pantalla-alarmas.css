@@ -1,4 +1,3 @@
-/* Estilo general */
 *{
 	margin: 		0;
 	padding: 		0;
@@ -12,7 +11,6 @@ body{
 	background:		#242424;
 }
 
-/* barra de navegacion */
 .navegacion{
 	width:			100%;
 	margin:			0px ;
@@ -23,7 +21,6 @@ body{
 	list-style:		none;
 }
 
-/* barra de navegacion > menu (la barra visible) */
 .menu>li{
 	position:		relative;
 	display:		inline-block;
@@ -43,16 +40,16 @@ body{
 }
 
 .menu {
-	display:                    flex;
-	justify-content:            flex-start;
+	display:		flex;
+	justify-content:	flex-start;
 }
 
 .menu > li {
-	display:                    inline-block;
+	display:		inline-block;
 }
 
 .menu > li:last-child {
-	margin-left:                auto;
+	margin-left:		auto;
 }
 
 #seccion {
@@ -63,7 +60,6 @@ body{
 	font-size:		30px;
 }
 
-/* barra de navegacion > menu > submenu*/
 .submenu {
 	position:		absolute;
 	visibility:		hidden;
@@ -100,16 +96,14 @@ body{
 
 
 .menu {
-    display: 			flex;
-    justify-content: 		flex-start;
+	display:		flex;
+	justify-content:	flex-start;
 }
 
-/* barra de navegacion > este estilo si no se que haga, pero soluciono un problema jajjaj*/
 #seccion {
-    flex-grow: 			1;
+	flex-grow: 		1;
 }
 
-/* contenedor de alarma */
 .alarma{
 	margin:			30px;
 	padding:		0;
@@ -119,38 +113,30 @@ body{
 	display:		flex;
 }
 
-/* contenedor de alarma > imagen */
 .alarma img{
 	margin-right:		10px;
 }
 
 .alarma-info {
-    flex-grow: 1; /* Para asegurarse de que ocupe todo el espacio disponible */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-grow: 		1;
+	display: 		flex;
+	flex-direction: 	column;
+	justify-content: 	center;
 }
 
-/* contenedor de la alarma > informacion de alarma */
 .alarma-info > div{
 	margin: 		0px 10px 10px 10px;
 }
 
-/*	problema  al formarse el espacio entre labels	   */
-/*.alarma-info > div > label{
-	padding:		16px 16px 16px 16px;
-}*/
-
 .alarma-info > div > label{
-	padding:		16px; /* Ajustar el padding para que los labels se ajusten completamente */
-    margin: 0; /* Asegurarse de que no haya margen adicional */
+	padding:		16px;
+	margin:			0;
 }
 
 #Nombre-etiqueta{
 	font-size:		25px;
 }
 
-/* dias de la semana que sonara la alarma */
 .semana > ul{
 	list-style:		none;
 }
@@ -234,5 +220,4 @@ body{
 #boton-borrar {
 	right: 			60px;
 }
-
 
