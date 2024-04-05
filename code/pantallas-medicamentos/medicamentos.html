@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE-edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Medicamentos</title>
+                <link rel="stylesheet" href="medicamentos.css">
+        </head>
+
+	<body>
+                <!-- Inicio de la barra navegadora -->
+                <header>
+                        <nav class="navegacion">
+                                <ul class="menu">
+                                        <li id="menuDesplegable">
+						<img src="../../media/icono-tres-puntos.png" alt="menu" width="35" height="35" >
+                                                <ul class="submenu">
+                                                        <li>Menu</li>
+                                                        <li>Secciones</li>
+                                                        <li><a href="../pantallas-alarmas/alarmas.html">Alarmas</a></li>
+                                                        <li><a href="../pantallas-recordatorios/recordatorios.html">Recordatorios</a></li>
+                                                        <li><a href="../pantallas-medicamentos/medicamentos.html">Medicamentos</a></li>
+                                                        <li><a href="../pantallas-menu/crear-seccion.html">Crear nueva seccion</a></li>
+                                                        <li>Otros</li>
+                                                        <li><a href="../pantallas-menu/ajustes.html">Ajustes</a></li>
+                                                </ul>
+                                        </li>
+                                        <li id="seccion">Medicamentos</li>
+                                        <li>
+                                                <button id="añadirNuevaAlarma" onclick="desplegarCrearAlarma()"><img src="../../media/icono-añadir.png" alt="Crear alarma" width="35" height="35"></button>
+
+                                                <!--a href="#">crear alarma</a-->
+                                        </li>
+                                </ul>
+                        </nav>
+                </header>
+                <!-- Fin de la barra navegadora -->
+
+                <!-- Inicio de contenedor de informacion de alarma -->
+                <div class="medicamentoP">
+                        <!-- Inicio de la imagen del relog -->
+
+                        <div class="imagenDeMedicamento"><img src="../../media/paracetamol.png" alt="error :(" ></div>
+                        <!-- Fin de la imagen del relog -->
+
+
+                        <!-- Inicio de informacion de la alarma -->
+                        <div class="informacion">
+                                <div id="nombreDeLaEtiqueta">Paracetamol</div>
+				<div>
+					<label id="ingerirCantidad">Cantidad: 1 pastilla</label>
+                                        <label id="IngerirCada">Cada: 8 horas</label>
+                                        <label id="DuracionTratamiento">Por: 4 dias</label>
+                                        <label id="NotificarConAnterioridad">Notificar 10 minutos antes</label>
+				</div>
+				<div id="Descripcion">Descripcion: <p id="Descripcion">Pastillas recetada para controlar el dolor de cabeza.</p></div>
+	
+				<!-- Fin de la informacion de la alarma -->
+
+				<!-- Botones -->
+				<span class="botones">
+					<button id="boton-borrar" onclick="deleteAlarma"><img src="../../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+					<button id="boton-configurar" onclick="modifyAlrma"><img src="../../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+				</span>
+			</div>
+			<!-------------->
+		</div>
+		<!-- Fin de contenedor de informacion de alarma -->
+		<!-- Inicio de contenedor de informacion de alarma -->
+                <div class="medicamentoI">
+                        <!-- Inicio de la imagen del relog -->
+
+                        <div class="imagenDeMedicamentoI"><img src="../../media/amoxcilina.png" alt="error :(" ></div>
+                        <!-- Fin de la imagen del relog -->
+
+
+                        <!-- Inicio de informacion de la alarma -->
+                        <div class="informacionI">
+                                <div id="nombreDeLaEtiquetaI">Amoxcilina</div>
+                                <div><p id="ingerirCantidadI">Cantidad: 1 inyeccion de 1.000mg/100mg</p></div>
+				<div>
+                                        <label id="IngerirCadaI">Cada: 12 horas</label>
+                                        <label id="DuracionTratamientoI">Por: 3 dias</label>
+                                        <label id="NotificarConAnterioridadI">Sin notificar</label>
+                                </div>
+                                <div id="DescripcionI">Descripcion: <p id="DescripcionI">medicameo liquido con la marca color naranja, se me receto para la infeccion de oido.</p></div>
+
+                                <!-- Fin de la informacion de la alarma -->
+
+                                <!-- Botones -->
+                                <span class="botonesI">
+					<button id="boton-tono" onclick="tono"><img src="../../media/icono-tono.png" alt="config" width="20" height="20"></button>
+                                        <button id="boton-borrarI" onclick="deleteAlarma"><img src="../../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+                                        <button id="boton-configurar" onclick="modifyAlrma"><img src="../../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+                                </span>
+                        </div>
+                        <!-------------->
+                </div>
+                <!-- Fin de contenedor de informacion de alarma -->
+
+
+                <script src="medicamentos.js"></script>
+        </body>
+</html>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta http-equiv"X-UA-Compatible" content="IE-edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>añadir alarma</title>
+                <link rel="stylesheet" href="create-alarma.css">	
+	</head>
+
+
+	<body>
+		<div id="crearNuevaAlarma" class="ventanaCrearAlarma">
+			<div class="contenidoCreate">
+				<div class="EtiquetaSuperior">
+					<span class="imagenSuperiorIzquierda"><img src="../../media/icono-tuerca-modificar.png" alt="error :c" width="30" height="30"></span>
+					<label id="Titulo">añadir nueva</label>
+					<span class="imagenSuperiorDerecha"><img src="../../media/icono-tuerca-modificar.png" alt="error :c"></span>
+				</div>
+
+				<div class="campos">
+					<ul class="ImagenDesignada">
+						<div class="VisualizarImagen"><img src="../../media/relog3.png" alt="error :c"></div>
+					</ul>
+					<ul class="CamposDerechos">
+						<li id="campo1">
+                                                        <label>Titulo de la etiqueta: </label>
+                                                        <input type="text" id="nombreEtiqueta"></li>
+						<li id="campo2">
+							<label for="fecha">Fecha: </label>
+							<input type="date" id="fecha" name="fecha"></li>
+                                                <li id="campo3">
+                                                        <label>Cantidad: </label>
+                                                        <input type="text" id="ingerirCantidad"></li>
+						<li id="campo4">
+							<label for="hour">Hora de inicio: </label>
+							<input type="time" id="HoraQueInicia" name="InicioHour"></li>
+						<li id="campo5">
+							<label for="hour">Hora que termina: </label>
+							<input type="time" id="horaQueTermina" name="FinHour"></li>
+						<li id="campo6">
+							<label for="quantity">Repetir cada </label>
+							<input type="number" id="quantity" name="quantity" min="0" max="60" value="0">
+							<select id="tipoLapso" name="lapso">
+								<option value="option1">segundos</option>
+								<option value="option2">minutos</option></select>
+							<input type="checkbox" id="deshabilitarNotificacion" name="deshabilitar" value="true">
+							<label for="deshabilitar">Deshabilitar</label></li>
+                                                <li id="campo7">
+                                                        <label for="ingerirCada">Ingerir cada: </label>
+                                                        <input type="number" id="ingerirCada" name="IngerirCada" min="0" max="24" value="0"> horas</li>
+                                                <li id="campo8">
+                                                        <label for="DuracionDeTratamiento">Duracion de tratamiento</label>
+                                                        <input type="date" id="duracionDeTratamiento" name="DuracionDeTratamiento"></li>
+                                                <li id="campo9">
+                                                        <label for="quantity">Notificar </label>
+                                                        <input type="number" id="quantity" name="quantity" min="0" max="60" value="0">
+                                                        <select id="tipoLapso" name="lapso">
+                                                                        <option value="option1">segundos</option>
+                                                                        <option value="option2">minutos</option></select> antes 
+                                                        <input type="checkbox" id="deshabilitarNotificacion" name="deshabilitar" value="true">
+                                                        <label for="deshabilitar">Deshabilitar</label></li>
+                                                <li id="campo10">
+                                                        <label>Tono de la alarma: </label>
+                                                                <select id="Tono" name="Tono">
+                                                                        <option value="opcion1">Predeterminado</option></select></li></ul>
+					<div class="camposInferiores">
+						<div id="campo11">
+							<ul class="semana">
+								<li><label>Sonar los dias: </label></li>
+								<li><input type="checkbox" id="lunes" name="Lunes" value="true"><label for="miCheckbox">Lunes</label></li>
+								<li><input type="checkbox" id="martes" name="Martes" value="true"><label for="miCheckbox">Martes</label></li>
+								<li><input type="checkbox" id="miercoles" name="Miercoles" value="true"><label for="miCheckbox">Miercoles</label></li>
+								<li><input type="checkbox" id="jueves" name="Jueves" value="true"><label for="miCheckbox">Jueves</label></li>
+								<li><input type="checkbox" id="viernes" name="Viernes" value="true"><label for="miCheckbox">Viernes</label></li>
+								<li><input type="checkbox" id="sabado" name="Sabado" value="true"><label for="miCheckbox">Sabado</label></li>
+								<li><input type="checkbox" id="domingo" name="Domingo" value="true"><label for="miCheckbox">Domingo</label></li></ul>
+							<div><input type="checkbox" id="deshabilitarSemana" name="semanaNoAplica" value="true"><label for="miCheckbox">Texto del checkbox</label>
+							</div>
+						</div>
+						<div id="campo12">
+                                                        <label>Descripcion: </label>
+                                                        <textarea id="parrafo" rows="1" ></textarea></div></li></div></div>
+				<div class="botones">
+					<span class="confirmarCreate" onclcick="añadirAlarma()">Confirmar</span>
+                                        <span class="cerrarCreate" onclick="cerrarVentanaCrear()">cancelar</span></div>
+
+			</div>
+		</div>
+		<script src="create-alarma.js"></script>
+[O	</body>
+</html>
+
+
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE-edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Medicamentos</title>
+                <link rel="stylesheet" href="recordatorios.css">
+        </head>
+
+	<body>
+                <!-- Inicio de la barra navegadora -->
+                <header>
+                        <nav class="navegacion">
+                                <ul class="menu">
+                                        <li id="menuDesplegable">
+						<img src="../../media/icono-tres-puntos.png" alt="menu" width="35" height="35" >
+                                                <ul class="submenu">
+                                                        <li>Menu</li>
+                                                        <li>Secciones</li>
+                                                        <li><a href="../pantallas-alarmas/alarmas.html">Alarmas</a></li>
+                                                        <li><a href="../pantallas-recordatorios/recordatorios.html">Recordatorios</a></li>
+                                                        <li><a href="../pantallas-medicamentos/medicamentos.html">Medicamentos</a></li>
+                                                        <li><a href="../pantallas-menu/crear-seccion.html">Crear nueva seccion</a></li>
+                                                        <li>Otros</li>
+                                                        <li><a href="../pantallas-menu/ajustes.html">Ajustes</a></li>
+                                                </ul>
+                                        </li>
+                                        <li id="seccion">Medicamentos</li>
+                                        <li>
+                                                <button id="añadirNuevaAlarma" onclick="desplegarCrearAlarma()"><img src="../../media/icono-añadir.png" alt="Crear alarma" width="35" height="35"></button>
+
+                                                <!--a href="#">crear alarma</a-->
+                                        </li>
+                                </ul>
+                        </nav>
+                </header>
+                <!-- Fin de la barra navegadora -->
+
+                <!-- Inicio de contenedor de informacion de alarma -->
+                <div class="recordatorioC">
+                        <!-- Inicio de la imagen del relog -->
+
+                        <div class="imagenDeRecordatorio"><img src="../../media/icono-cena.png" alt="error :(" ></div>
+                        <!-- Fin de la imagen del relog -->
+
+
+                        <!-- Inicio de informacion de la alarma -->
+                        <div class="informacion">
+                                <div id="nombreDeLaEtiqueta">Cena con mi esposo</div>
+				<div>
+					<label id="Fecha">Fecha: Martes 2 de abril del 2024</label>
+                                        <label id="HoraDeInicio">Hora de inicio: 8:00 PM</label>
+                                        <label id="HoraDeFin">Hora de fin: 10:00 PM</label>
+                                        <label id="RepetirCada">Notificar 30 minutos antes</label>
+				</div>
+				<div id="Descripcion">Descripcion: Mi esposo me invito a cenar en el restaurante que me llamo la atencion la otra vez, vest...</p></div>
+	
+				<!-- Fin de la informacion de la alarma -->
+
+				<!-- Botones -->
+				<span class="botones">
+					<button id="boton-tono" onclick="tono"><img src="../../media/icono-tono.png" alt="config" width="20" height="20"></button>
+					<button id="boton-borrar" onclick="deleteAlarma"><img src="../../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+					<button id="boton-configurar" onclick="modifyAlrma"><img src="../../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+				</span>
+			</div>
+			<!-------------->
+		</div>
+		<!-- Inicio de contenedor de informacion de alarma -->
+                <div class="recordatorioC">
+                        <!-- Inicio de la imagen del relog -->
+
+                        <div class="imagenDeRecordatorio"><img src="../../media/icono-proyecto.png" alt="error :(" ></div>
+                        <!-- Fin de la imagen del relog -->
+
+
+                        <!-- Inicio de informacion de la alarma -->
+                        <div class="informacion">
+                                <div id="nombreDeLaEtiqueta">Entrega del proyecto (prototipo)</div>
+                                <div>
+                                        <label id="Fecha">Fecha: Miercoles 3 de abril del 2024</label>
+                                        <label id="HoraDeInicio">Hora de inicio: 11:00 AM</label>
+                                        <label id="HoraDeFin">Hora de fin: --:--</label>
+                                        <label id="RepetirCada">No Notificar antes</label>
+                                </div>
+                                <div id="Descripcion">Descripcion: entregar el prototipo del proyecto de marketing dirigido por el director enrique segoviano</p></div>
+
+                                <!-- Fin de la informacion de la alarma -->
+
+                                <!-- Botones -->
+                                <span class="botones">
+                                        <button id="boton-tono" onclick="tono"><img src="../../media/icono-tono.png" alt="config" width="20" height="20"></button>
+                                        <button id="boton-borrar" onclick="deleteAlarma"><img src="../../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+                                        <button id="boton-configurar" onclick="modifyAlrma"><img src="../../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+                                </span>
+                        </div>
+                        <!-------------->
+                </div>
+		<!-- Inicio de contenedor de informacion de alarma -->
+                <div class="recordatorioC">
+                        <!-- Inicio de la imagen del relog -->
+
+                        <div class="imagenDeRecordatorio"><img src="../../media/icono-pastel.png" alt="error :(" ></div>
+                        <!-- Fin de la imagen del relog -->
+
+
+                        <!-- Inicio de informacion de la alarma -->
+                        <div class="informacion">
+                                <div id="nombreDeLaEtiqueta">Mi cumpleaños</div>
+                                <div>
+                                        <label id="Fecha">Fecha: Lunes 11 de junio del 2024</label>
+                                        <label id="HoraDeInicio">Hora de inicio: 12:00 AM</label>
+                                        <label id="HoraDeFin">HOra de fin: --:--</label>
+                                        <label id="RepetirCada">No Notificar antes</label>
+                                </div>
+                                <div id="Descripcion">Descripcion: !MI CUMPLEAÑOS¡</p></div>
+
+                                <!-- Fin de la informacion de la alarma -->
+
+                                <!-- Botones -->
+                                <span class="botones">
+                                        <button id="boton-tono" onclick="tono"><img src="../../media/icono-tono.png" alt="config" width="20" height="20"></button>
+                                        <button id="boton-borrar" onclick="deleteAlarma"><img src="../../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+                                        <button id="boton-configurar" onclick="modifyAlrma"><img src="../../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+                                </span>
+                        </div>
+                        <!-------------->
+                </div>
+
+		<!-- Fin de contenedor de informacion de alarma -- /*>
+					<button id="boton-tono" onclick="tono"><img src="../../media/icono-tono.png" alt="config" width="20" height="20"></button>
+                                        <button id="boton-borrarI" onclick="deleteAlarma"><img src="../../media/icono-bote-basura.png" alt="borrar" width="20" height="20"></button>
+                                        <button id="boton-configurar" onclick="modifyAlrma"><img src="../../media/icono-tuerca.png" alt="config" width="20" height="20"></button>
+                                </span>
+                        </div>
+                 
+                </div>*/
+                <n de contenedor de informacion de alarma -->
+
+
+                <script src="recordatorios.js"></script>
+        </body>
+</html>
+
+

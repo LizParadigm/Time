@@ -1,0 +1,206 @@
+*{
+	margin: 		0;
+	padding: 		0;
+	-webkit-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:		border-box;
+}
+
+body{
+	font-size:		20px;
+	background:		#000000;
+}
+/*					barra de navegacion					*/
+.navegacion{
+        width:                  100%;
+        margin:                 0px ;
+        background:             #8e7cc3;
+	min-width:              365px;
+
+}
+
+.navegacion ul{
+        list-style:             none;
+}
+
+#menuDesclegable{
+        margin:                 0px 7px;
+        display:                block;
+        padding:                auto;
+        border:                 none;
+        background:             transparent;
+        cursor:                 pointer;
+        align-self:             center;
+}
+
+.menu>li{
+        position:               relative;
+        display:                inline-block;
+        margin:        		0 7px;
+}
+
+.menu > li > a{
+        display:                block;
+        padding:                15px 10px;
+        font-family:            'Open sans';
+        text-decoration:        none;
+}
+.menu > li > a:hover{
+        color:                  #f1c2ff;
+        transition:             all .3s;
+}
+
+#añadirNuevaAlarma{
+        display:                block;
+        padding:                auto;
+        border:                 none;
+        background:             transparent;
+        cursor:                 pointer;
+        align-self:             center;
+        margin:                 0px 7px;
+}
+
+.menu {
+        display:                flex;
+        justify-content:        space-between;
+}
+
+
+.menu > li:last-child {
+        margin-left:            auto;
+}
+
+#seccion {
+        padding:                0px 7px;
+        text-align:             center;
+        
+        font-family:            'Open sans';
+        font-size:              30px;
+        flex-grow:              1;
+        align-self:             center;
+}
+
+.submenu {
+        position:               absolute;
+        visibility:             hidden;
+        background:             #782c8f;
+        width:                  300px;
+        height:                 auto;
+        opacity:                0;
+        transition:             opacity 1.5s;
+        z-index:                2;
+}
+.submenu > li > a{
+        display:                block;
+        padding:                10px;
+        color:                  #ffffff;
+        font-family:            'Open sans';
+        text-decoration:        none;
+}
+
+.submenu > li{
+        color:                  #ffffff;
+        font-family:            'Open sans';
+        text-decoration:        none;
+}
+
+.menu > li:hover .submenu {
+        visibility:             visible;
+        opacity:                1;
+}
+
+.submenu > li > a:hover{
+        color:                  #f1c2ff;
+        transition:             all .3s;
+}
+
+
+.menu {
+        display:                flex;
+        justify-content:        flex-start;
+}
+
+/**					descripcion de medicament				*/
+.recordatorioC{
+	margin:			30px;
+	padding:		0;
+	/*height:			175px;*/
+	background:		#ffffff;
+	border:			1px solid #ccc;
+	display:		flex;
+	position:		relative;
+	max-height:		665px;
+	min-width:		322;
+}
+
+.imagenDeRecordatorio{
+	height:			200px;
+	min-height:                 200px;
+	width:			200px;
+	min-width:                  200px;
+	margin:			10px;
+	display:		flex;
+	justify-content:	center;
+	align-items:		center;
+}
+
+@media screen and (max-width: 525px) {
+  .recordatorioC {
+    display:                    inline-block;
+    flex-direction:             row;
+    align-items:                center;
+    justify-content:            space-between;
+  }
+  .imagenDeRecordatorio{
+          margin-left:          auto;
+          margin-right:         auto;
+  }
+}
+
+/*
+
+/*				cuadro de informacion del medicamento				*/
+.informacion{
+	margin:			15px;
+	height:			auto;
+	width:			auto;
+	background:		#ffffff;
+	flex-grow: 		1;
+	display: 		flex;
+	flex-direction: 	column;
+	font-size:		20px;
+}
+
+.informacion label{
+	margin:			10px 10px 10px 0px;
+	display:                inline-block;
+        background:             #ffffff;
+        white-space:            nowrap;
+}
+
+.informacion > div{
+        margin:                 10px 0px 10px 0px;
+}
+
+#nombreDeLaEtiqueta{
+	display:		inline-block;
+	background:		#ffffff;
+	font-size:		25px;
+	white-space:		nowrap;
+}
+
+#Descripcion{
+	min-width:		
+}
+
+/* 					cuadro para botones 					*/
+.botones{
+	margin-top:		auto;
+	display:		flex;
+	justify-content:	flex-end;
+}
+
+.botones button{
+	margin:			0px 5px 0px 5px;
+}
+
