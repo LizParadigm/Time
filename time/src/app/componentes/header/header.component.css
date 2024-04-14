@@ -1,0 +1,82 @@
+/* Estilos de la barra de navegación */
+.barraNaveg {
+  width: 100%;
+  margin: 0;
+  background: #8e7cc3;
+  min-width: 365px;
+}
+
+.barraNavegMenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.barraNavegMenu > li {
+  position: relative;
+  display: inline-block;
+  margin: 5px 7px 5px 7px;
+  height: 35px;
+}
+
+.barraNavegMenu > li > a {
+  display: block;
+  padding: 15px 10px;
+  font-family: 'Open sans';
+  text-decoration: none;
+}
+
+.barraNavegMenu > li > a:hover {
+  color: #f1c2ff;
+  transition: all .3s;
+}
+
+.barraNavegSubmenu {
+  position: absolute;
+  visibility: hidden;
+  background: #674ea7;
+  width: 250px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1.s;
+  z-index: 2;
+  text-align: center;
+}
+
+.barraNavegMenu > li:hover .barraNavegSubmenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.barraNavegSubmenu > li > a {
+  display: block;
+  padding: 10px;
+  color: #ffffff;
+  font-family: 'Open sans';
+  text-decoration: none;
+}
+
+.barraNavegSubmenu > li > a:hover {
+  color: #f1c2ff;
+  transition: all .3s;
+}
+
+/* Estilos del título de la sección */
+#seccion {
+  
+  text-align: center;
+  font-family: 'Open sans';
+  font-size: 30px;
+  flex-grow: 1;
+  align-self: center;
+}
+
+/* Estilos del botón para añadir nueva alarma */
+#añadirNuevaAlarma {
+  display: block;
+  padding: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  align-self: center;
+  
+}

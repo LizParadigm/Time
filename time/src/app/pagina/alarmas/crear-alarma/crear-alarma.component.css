@@ -1,0 +1,254 @@
+/*{
+	font-size:		15px;
+	color:			white;
+}*/
+/*fondo*/
+.ColitaCreate{
+	position: 		fixed; 
+  	z-index: 		1000; 
+  	left: 			0;
+  	top: 			0;
+  	width: 			100%;
+  	height: 		100%;
+  	overflow: 		auto;
+  	background-color:rgba(0,0,0,0.5);
+  	border: 		1px solid #ccc;
+	overflow: hidden;
+}
+
+/*contenido*/
+#contenidoCreate {
+	background: 	#666666;
+	margin: 		80px auto;
+	border: 		3px solid #000;
+	max-width:          814px;
+	width:			auto;
+	min-width: 		348px;
+	height: 		500px;
+}
+
+@media screen and (max-width:892px) {
+    #contenidoCreate {
+        margin: 80px 30px; /* Margen de 80px arriba y abajo, y margen de 30px a la izquierda y derecha */
+    }
+}
+
+/*etiqueta superior*/
+.EtiquetaSuperior{
+	display:		flex;
+	justify-content:space-between;
+	align-items:	center;
+	max-width:		810px;
+	min-width: 340px;
+	border-bottom:	1px solid #000;
+	background:		#674ea7;
+}
+
+
+.IconoIzquierda , .IconoDerecha{
+	height:			30px;
+	width:			30px;
+	margin:			10px 10px 10px 10px;
+}
+
+#titulo{
+	font-size:		30px;
+	color:			white;
+	/*NOTA:
+	Falta centrar las palabras
+	cuando la pantalla sea de
+	pixeles reducidos*/
+}
+
+/*cuadro de campos*/
+.Campos{
+	display:inline-block;
+	margin:			20px;
+	min-width:		320px;
+	background:#750000;
+	color:#ccc;
+}
+
+/*contenedor de imagenes*/
+.ImagenRelog {/*
+	z-index:		1003;*/
+	display:		flex;/*
+	flex-direction:	column;
+	align-self: 	flex-end;*/
+	float: right;
+	width:			320px;
+	height:			320px;	
+	background:#ccc;
+}
+
+#visualizarRelog {
+	z-index:		1004;
+	display:		flex;
+	justify-content:	center;
+	align-items:		center;
+	width:			300px;
+	height:			300px;
+	margin:			10px;
+	
+}
+
+.BotonesImagen{
+	display:		flex;
+	justify-content:	center;
+	width:			300px;
+	height:			40px;
+	margin:			0px 10px 10px 10px;
+}
+
+/*activar o desactivar campos*/
+.Campos > input {
+	border: none;
+	background:#8b056a;
+	width:320px;
+}
+.estandarCampo {
+	max-width: 449px;
+	width: auto;
+	min-width:320px;
+	min-height: 20px;
+	margin-bottom: 10px;
+}
+#campo1{
+	display:inline-block;
+}
+#etiquetaName {
+	width:320px;
+}
+
+#campo2{
+        display:                none;
+}
+
+
+#campo3{
+        display:             	none;
+}
+#ingerirCantidad{
+	width:                  auto;
+}
+
+#campo4{
+	display: inline-flex;
+}
+
+
+#campo5{
+        display:                flex;
+}
+
+
+#campo6{
+        display:                flex;
+}
+
+
+#campo7{
+        display:                none;
+	justify-content:        center;
+}
+
+#campo8{
+        display:                none;
+}
+#DuracionDeTratamiento{
+	width:                  auto;
+}
+
+#campo9{
+        display:                none;
+	justify-content:        center;
+}
+#campo9 span{
+	margin:			0px 3px 0px 3px;
+}
+
+#campo10{
+        display:                flex;
+}
+#Tono{
+	width:			auto;
+}
+
+#campo11{
+	display:		flex;
+}
+#campo11 > ul{
+	list-style:		none;
+}
+#campo11 li{
+	position: 		relative;
+	display:		inline-block;
+}
+
+#campo12{
+        display:                none;
+}
+#parrafo {
+    width: 			100%;
+    resize:			 none;
+}
+
+/*					contenedores inferiores					*/
+.camposInferiores{
+	z-index:                1003;
+        display:                flex;
+        flex-direction:         column;
+        position:               relative;
+	right:			0;
+        min-width:              340px;
+        width:			auto;
+	height:                 auto;
+}
+
+
+
+.botones{
+	width:			auto;
+	height:			40px;
+	margin:			10px;
+	display:		flex;
+	justify-content:	space-around;
+	position:		relative;
+}
+
+/* boton crear */
+.confirmarCreate{
+	border:			3px solid #000;
+	background:		#000000;
+	color:			white;
+	font-size:		30px;
+	font-weight:		bold;		
+}
+
+.confirmarCreate:hover,
+.confirmarCreate:focus{
+	color:			#000;
+	text-decoration:	none;
+	cursor:			pointer;
+}
+/* botón cerrar */
+.cerrarCreate {
+	border:                 3px solid #000;
+	background:		#750000;
+	color: 			white;
+  	font-size: 		30px;
+  	font-weight: 		bold;
+}
+
+.cerrarCreate:hover,
+.cerrarCreate:focus {
+  	color: 			#000;
+  	text-decoration: 	none;
+  	cursor: 		pointer;
+}
+:host {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+  }

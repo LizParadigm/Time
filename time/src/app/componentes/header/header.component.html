@@ -1,0 +1,24 @@
+<header>
+	<nav class="barraNaveg">
+		<ul class="barraNavegMenu">
+			<li id="barraNavegMenuDespl">
+				<img src="../../../assets/media/icono-tres-puntos.png" alt="menu" width="35" height="35">
+				<ul class="barraNavegSubmenu">
+					<li>Menu</li>
+					<li>Secciones</li>
+					<li><a href="alarmas">Alarmas</a></li>
+					<li><a href="recordatorios">Recordatorios</a></li>
+					<li><a href="medicamentos">Medicamentos</a></li>
+					<li><a href="crear-seccion">Crear nueva seccion</a></li>
+					<li>Otros</li>
+					<li><a href="ajustes">Ajustes</a></li>
+				</ul>
+			</li>
+			<li id="seccion">{{ seccionName }}</li>
+			<li><button id="añadirNuevaAlarma" (click)="desplegarCrear()" typ="button">
+					<img src="../../../assets/media/icono-añadir.png" alt="Crear alarma" width="35" height="35"></button>
+				</li>
+		</ul>
+	</nav>
+</header>
+
