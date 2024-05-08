@@ -1,0 +1,46 @@
+/*debe aplicarse a toda la pagina*/
+:host,
+iniciar-sesion {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 12.5px;
+}
+
+.contenedorIniciarSesion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contenedorLogoSmartGYM {
+    display: flex;
+    max-width: 938px;
+    width: 100%;
+    min-width: 350px;
+    height: 100%;
+    z-index: -50;
+    justify-content: center;
+}
+
+img {
+    height: 100%;
+}
+
+.contenedorComponenteIniciarSesion {
+    width: min-content;
+    padding: 10px;
+    display: flex;
+}
+
+@media screen and (max-width: 1338px) {
+    .contenedorIniciarSesion {
+    justify-content: center;
+    flex-direction: column;
+    }
+
+    .contenedorLogoSmartGYM {
+        position: fixed;
+    }
+}

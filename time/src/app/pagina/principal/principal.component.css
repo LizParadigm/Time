@@ -1,0 +1,96 @@
+/*header*/
+header{
+    width: auto;
+    min-width: 370px;
+    height: auto;
+    background: #8e7cc3;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    border-bottom:	2px solid #423a5b;
+}
+
+/*contenedor*/
+.cuerpoPrincipal{
+    width: auto;
+    min-width:300px;
+    height: auto;
+    margin: 30px 9%;
+    background: #3e0177;
+    color:white;
+    text-align: center;
+    font-size: 25px;
+    display:grid;
+    border:	2px solid #120024;
+    list-style: none;
+}
+
+@media screen and (max-width:370px) {
+    .cuerpoPrincipal {
+        margin: 30px 35px;
+    }
+}
+
+.cuerpoPrincipal > li {
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+}
+/*efecto: remarcar posicion*/
+.cuerpoPrincipal > li:hover{
+    background: #8400ff;
+    transition: 1.2s;
+}
+
+/*primer item*/
+.cuerpoPrincipal > li > a{
+    color: white;
+    text-decoration: none;
+}
+
+/*efecto: desplegar subcontenedor*/
+.cuerpoPrincipal > li:hover .menuSecciones {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    transition: 1.5s;
+}
+
+/*subcontenedor*/
+.menuSecciones{
+    position: absolute;
+    visibility: hidden;
+    background: #461674;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.8s;
+    z-index: 2;
+    text-align: center;
+    margin-top: 5px;
+    padding:2.5px 0px;
+    display:grid;
+    list-style: none;
+}
+
+/*quitar estilo de lista*/
+.menuSecciones > li >a{
+    color: white;
+    text-decoration: none;
+
+}
+
+/*efecto: remarcar posicion*/
+.menuSecciones > li:hover{
+    color:#cd97ff;
+    background: #9b2fff;
+    text-decoration: none;
+    list-style: none;
+    transition: 1s;
+}
+
+/*separacion entre items de subcontenedor*/
+.menuSecciones > li{
+    margin: 2.5px 0px;
+}
+
+

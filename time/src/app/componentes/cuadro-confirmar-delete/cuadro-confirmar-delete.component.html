@@ -1,0 +1,17 @@
+<div class="ColitaCreate">
+    <div id="contenidoCreate">
+        <div class="etiquetaSuperior">
+            <span class="econoIzquierda" style="width: 30px; height:30px;margin-left:2.5px;"><img src="../../../assets/media/icono-advertencia-delete.png" alt="error :c" width="30" height="30"></span>
+            <label style="font-size:25px;color:white;">Borrar {{seccionName}}</label>
+            <span class="econoDerecha" style="width: 30px; height:30px;margin-right:2.5px;"><img src="../../../assets/media/icono-advertencia-delete.png" alt="error :c" width="30" height="30"></span>
+        </div>
+        <div class="contenido">
+            <p >¿Desea <span style="color:rgb(204, 31, 0)">borrar</span> "_etiquetaNombre_"?</p>
+            <p>esto eliminara su {{seccionName}} de sus {{seccionName}}s existentes.<p>
+        </div>
+        <div style="display:flex; justify-content:space-evenly;margin-bottom: 20px;">
+            <button id="borrar" (click)="borrar()" typ="button" style="background: #9b0000; color:white;">Cofirmar</button>
+            <button id="cancelar" (click)="cancelar()" type="button" style="color:black;">Cancelar</button>
+        </div>
+    </div>
+</div>

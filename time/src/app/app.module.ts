@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
 import { BrowserModule } from '@angular/platform-browser';
+import { DialogModule } from '@angular/cdk/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
 import { ComponentesModule } from './componentes/componentes.module';
-import { DialogModule } from '@angular/cdk/dialog';
+import { PaginaModule } from './pagina/pagina.module';
+import { CrearComponentService } from './services/crear-component.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +18,12 @@ import { DialogModule } from '@angular/cdk/dialog';
     BrowserModule,
     AppRoutingModule,
     ComponentesModule,
+    PaginaModule,
     DialogModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

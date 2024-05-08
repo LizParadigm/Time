@@ -1,24 +1,33 @@
-<header>
-	<nav class="barraNaveg">
-		<ul class="barraNavegMenu">
-			<li id="barraNavegMenuDespl">
-				<img src="../../../assets/media/icono-tres-puntos.png" alt="menu" width="35" height="35">
-				<ul class="barraNavegSubmenu">
-					<li>Menu</li>
-					<li>Secciones</li>
-					<li><a href="alarmas">Alarmas</a></li>
-					<li><a href="recordatorios">Recordatorios</a></li>
-					<li><a href="medicamentos">Medicamentos</a></li>
-					<li><a href="crear-seccion">Crear nueva seccion</a></li>
-					<li>Otros</li>
-					<li><a href="ajustes">Ajustes</a></li>
-				</ul>
-			</li>
-			<li id="seccion">{{ seccionName }}</li>
-			<li><button id="añadirNuevaAlarma" (click)="desplegarCrear()" typ="button">
-					<img src="../../../assets/media/icono-añadir.png" alt="Crear alarma" width="35" height="35"></button>
-				</li>
-		</ul>
-	</nav>
+
+<header *ngIf="visibilidadHeader">
+	<ul class="barraNavegMenu">
+		<li style="width:41px; height:41px; background:none;">
+			<img src="../../../assets/media/icono-tres-puntos.png" alt="menu" width="35" height="35" style="position: absolute; margin:3px;" *ngIf="visibilidadElementoIzquierdo">
+			<ul class="menuDesplegable" *ngIf="visibilidadElementoIzquierdo">
+				<li style="text-align: center; font-size:25px; border-bottom:2px solid #000;">Menu</li>
+                <li style="border-bottom: 2px solid #000;"><a [routerLink]="['/inicio']">Inicio</a></li>
+                <li style="border-bottom: 2px solid #000;">
+                    <div>Secciones</div>
+                    <ul class="menuSecciones">
+                        <li><a [routerLink]="['/alarma']">Alarmas</a></li>
+                        <li><a [routerLink]="['/recordatorio']">Recordatorios</a></li>
+                        <li><a [routerLink]="['/medicamento']">Medicamentos</a></li>
+                    </ul>
+                </li>
+				<li style="border-bottom: 2px solid #000;"><a [routerLink]="['/crearSeccion']">Crear nueva seccion</a></li>
+                <li style="bottom: 0; width:300px; position:fixed; border-top: 2px solid #000;"><a [routerLink]="['/ajustes']">Ajustes</a></li>
+            </ul>
+		</li>
+		
+        <li style="color: #000; font-weight: 700;">{{ seccionName }}</li>
+		
+        <li style="width:41px; height:41px; background:none;">
+            <button id="añadirNuevaAlarma" (click)="desplegarCrear()" typ="button" style="border: none; height:35px; margin:3px;" *ngIf="visibilidadElementoDerecho">
+                <img src="../../../assets/media/icono-añadir.png" alt="Crear" width="35" height="35" *ngIf="visibilidadElementoDerecho">
+            </button>
+		</li>
+	
+    </ul>
 </header>
+<span class="Colita"></span>
 

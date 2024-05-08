@@ -1,0 +1,38 @@
+.contenedorIniciarSesion {
+    width: 355px;
+    padding: 10px;
+    background: #ffffff7c;
+    border: 3px solid #000;
+    display: flex;
+}
+.contenidoIniciarSesion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contenidoIniciarSesion > form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenidoIniciarSesion > form > div {
+    width: 100%;
+    display: flex;
+}
+
+.contenidoIniciarSesion > form > div > label {
+    width: 50%;
+    font-weight: 500;
+}
+
+.contenidoIniciarSesion > form > div > input {
+    width: 50%;
+}
+
+.letrasPequeñasIniciarSesion {
+    font-size: 10px;
+}

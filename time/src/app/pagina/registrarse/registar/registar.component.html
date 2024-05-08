@@ -1,0 +1,79 @@
+<span class="contenedorRegistrar">
+
+    <div class="contenidoRegistrar">
+
+        <div style="margin-bottom: 10px; font-size: xx-large;">Registrar</div>
+        
+        <form [formGroup]="forma" (ngSubmit)="registrar()">
+
+            <div class="instruccion">Llene los campos y de click en "registrarse".</div>
+            
+            <div>
+                <label for="campoNombre">Nombre:</label>
+                <input 
+                    type="text"
+                    id="campoNombre"
+                    name="nombre"
+                    placeholder="Nombre"
+                    formControlName="nombre"
+                    maxlength="200">
+            </div>
+            <div class="formatoError">{{errorNombre}}</div>
+            
+            <div>
+                <label for="campoCorreoElectronico">Correo electronico:</label>
+                <input 
+                    type="text"
+                    id="campoCorreoElectronico"
+                    name="correoElectronico"
+                    placeholder="Correo electronico"
+                    formControlName="correoElectronico" 
+                    maxlength="254">
+            </div>
+            <div class="formatoError">{{errorCorreoElectronico}}</div>
+            
+            <div>
+                <label for="campoContraseña">Contraseña:</label>
+                <input 
+                    type="password"
+                    id="campoContraseña"
+                    name="contraseña"
+                    placeholder="contraseña"
+                    formControlName="contrasena"
+                    maxlength="50">
+            </div>
+            <div class="formatoError">{{errorContrasena}}</div>
+            
+            <div>
+                <label for="campoConfirmarContraseña">Confirmar contraseña:</label>
+                <input 
+                    type="password"
+                    id="campoConfirmarContraseña"
+                    name="confirmarContraseña"
+                    formControlName="confirmarContrasena"
+                    maxlength="50">
+            </div>
+            <div class="formatoError">{{errorConfirmarContrasena}}</div>
+            
+            <label><input type="checkbox" (change)="aceptarPoliticasDePrivacidad()">Acepto las politicas de privacidad.</label>
+            <label><input type="checkbox" (change)="aceptarUsosYCondiciones()">Acepto los usos y condiciones.</label>
+
+            <div style="align-items: center; margin-top: 25px; display: flex; justify-content: space-between;">
+                <a [routerLink]="['/ingresar']">< Volver</a>
+                <button type="submit" style="margin: 0px 52.5px;">Registrar</button>
+            </div>
+
+        </form>
+        <!-- <pre>estado registro:{{forma.valid}}
+            <br>
+            status:{{forma.status}}
+        </pre>
+        <pre>
+            {{forma.value | json}}
+            {{politicasDePrivacidad}}
+            {{usosYCondiciones}}
+        </pre> -->
+
+    </div>
+
+</span>

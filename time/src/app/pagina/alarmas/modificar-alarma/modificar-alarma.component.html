@@ -1,0 +1,154 @@
+<div class="ColitaCreate" >
+    <div id="contenidoCreate">
+        <div class="etiquetaSuperior">
+            <span class="econoIzquierda" style="width: 30px; height:30px;margin-left:2.5px;"><img src="../../../assets/media/icono-tuerca-modificar.png" alt="error :c" width="30" height="30"></span>
+            <label style="font-size:25px;color:white;">Modificando</label>
+            <span class="econoDerecha" style="width: 30px; height:30px;margin-right:2.5px;"><img src="../../../assets/media/icono-tuerca-modificar.png" alt="error :c" width="30" height="30"></span>
+        </div>
+        
+        <form class="crearFormulario" [formGroup]="datosCrear" (ngSubmit)="crear()">
+            <ul class="contenido">
+                <div class="iconoReloj">
+                    <img src="{{crearImagenReloj}}" alt="error :c">
+                </div>
+                
+                <li>
+                    <label for="crearNombre">Nombre:</label>
+                    <input 
+                        type="text"
+                        id="crearNombre"
+                        placeholder="Nombre"
+                        formControlName="nombre"
+                    >
+                </li>
+                <label class="formatoError">{{errorNombre}}</label>
+                
+                <li>
+                    <label for="crearIniciaALas">Sonar a las:</label>
+                    <input 
+                        type="time"
+                        id="crearIniciaALas"
+                        formControlName="inicia"
+                    >
+                </li>
+                <label class="formatoError">{{errorInicia}}</label>
+                
+                <li>
+                    <label for="crearTerminaALas">Parar a las:</label>
+                    <input 
+                        type="time"
+                        id="crearTerminaALas"
+                        formControlName="termina"
+                    >
+                </li>
+                <label class="formatoError">{{errorTermina}}</label>
+                
+                <li id="inputYDeshabilitar">
+                    <label for="crearRepetirCada" id="labelRepetirCada">Repetir cada:</label>
+                    <div>
+                        <input 
+                            type="number"
+                            id="checkboxRepetirCada"
+                            min="1" max="12" value="1"
+                            formControlName="repetirCada"
+                            *ngIf="deshabilitarRepetirCada"
+                        >
+                        <label *ngIf="deshabilitarRepetirCada">horas.</label>
+                        <br>
+                        <input
+                            type="checkbox"
+                            id="crearDeshabilitarRepetirCada"
+                            value="true"
+                            formControlName="deshabilitarRepetirCada"
+                            >
+                        <label for="crearDeshabilitarRepetirCada" id="crearDeshabilitar">Deshabilitar</label>
+                    </div>
+                </li>
+                <label class="formatoError">{{errorRepetirCada}}</label>
+                
+                <li>
+                    <label for="crearTono">Tono:</label>
+                    <select id="crearTono" formControlName="tono">
+                        <option value="default">predeterminado</option>
+                    </select>
+                </li>
+                <label class="formatoError">{{errorTono}}</label>
+                
+                <div class="crearDiasDeLaSemana">
+                    <label>Repetir los dias:</label>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearLunes"
+                            formControlName="lunes"
+                            (disabled)="deshabilitarDias"
+                        >
+                        <label for="crearLunes">Lunes</label>
+                    </div>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearMartes"
+                            formControlName="martes"
+                        >
+                        <label for="crearMartes">Martes</label>
+                    </div>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearMiercoles"
+                            formControlName="miercoles"
+                        >
+                        <label for="crearMiercoles">Miercoles</label>
+                    </div>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearJueves"
+                            formControlName="jueves"
+                        >
+                        <label for="crearJueves">Jueves</label>
+                    </div>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearViernes"
+                            formControlName="viernes"
+                        >
+                        <label for="crearViernes">Viernes</label>
+                    </div>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearSabado"
+                            formControlName="sabado"
+                        >
+                        <label for="crearSabado">Sabado</label>
+                    </div>
+                    <div *ngIf="deshabilitarDias">
+                        <input
+                            type="checkbox"
+                            id="crearDomingo"
+                            formControlName="domingo"
+                        >
+                        <label for="crearDomingo">Domingo</label>
+                    </div>
+                    <div style="width: 100%;" class="desactivarDiasS">
+                    <input
+                        type="checkbox"
+                        id="desactivarDiasDeLaSemana"
+                        formControlName="deshabilitarDias"
+                    >
+                    <label for="desactivarDiasDeLaSemana">desactivar</label>
+                </div>
+                </div>
+                
+
+            </ul>
+            <div style="display:flex; justify-content:space-evenly;margin-bottom: 20px;">
+                <button id="crear" typ="submit">Cofirmar</button>
+                <button id="cancelar" (click)="cancelar()" type="button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

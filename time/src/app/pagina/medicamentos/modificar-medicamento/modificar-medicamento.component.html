@@ -1,0 +1,129 @@
+<div class="ColitaCreate" >
+    <div id="contenidoCreate">
+        <div class="etiquetaSuperior">
+            <span class="econoIzquierda" style="width: 30px; height:30px;margin-left:2.5px;"><img src="../../../assets/media/icono-tuerca-modificar.png" alt="error :c" width="30" height="30"></span>
+            <label style="font-size:25px;color:white;">Modificando</label>
+            <span class="econoDerecha" style="width: 30px; height:30px;margin-right:2.5px;"><img src="../../../assets/media/icono-tuerca-modificar.png" alt="error :c" width="30" height="30"></span>
+        </div>
+        
+        <form class="crearFormulario" [formGroup]="datosCrear" (ngSubmit)="crear()">
+            <ul class="contenido">
+                <div class="imagenMedicamentos">
+                    <img src={{imagen}} alt="error :c">
+                    <div>
+                        <input type="text" id="etiquetaImagenMedicamento" formControlName="imagen">
+                        <button id="cargar" (click)="cargarImagen()" typ="button" style="background: #ffffff; color:rgb(0, 0, 0);">Cargar</button>
+                    </div>
+                </div>
+                
+                <li>
+                    <label for="crearNombre">Nombre:</label>
+                    <input 
+                        type="text"
+                        id="crearNombre"
+                        placeholder="Nombre"
+                        formControlName="nombre"
+                    >
+                </li>
+                <label class="formatoError">{{errorNombre}}</label>
+                
+                <li>
+                    <label for="crearCantidad">Cantidad:</label>
+                    <input
+                        type="text"
+                        id="crearCantidad"
+                        placeholder="ej. 2 pastillas."
+                        formControlName="cantidad">
+                </li>
+                <label class="formatoError">{{errorCantidad}}</label>                
+                
+                <li id="inputYDeshabilitar">
+                    <label for="crearRepetirCada" id="labelRepetirCada">Repetir cada:</label>
+                    <div>
+                        <input 
+                            type="number"
+                            id="checkboxRepetirCada"
+                            min="1" max="12" value="1"
+                            formControlName="repetirCada"
+                            *ngIf="deshabilitarRepetirCada"
+                        >
+                        <label *ngIf="deshabilitarRepetirCada">horas.</label>
+                        <br>
+                        <input
+                            type="checkbox"
+                            id="crearDeshabilitarRepetirCada"
+                            value="true"
+                            formControlName="deshabilitarRepetirCada"
+                        >
+                        <label for="crearDeshabilitarRepetirCada" id="crearDeshabilitar">Deshabilitar</label>
+                    </div>
+                </li>
+                <label class="formatoError">{{errorRepetirCada}}</label>
+                
+                <li>
+                    <label>El tratamiento dura:</label>
+                    <div>
+                        <input
+                            type="number"
+                            id="crearDuracion1"
+                            min="0" max="60" value="0"
+                            formControlName="duracion1"
+                        >
+                        <select id="etiquetaDuracion2" formControlName="duracion2">
+                            <option value="default">Dias</option>
+                            <option value="semanas">Semanas</option>
+                            <option value="meses">Meses</option>
+                            <option value="años">Años</option>
+                        </select>
+                    </div>
+                </li>
+                <label class="formatoError">{{errorDuracion}}</label>
+                
+                <li class="notificarAntes" style="height: auto;">
+                    <label for="crearRepetirCada" id="labelRepetirCada">Notificar:</label>
+                    <div>
+                        <input
+                            type="number"
+                            id="etiquetaNotificar"
+                            min="1" max="60" value="1"
+                            formControlName="notificar"
+                            *ngIf="deshabilitarNotificar"
+                        >
+                        <label *ngIf="deshabilitarNotificar">minutos antes.</label>
+                        <input
+                            type="checkbox"
+                            id="crearDeshabilitarNotificar"
+                            value="false"
+                            formControlName="deshabilitarNotificar"
+                        >
+                        <label for="crearDeshabilitarNotificar" id="crearDeshabilitar">Deshabilitar</label>
+                    </div>
+                </li>
+                <label class="formatoError">{{errorNotificar}}</label>
+
+                <li>
+                    <label for="crearTono">Tono:</label>
+                    <select id="crearTono" formControlName="tono">
+                        <option value="default">predeterminado</option>
+                    </select>
+                </li>
+                <label class="formatoError">{{errorTono}}</label>
+                
+                <div id="contDescripcion">
+                    <label>Descripcion:</label>
+                    <textarea 
+                        id="etiquedaDescripcion"
+                        rows="1"
+                        placeholder="ej. este medicamento controla la migraña, se debe haber comido antes de ingerirlo."
+                        formControlName="descripcion"
+                    ></textarea>
+                </div>
+                <label class="formatoError">{{errorDescripcion}}</label>                    
+            </ul>
+            <div style="display:flex; justify-content:space-evenly;margin-bottom: 20px;">
+                <button id="crear" typ="submit">Cofirmar</button>
+                <button id="cancelar" (click)="cancelar()" type="button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

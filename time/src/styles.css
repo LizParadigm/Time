@@ -5,8 +5,286 @@
 	-webkit-box-sizing:	border-box;
 	-moz-box-sizing:	border-box;
 	box-sizing:		border-box;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-    /*background: #000000;*/
+    background: #0d0d0d;
+}
+
+/*componentes*/
+app-ajustes {
+    display: flex;
+    justify-content: center;
+}
+
+/*comodines*/
+.limpiarBoton {
+	background: none;
+    border: none;
+    height: min-content;
+    width: min-content;
+}
+
+.formatoError {
+	display: flex;
+	height: 21px;
+    justify-content: center;
+    font-size: small;
+    color: #ee0000;
+}
+
+/*crear-modificar*/
+.ColitaCreate{
+	position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    overflow: hidde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*contenido*/
+#contenidoCreate {
+	background: #3d3d3d;
+    border: 3px solid #000;
+    max-width: 706px;
+    width: auto;
+    min-width: 300px;
+    height: auto;
+}
+
+@media screen and (max-width:722px) {
+    #contenidoCreate {
+        margin: 186.5px 10px;
+    }
+}
+
+/*etiqueta superior*/
+.etiquetaSuperior{
+    width: auto;
+    height: 37px;
+    background:#674ea7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #000;
+}
+
+/*contenido*/
+.contenido{
+    width: auto;
+    height: auto;
+    margin: 10px;
+    display: flow-root;    
+}
+
+/*etilo general de los campos*/
+.contenido > li{
+    color: white;
+    max-width: 400px;
+    width: auto;
+    min-width:280px;
+    height: 21px;
+    display: flex;
+}
+
+/*labels*/
+.contenido > li > label{
+    max-width: 160px;
+    width: 100%;
+    min-width: 160px;
+    display: flex;
+}
+
+/*inputs*/
+.contenido > li > input{
+    max-width: 240px;
+    width: 100%;
+    min-width: 160px;
+}
+
+/*selects*/
+.cntenido > li > select{
+    max-width: 240px;
+    width: 100%;
+    min-width: 160px;
+}
+
+/*div*/
+.contenido > li > div {
+    max-width: 240px;
+    width: 100%;
+    min-width: 160px;
+    display:flex;
+    justify-content: space-around;
+}
+/* campo: repetir cada*/
+/*input repetir cada*/
+#checkboxRepetirCada {
+    max-width: 25px;
+    width: 35px;
+    min-width: 35px;
+}
+
+/*notificar*/
+#crearNotificar {
+    max-width: 25px;
+    width: 35px;
+    min-width: 35px;
+}
+.notificarAntes > div {
+    flex-wrap: wrap;
+    padding: 0px 6px;
+}
+
+/*check box para deshabilitar*/
+#crearDeshabilitarRepetirCada{
+    max-width: 21px;
+    width: 21px;
+    min-width: 21px;
+}
+
+/*label deshabilitar*/
+#crearDeshabilitar{
+    max-width: auto;
+    width: auto;
+    min-width: auto;
+}
+/*fin de campo: repetir cada*/
+
+/*campo: tono*/
+#crearTono{
+    max-width: 240px;
+    width: 100%;
+    min-width: 160px;
+}
+
+/*campos: dias de la semana*/
+.crearDiasDeLaSemana {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.crearDiasDeLaSemana > label {
+    width: 100%;
+    min-width: 160px;
+    max-height: 21px;
+    height: 21px;
+    display:flex;
+}
+
+.crearDiasDeLaSemana > div {
+    width: 82px;
+    margin-right: 15px;
+    display: flex;
+}
+
+.crearDiasDeLaSemana > div >input {
+    margin-right: 5px;
+}
+
+ 
+/*campos: descripcion*/
+#contDescripcion {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;opacity: none;
+    pointer-events: auto;
+}
+
+/*desactivar dias*/
+.deshabilitado {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+
+
+#contDescripcion > label {
+    max-width: 160px;
+    width: 100%;
+    min-width: 160px;
+    max-height: 21px;
+    height: 21px;
+    display:flex;
+}
+
+#contDescripcion > textarea {
+    width: 100%;
+    min-width: 326.66px;
+    height: 56px;
+}
+/*imagenes*/
+/*image reloj*/
+.iconoReloj {
+    max-width: 280px;
+    width: auto;
+    min-width: 280px;
+    max-height: 280px;
+    height: auto;
+    min-height: 210px;
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}
+
+/*icono*/
+.icono{
+    max-width: 280px;
+    width: auto;
+    min-width: 280px;
+    max-height: 280px;
+    height: auto;
+    min-height: 210px;
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}
+
+/*imagen*/
+.imagenMedicamentos{
+    max-width: 280px;
+    width: auto;
+    min-width: 280px;
+    max-height: 280px;
+    height: auto;
+    min-height: 210px;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}
+
+/*botones*/
+/*borrar*/
+#crear,#borrar,#cancelar{
+    border: 3px solid #000;
+    width: 100px;
+}
+
+#crear {
+	background: #9b0000;
+    color:white;
+}
+
+#borrar {
+    background: #9b0000;
+    color:white;
+}
+
+#cancelar {
+    color: #000;
 }

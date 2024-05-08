@@ -1,0 +1,274 @@
+<div class="contenedorCrearSeccion">
+    <ul class="seccionEtiquetaSuperior">
+        <li class="seccionEtiquetaSuperiorIMG"><img src="assets/media/icono-añadir-emergente.png" alt="+"></li>
+        <li><label>Creando...</label></li>
+        <li class="seccionEtiquetaSuperiorIMG"><img src="assets/media/icono-añadir-emergente.png" alt="+"></li>
+    </ul>
+
+    <form class="contenidoCrearSeccion" [formGroup]="datosSeccion" (ngSubmit)="crearSeccion()">
+        <div>
+            <div class="seccion1">
+                <label for="crearSeccionNombre">Titulo de la seccion: </label>
+                <input 
+                    type="text"
+                    id="crearSeccionNombre"
+                    placeholder="Titulo"
+                    formControlName="seccionTitulo"
+                >
+            </div>
+
+            <!-- <div>
+                <label for="crearSeccionPalabraRef">Selecciona la palabra que mejor se ajuste al nombre. </label>
+                <select id="crearSeccionPalabraRef" formControlName="palabra">
+                    <option value="nueva">Nueva</option>
+                    <option value="nuevo">Nuevo</option>
+                </select>
+            </div> -->
+        </div>
+        
+        <div class="abc1">
+<!---------------------------------------------------------------------->
+        <div id="contenidoCreate">
+            <div class="etiquetaSuperior" >
+                <span class="econoIzquierda" style="width: 30px; height:30px;margin-left:2.5px;"><img src="../../../assets/media/icono-añadir-emergente.png" alt="error :c" width="30" height="30"></span>
+                <label style="font-size:25px;color:white;">Creando</label>
+                <span class="econoDerecha" style="width: 30px; height:30px;margin-right:2.5px;"><img src="../../../assets/media/icono-añadir-emergente.png" alt="error :c" width="30" height="30"></span>
+            </div>
+            
+            <div>
+                <ul class="contenido">
+                    <div class="iconoReloj" *ngIf="this.datosSeccion.get('reloj')?.value">
+                        <img src="{{crearImagenReloj}}" alt="error :c">
+                    </div>
+
+                    <div class="icono" *ngIf="this.datosSeccion.get('icono')?.value">
+                        <img src="{{crearIcono}}" alt="error :c">
+                    </div>
+                        
+                    <div class="imagenMedicamentos" *ngIf="this.datosSeccion.get('imagen')?.value">
+                        <img src={{imagen}} alt="error :c">
+                        <div>
+                            <input type="text" id="etiquetaImagenMedicamento">
+                            <button id="cargar" typ="button" style="background: #ffffff; color:rgb(0, 0, 0);">Cargar</button>
+                        </div>
+                    </div>
+    
+                    <li *ngIf="this.datosSeccion.get('titulo')?.value">
+                        <label for="crearNombre">Nombre:</label>
+                        <input 
+                            type="text"
+                            id="crearNombre"
+                            placeholder="Nombre"
+                        >
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('titulo')?.value">{{errores}}</label>
+                    
+                    <li *ngIf="this.datosSeccion.get('cantidad')?.value">
+                        <label for="crearCantidad">Cantidad:</label>
+                        <input
+                            type="text"
+                            id="crearCantidad"
+                            placeholder="ej. 2 pastillas."
+                        >
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('cantidad')?.value">{{errores}}</label>                
+
+                    <li *ngIf="this.datosSeccion.get('duracion')?.value">
+                        <label>El tratamiento dura:</label>
+                        <div>
+                            <input
+                                type="number"
+                                id="crearDuracion1"
+                                min="0" max="60" value="0"
+                            >
+                            <select id="etiquetaDuracion2">
+                                <option value="default">Dias</option>
+                                <option value="semanas">Semanas</option>
+                                <option value="meses">Meses</option>
+                                <option value="años">Años</option>
+                            </select>
+                        </div>
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('duracion')?.value">{{errores}}</label>                
+
+                    <li *ngIf="this.datosSeccion.get('fecha')?.value">
+                        <label for="crerFecha">Fecha: </label>
+                        <input
+                            type="date"
+                            id="crearFecha"
+                        >
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('fecha')?.value">{{errores}}</label>                
+    
+                    <li *ngIf="this.datosSeccion.get('inicia')?.value">
+                        <label for="crearIniciaALas">Sonar a las:</label>
+                        <input 
+                            type="time"
+                            id="crearIniciaALas"
+                        >
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('inicia')?.value">{{errores}}</label>
+                    
+                    <li *ngIf="this.datosSeccion.get('termina')?.value">
+                        <label for="crearTerminaALas">Parar a las:</label>
+                        <input 
+                            type="time"
+                            id="crearTerminaALas"
+                        >
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('termina')?.value">{{errores}}</label>
+                        
+                    <li id="inputYDeshabilitar" *ngIf="this.datosSeccion.get('repetirCada')?.value">
+                        <label for="crearRepetirCada" id="labelRepetirCada">Repetir cada:</label>
+                        <div>
+                            <input 
+                                type="number"
+                                id="checkboxRepetirCada"
+                                min="1" max="12" value="1"
+                            >
+                            <label >horas.</label>
+                            <br>
+                            <input
+                                type="checkbox"
+                                id="crearDeshabilitarRepetirCada"
+                                value="true"
+                                >
+                            <label for="crearDeshabilitarRepetirCada" id="crearDeshabilitar">Deshabilitar</label>
+                        </div>
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('repetirCada')?.value">{{errores}}</label>
+                        
+                    <li class="notificarAntes" style="height: auto;" *ngIf="this.datosSeccion.get('notificar')?.value">
+                        <label for="crearRepetirCada" id="labelRepetirCada">Notificar:</label>
+                        <div>
+                            <input
+                                type="number"
+                                id="etiquetaNotificar"
+                                min="1" max="60" value="1"
+                            >
+                            <label>minutos antes.</label>
+                            <input
+                                type="checkbox"
+                                id="crearDeshabilitarNotificar"
+                                value="false"
+                            >
+                            <label for="crearDeshabilitarNotificar" id="crearDeshabilitar">Deshabilitar</label>
+                        </div>
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('notificar')?.value">{{errores}}</label>
+    
+                    <li *ngIf="this.datosSeccion.get('tono')?.value">
+                        <label for="crearTono">Tono:</label>
+                        <select id="crearTono">
+                            <option value="default">predeterminado</option>
+                        </select>
+                    </li>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('tono')?.value">{{errores}}</label>
+                        
+                    <div class="crearDiasDeLaSemana" *ngIf="this.datosSeccion.get('dias')?.value">
+                            <label>Repetir los dias:</label>
+                        <div >
+                            <input
+                                type="checkbox"
+                                id="crearLunes"
+                            >
+                            <label for="crearLunes">Lunes</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="crearMartes"
+                            >
+                            <label for="crearMartes">Martes</label>
+                        </div>
+                        <div >
+                            <input
+                                type="checkbox"
+                                id="crearMiercoles"
+                            >
+                            <label for="crearMiercoles">Miercoles</label>
+                        </div>
+                        <div >
+                            <input
+                                type="checkbox"
+                                id="crearJueves"
+                            >
+                            <label for="crearJueves">Jueves</label>
+                        </div>
+                        <div >
+                            <input
+                                type="checkbox"
+                                id="crearViernes"
+                            >
+                            <label for="crearViernes">Viernes</label>
+                        </div>
+                        <div >
+                            <input
+                                type="checkbox"
+                                id="crearSabado"
+                            >
+                            <label for="crearSabado">Sabado</label>
+                        </div>
+                        <div >
+                            <input
+                                type="checkbox"
+                                id="crearDomingo"
+                            >
+                            <label for="crearDomingo">Domingo</label>
+                        </div>
+                        <div style="width: 100%;" class="desactivarDiasS">
+                        <input
+                            type="checkbox"
+                            id="desactivarDiasDeLaSemana"
+                        >
+                        <label for="desactivarDiasDeLaSemana">desactivar</label>
+                        </div>
+                    </div>
+                        
+                    <div id="contDescripcion" *ngIf="this.datosSeccion.get('descripcion')?.value">
+                        <label>Descripcion:</label>
+                        <textarea 
+                            id="etiquedaDescripcion"
+                            rows="1"
+                        ></textarea>
+                    </div>
+                    <label class="formatoError" *ngIf="this.datosSeccion.get('descripcion')?.value">{{errores}}</label>                    
+    
+                </ul>
+                <div style="display:flex; justify-content:space-evenly;margin-bottom: 20px;">
+                    <button id="crear" type="button">Cofirmar</button>
+                    <button id="cancelar" type="button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+<!---------------------------------------------------------------------->
+        <ul class="seccion3">
+            <label>Selecciona los campos que tendra tu seccion.</label>
+
+            <div><input type="checkbox" id="seccionTitulo" formControlName="titulo"><label for="seccionTitulo">Titulo de la etiqueta.</label></div>
+            <div><input type="checkbox" id="seccionReloj" formControlName="reloj"><label for="seccionReloj">Reloj.</label></div>
+            <div><input type="checkbox" id="seccionCantidad" formControlName="cantidad"><label for="seccionCantidad">Cantidad.</label></div>
+            <div><input type="checkbox" id="seccionIcono" formControlName="icono"><label for="seccionIcono">Icono.</label></div>
+            <div><input type="checkbox" id="seccionImagen" formControlName="imagen"><label for="seccionImagen">Imagen.</label></div>
+            <div><input type="checkbox" id="seccionInicia" formControlName="inicia"><label for="seccionInicia">Hora que inicia.</label></div>
+            <div><input type="checkbox" id="seccionTermina" formControlName="termina"><label for="seccionTermina">Hora limite.</label></div>
+            <div><input type="checkbox" id="seccionRepetirCada" formControlName="repetirCada"><label for="seccionRepetirCada">Repetir alarma cada X tiempo.</label></div>
+            <div><input type="checkbox" id="seccionTono" formControlName="tono"><label for="seccionTono">Tono de alarma.</label></div>
+            <div><input type="checkbox" id="seccionDias" formControlName="dias"><label for="seccionDias">Sonar ciertos dias.</label></div>
+            <div><input type="checkbox" id="seccionFecha" formControlName="fecha"><label for="seccionFecha">Fecha.</label></div>
+            <div><input type="checkbox" id="seccionNotificar" formControlName="notificar"><label for="seccionNotificar">Notificar antes de que suene.</label></div>
+            <div><input type="checkbox" id="seccionDescripcion" formControlName="descripcion"><label for="seccionDescripcion">Añadir una descripcion de la alarma.</label></div>
+            <div><input type="checkbox" id="seccionDuracion" formControlName="duracion"><label for="seccionDuracion">Añadir un limite de duracion de alarma.</label></div>
+
+
+            <div class="botonesS3">
+                <button id="crear" typ="submit">Cofirmar</button>
+                <button id="cancelar" (click)="cancelar()" type="button">Cancelar</button>
+            </div>
+            <div >
+                <label class="formatoError">{{errorGuardar}}</label>
+            </div>
+        </ul>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+<div class="contenedorAlarma">
+    <div class="contenidoAlarma">
+        <div class="imagenReloj">
+            <img src="../../../assets/media/relog1.png" alt="error :(">
+        </div>
+        <div class="subcontenedorAlarma">
+            <ul class="informacionAlarma">
+                <li style="width: 100%; height: 41px;">
+                    <label class="etiquetaNombre">Nombre</label>
+                </li>
+                <li class="datos">
+                        <label class="etiquetaSonarALas">Sonara a las: <span style="font-weight: normal;">--:-- XX</span></label>
+                        <label class="etiquetaPararALas">Hora limite: <span style="font-weight: normal;">--:-- XX</span></label>
+                        <label class="etiquetaSonarCada">Sonara cada <span style="font-weight: normal;">--</span> minutos</label>
+                </li>
+                <li class="iconosYbotones">
+                    <span class="semana">
+                        <label class="diaActivo">L</label>
+                        <label class="diaActivo">M</label>
+                        <label class="diaInactivo">M</label>
+                        <label class="diaInactivo">J</label>
+                        <label class="diaInactivo">V</label>
+                        <label class="diaActivo">S</label>
+                        <label class="diaActivo">D</label>
+                    </span>
+                    <span class="botones">
+                        <!--button id="Tono" class="limpiarBoton" onclick="tono"><img src="../../../assets/media/icono-tono.png" alt="config" width="20" height="20"></button-->
+                        <button id="boton-borrar" class="limpiarBoton" (click)="deleteAlarma()" type="button">
+                            <img src="../../../assets/media/icono-bote-basura.png" alt="borrar" width="20" height="20">
+                        </button>
+                        <button id="bModificarAlarma" class="limpiarBoton" (click)="modificarAlarma()" type="button">
+                            <img src="../../../assets/media/icono-tuerca.png" alt="config" width="20" height="20">
+                        </button>
+                    </span>
+                </li>      
+            </ul>
+        </div>
+    </div>
+</div>
