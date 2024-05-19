@@ -1,0 +1,135 @@
+/*contenedor de la alarma*/
+.contenedor_tarjeta {
+    min-width: 309px;
+    margin: 30px;
+    padding: 10px;
+    background: white;
+    border: 3px solid #000;
+    display: flex;
+}
+
+/*media*/
+.contenedor_media {
+    min-width: 289px;
+    max-height: 360px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.reloj {}
+
+/*data*/
+.contenido_tarjeta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.contenido_tarjeta > li {
+    display: flex;
+}
+
+.titulo {
+    width: 100%;
+    height: 41px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.cuerpo {
+    height: min-content;
+    margin: 5px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.cuerpo > label {
+    margin-right: 50px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5px;
+}
+
+.datosUsuario {
+    font-weight: normal;
+}
+
+.inicia {}
+
+.termina {}
+
+.repetirCadaMinutos {}
+
+
+/*fin del cuerpo*/
+
+.datosFinales {
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+/*dias*/
+.dias {
+    display: flex;
+    width: 289px;
+    justify-content: space-around;
+}
+
+.dias > label {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border: 2px solid #000;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+/*activo o muerde almohadas*/
+.diaActivo {
+    background: #000;
+    color: white;
+}
+
+.diaInactivo {
+    background: #fff;
+    color: black;
+}
+/*fin de dias*/
+
+.botones {
+    width: min-content;
+    height: min-content;
+    margin-left: auto;
+    display: flex;
+}
+
+.botones > img {
+    margin-left: 10px;
+    margin-top:20px;
+}
+
+
+@media screen and (max-width:723px) {
+    .contenedor_tarjeta {
+        width:309px ;
+        display: inline-block;
+    }
+
+    .contenido_tarjeta > li {
+    justify-content: center;
+    }
+
+    .cuerpo > label {
+        margin-right: 1px;
+        margin-left: 1px;
+    }
+}

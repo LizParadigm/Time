@@ -1,0 +1,48 @@
+<div class="contenedor_tarjeta">
+    <ng-container *ngTemplateOutlet="media"></ng-container>
+
+    <ul class="contenido_tarjeta">
+        <ng-container *ngTemplateOutlet="datos"></ng-container>
+    </ul>
+</div>
+
+
+
+
+<ng-template #media>
+    <div class="contenedor_media">
+        <div class="reloj" *ngIf="configuracion.reloj">
+            <img src="{{alerta.reloj}}" alt="error :(">
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #datos>
+    <li class="titulo" *ngIf="configuracion.titulo">
+        <label>{{alerta.titulo}}</label>
+    </li>
+    <li class="cuerpo">
+        <label class="inicia" *ngIf="configuracion.inicia">Sonara a las: <span class="datosUsuario"> {{alerta.inicia}}</span></label>
+        <label class="termina" *ngIf="configuracion.termina">Hora limite:<span class="datosUsuario"> {{alerta.termina}}</span></label>
+        <label class="repetirCadaMinutos" *ngIf="alerta.repetirMinutos">Sonara cada<span class="datosUsuario"> {{alerta.repetirMinutos}} </span>minutos</label>
+    </li>
+    <li class="datosFinales">
+        <span class="dias" *ngIf="configuracion.dias">
+            <label class="diaActivo">L</label>
+            <label class="diaActivo">M</label>
+            <label class="diaInactivo">M</label>
+            <label class="diaInactivo">J</label>
+            <label class="diaInactivo">V</label>
+            <label class="diaActivo">S</label>
+            <label class="diaActivo">D</label>
+        </span>
+
+        <!-- mover los botones fuera de este contenedor -->
+        <span class="botones">
+            <!--button id="Tono" class="limpiarBoton" onclick="tono"><img src="../../../assets/media/icono-tono.png" alt="config" width="20" height="20"></button-->
+                <img src="../../../assets/media/icono-bote-basura.png" alt="borrar" width="20" height="20" (click)="delete()">
+                <img src="../../../assets/media/icono-tuerca.png" alt="config" width="20" height="20" (click)="modificar()">
+        </span>
+    </li>
+</ng-template>

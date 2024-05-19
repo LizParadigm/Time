@@ -1,0 +1,37 @@
+<span class="contenedor_ingresar">
+
+    <div class="contenido_ingresar">
+
+        <div style="margin-bottom: 10px; font-size: xx-large;">Iniciar sesion</div>
+
+        <form [formGroup]="datosIngreso" (ngSubmit)="ingresar()">
+
+            <div>
+                <label for="campoCorreoElectronico">Correo electronico:</label>
+                <input type="text" id="campoCorreoElectronico" name="CorreoElectronico" placeholder="Correo electronico"
+                    formControlName="correoElectronico" maxlength="254">
+            </div>
+            <div class="formatoError">{{errorCorreoElectronico}}</div>
+
+            <div>
+                <label for="campoContraseña">Contraseña:</label>
+                <input type="password" id="campoContraseña" name="contraseña" placeholder="Contraseña"
+                    formControlName="contrasena" maxlength="50">
+            </div>
+            <div class="formatoError">{{errorContrasena}}</div>
+
+            <div style="align-items: center;">
+                <div style="width: 50%;">
+                    <p class="letrasPequeñas_ingresar">¿No tienes cuenta? ¡<a [routerLink]="('../registrar')">crea</a>
+                        una cuenta nueva!</p>
+
+                    <p class="letrasPequeñas_ingresar">¿Olvidaste tu contraseña? recuperala <a
+                            href="recuperar-cuenta">aqui</a>.</p>
+                </div>
+                <button type="submit" style="margin: 0px auto;">Confirmar</button>
+            </div>
+        </form>
+
+    </div>
+
+</span>

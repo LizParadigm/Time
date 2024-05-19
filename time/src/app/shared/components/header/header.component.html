@@ -1,0 +1,39 @@
+<header>
+    <ul class="contenido_header">
+        <li class="contenedor_izquierda">
+            <ng-container *ngTemplateOutlet="contenidoDesplegable"></ng-container>
+        </li>
+
+        <li class="contenedor_central">{{ tituloHeader }}</li>
+
+        <li class="contenedor_derecha">
+            <ng-container *ngTemplateOutlet="botonCrear"></ng-container>
+
+        </li>
+
+    </ul>
+</header>
+
+<span class="Colita"></span>
+
+<!-- template -->
+<ng-template #contenidoDesplegable>
+    <img src="../../../assets/media/icono-tres-puntos.png" alt="menu" width="35" height="35" *ngIf="izquierda">
+    <ul class="menuDesplegable" *ngIf="izquierda">
+        <li class="menuDesplegable_titulo menuDesplegable_cuerpo">Menu</li>
+        <li class="menuDesplegable_cuerpo"><a [routerLink]="('/home')">Inicio</a></li>
+        <li class="menuDesplegable_cuerpo">
+            <div>Secciones</div>
+            <ul class="menuSecciones">
+                <li [routerLink]="('/home/seccion/alarmas')"><a>Alarmas</a></li>
+                <li><a>Recordatorios</a></li>
+                <li><a>Medicamentos</a></li>
+            </ul>
+        </li>
+        <li class="menuDesplegable_cuerpo"><a>Crear nueva seccion</a></li>
+        <li class="menuDesplegable_ajustes"><a>Ajustes</a></li>
+    </ul>
+</ng-template>
+<ng-template #botonCrear>
+        <img src="../../../assets/media/icono-añadir.png" alt="Crear" width="35" height="35" (click)="desplegarCrear()" *ngIf="derecha">
+</ng-template>

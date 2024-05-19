@@ -1,0 +1,40 @@
+1.- usuario
+id_usuario
+nombre
+apellidos
+correo electronico
+contraseña
+tipos de alertas**
+
+2.- tipos de alertas
+id_tipo de alerta
+nombre
+configuracion de alerta**
+alertas registradas**
+
+
+3.1 configuracion de alerta
+id_configuracion
+titulo
+imagen
+icono
+reloj
+fecha
+cantidad
+hora de inicio
+hora de fin
+repetir cada
+notificar minutos antes
+repetir cada tantas horas
+repetir los dias
+descripcion
+tono
+
+3.2 alertas registradas
+id_registro
+--debe cumplir con la configuracion--
+
+
+un usuario puede tener una lista de tipos de alertas
+con su configuracion de tipo de alerta y estas pueden
+tener una serie de alertas de ese tipo registradas

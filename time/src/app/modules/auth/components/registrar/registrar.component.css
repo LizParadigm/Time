@@ -1,0 +1,56 @@
+.contenedor_registrar {
+    width: 355px;
+    padding: 10px;
+    background: #ffffff7c;
+    border: 3px solid #000;
+    display: flex;
+}
+.contenido_registrar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.instruccion {
+    margin-bottom: 10px;
+}
+
+.contenido_registrar > form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenido_registrar > form > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contenido_registrar > form > div > label {
+    width: 50%;
+    font-weight: 500;
+}
+
+.contenido_registrar > form > div > input {
+    width: 50%;
+}
+
+.contenido_registrar > form > div > select {
+    width: 50%;
+}
+
+.contenido_registrar > form > label {
+    width: 100%;
+}
+
+.contenido_registrar > form > div > a {
+    text-decoration: none;
+    color: #0200ff;
+}
+
+.formatoError {
+    justify-content: flex-end;
+}

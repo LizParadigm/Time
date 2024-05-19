@@ -1,0 +1,207 @@
+├── /app
+│   ├── /core
+│   │   ├── /models
+│   │   │   ├── cliente.model.ts
+│   │   │   ├── empleado.model.ts
+│   │   │   ├── dataUser.model.ts
+│   │   │   │
+│   │   │   └── ...
+│   │   │
+│   │   └── ...
+│   │
+│   ├── /data
+│   │   ├── listaUsuarios.json
+│   │   ├── listaMembresias.json
+│   │   │
+│   │   └── ...
+│   │
+│   ├── /modules
+│   │   ├── /Auth
+│   │   │   ├── /components
+│   │   │   │   ├── ingresar
+│   │   │   │   │   ├── ingresar.component.css
+│   │   │   │   │   ├── ingresar.component.html
+│   │   │   │   │   ├── ingresar.component.spect.ts
+│   │   │   │   │   └── ingresar.component.ts
+│   │   │   │   │   
+│   │   │   │   ├── registrar
+│   │   │   │   │   ├── header.component.css
+│   │   │   │   │   ├── header.component.html
+│   │   │   │   │   ├── header.component.spect.ts
+│   │   │   │   │   └── header.component.ts
+│   │   │   │   │   
+│   │   │   │   ├── recuperar
+│   │   │   │   │   ├── recuperar.component.css
+│   │   │   │   │   ├── recuperar.component.html
+│   │   │   │   │   ├── recuperar.component.spect.ts
+│   │   │   │   │   └── recuperar.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │   
+│   │   │   ├── /pages
+│   │   │   │   ├── /authPage
+│   │   │   │   │   ├── auth-page.component.css
+│   │   │   │   │   ├── auth-page.component.html
+│   │   │   │   │   ├── auth-page.component.spect.ts
+│   │   │   │   │   └── auth-page.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │   
+│   │   │   ├── /services
+│   │   │   │   ├── /auth
+│   │   │   │   │   ├── auth.service.spect.ts
+│   │   │   │   │   └── auth.service.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   ├── auth-routing.module.ts
+│   │   │   ├── auth.module.ts
+│   │   │   └── ...
+│   │   │
+│   │   ├── /Home
+│   │   │   ├── /pages
+│   │   │   │   ├── /homePage
+│   │   │   │   │   ├── home-page.component.css
+│   │   │   │   │   ├── home-page.component.html
+│   │   │   │   │   ├── home-page.component.spect.ts
+│   │   │   │   │   └── home-page.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   ├── home-routing.module.ts
+│   │   │   ├── home.module.ts
+│   │   │   └── ...
+│   │   │
+│   │   ├── /alarmas
+│   │   │   ├── /pages
+│   │   │   │   ├── /alarmaPage
+│   │   │   │   │   ├── alarma-page.component.css
+│   │   │   │   │   ├── alarma-page.component.html
+│   │   │   │   │   ├── alarma-page.component.spect.ts
+│   │   │   │   │   └── alarma-page.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   ├── alarmas-routing.module.ts
+│   │   │   ├── alarmas.module.ts
+│   │   │   └── ...
+│   │   │
+│   │   ├── /recordatorios
+│   │   │   ├── /pages
+│   │   │   │   ├── /arecordatorioPage
+│   │   │   │   │   ├── recordatorio-page.component.css
+│   │   │   │   │   ├── recordatorio-page.component.html
+│   │   │   │   │   ├── recordatorio-page.component.spect.ts
+│   │   │   │   │   └── recordatorio-page.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   ├── alarma-routing.module.ts
+│   │   │   ├── alarma.module.ts
+│   │   │   └── ...
+│   │   │
+│   │   ├── /medicamentos
+│   │   │   ├── /pages
+│   │   │   │   ├── /medicamentosPage
+│   │   │   │   │   ├── medicamentos-page.component.css
+│   │   │   │   │   ├── medicamentos-page.component.html
+│   │   │   │   │   ├── medicamentos-page.component.spect.ts
+│   │   │   │   │   └── medicamentos-page.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   ├── medicamentos-routing.module.ts
+│   │   │   ├── medicamentos.module.ts
+│   │   │   └── ...
+│   │   │
+│   │   ├── /ajustes
+│   │   │   ├── /pages
+│   │   │   │   ├── /homePage
+│   │   │   │   │   ├── ajustes-page.component.css
+│   │   │   │   │   ├── ajustes-page.component.html
+│   │   │   │   │   ├── ajustes-page.component.spect.ts
+│   │   │   │   │   └── ajustes-page.component.ts
+│   │   │   │   │
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   ├── ajustes-routing.module.ts
+│   │   │   ├── ajustes.module.ts
+│   │   │   └── ...
+│   │   │
+│   │   └── ...
+│   │
+│   ├── /shared
+│   │   ├── /components
+│   │   │   ├── header
+│   │   │   │   ├── header.component.css
+│   │   │   │   ├── header.component.html
+│   │   │   │   ├── header.component.spect.ts
+│   │   │   │   └── header.component.ts
+│   │   │   │   
+│   │   │   ├── tarjeta
+│   │   │   │   ├── tarjeta.component.css
+│   │   │   │   ├── tarjeta.component.html
+│   │   │   │   ├── tarjeta.component.spect.ts
+│   │   │   │   └── tarjeta.component.ts
+│   │   │   │
+│   │   │   ├── crearTarjeta
+│   │   │   │   ├── crear-tarjeta.component.css
+│   │   │   │   ├── crear-tarjeta.component.html
+│   │   │   │   ├── crear-tarjeta.component.spect.ts
+│   │   │   │   └── crear-tarjeta.component.ts
+│   │   │   │
+│   │   │   ├── modificarTarjeta
+│   │   │   │   ├── modificar-tarjeta.component.css
+│   │   │   │   ├── modificar-tarjeta.component.html
+│   │   │   │   ├── modificar-tarjeta.component.spect.ts
+│   │   │   │   └── modificar-tarjeta.component.ts
+│   │   │   │   
+│   │   │   ├── eliminarTarjeta
+│   │   │   │   ├── eliminar-tarjeta.component.css
+│   │   │   │   ├── eliminar-tarjeta.component.html
+│   │   │   │   ├── eliminar-tarjeta.component.spect.ts
+│   │   │   │   └── eliminar-tarjeta.component.ts
+│   │   │   │    
+│   │   │   └── ...
+│   │   │
+│   │   ├── /services
+│   │   │   ├── /auth
+│   │   │   │   ├── auth.service.spect.ts
+│   │   │   │   └── auth.service.ts
+│   │   │   │
+│   │   │   ├── /transportador
+│   │   │   │   ├── transportador.service.spect.ts
+│   │   │   │   └── transportador.service.ts
+│   │   │   │
+│   │   │   ├── /mensajesError
+│   │   │   │   ├── mensajes-error.service.spect.ts
+│   │   │   │   └── mensajes-error.service.ts
+│   │   │   │
+│   │   │   ├── /rut
+│   │   │   │   ├── rut.service.spect.ts
+│   │   │   │   └── rut.service.ts
+│   │   │   │
+│   │   │   └── ...
+│   │   │
+│   │   ├── /pipe
+│   │   │   ├── /ordenarLista
+│   │   │   │   └── ...
+│   │   │   │
+│   │   │   └── ...
+│   │   │
+│   │   └── shared.module.ts
+│   │
+│   └── ...
+│   ├── app.component.html
+│   ├── app.component.ts
+│   ├── app.component.spect.ts
+│   ├── app.module.ts
+│   └── app-routing.module.ts
+│
+├── /assets
+│   └── ...
+├── index.html
+├── main.ts
+├── styles.css
+└── ...
+
