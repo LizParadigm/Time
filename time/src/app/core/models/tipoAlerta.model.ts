@@ -1,9 +1,9 @@
 import { AlertaConfiguracion } from "./alertaConfiguracion.model";
 import { AlertaRegistrada } from "./alertaRegistrada.model";
 
-export interface TipoAlertas {
+export interface TipoAlerta {
     id_tipoAlerta: number;
     nombre: string;
-    configuracion: AlertaConfiguracion,
-    registradas: AlertaRegistrada
+    configuracion: AlertaConfiguracion;
+    alertasRegistradas: AlertaRegistrada[];
 }

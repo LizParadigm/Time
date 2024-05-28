@@ -1,4 +1,4 @@
-import { TipoAlertas } from "./tipoAlerta.model";
+import { TipoAlerta } from "./tipoAlerta.model";
 
 export interface usuario {
     id_usuario: number;
@@ -6,5 +6,5 @@ export interface usuario {
     apellido: string;
     correo: string;
     contraseña: string;
-    alertas: TipoAlertas;
+    alertas: TipoAlerta[];
 }

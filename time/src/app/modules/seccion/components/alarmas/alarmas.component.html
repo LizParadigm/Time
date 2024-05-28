@@ -7,25 +7,48 @@
 </div>
 
 
-
-
+<!-- template -->
+<!-- media -->
 <ng-template #media>
     <div class="contenedor_media">
         <div class="reloj" *ngIf="configuracion.reloj">
             <img src="{{alerta.reloj}}" alt="error :(">
         </div>
+        <div class="icono" *ngIf="configuracion.icono">
+            <img src="{{alerta.icono}}" alt="error :(">
+        </div>
+        <div class="imagen" *ngIf="configuracion.imagen">
+            <img src="{{alerta.imagen}}" alt="error :(">
+        </div>
     </div>
 
 </ng-template>
 
+<!-- datos -->
 <ng-template #datos>
     <li class="titulo" *ngIf="configuracion.titulo">
         <label>{{alerta.titulo}}</label>
     </li>
     <li class="cuerpo">
-        <label class="inicia" *ngIf="configuracion.inicia">Sonara a las: <span class="datosUsuario"> {{alerta.inicia}}</span></label>
-        <label class="termina" *ngIf="configuracion.termina">Hora limite:<span class="datosUsuario"> {{alerta.termina}}</span></label>
-        <label class="repetirCadaMinutos" *ngIf="alerta.repetirMinutos">Sonara cada<span class="datosUsuario"> {{alerta.repetirMinutos}} </span>minutos</label>
+        <label class="cantidad" *ngIf="configuracion.cantidad">Cantidad: <span class="datosUsuario">
+                {{alerta.cantidad}} </span></label>
+        <label class="duracion" *ngIf="configuracion.duracion">Falta{{this.pos()}}: <span class="datosUsuario">
+                {{alerta.duracion?.duracion1}} {{alerta.duracion?.duracion2}}</span></label>
+        <label class="fecha" *ngIf="configuracion.fecha">Fecha: <span class="datosUsuario">
+                {{alerta.fecha}} </span></label>
+        <label class="inicia" *ngIf="configuracion.inicia">Sonara a las: <span class="datosUsuario">
+                {{alerta.inicia}}</span></label>
+        <label class="termina" *ngIf="configuracion.termina">Hora limite:<span class="datosUsuario">
+                {{alerta.termina}}</span></label>
+        <label class="notificarAntesHoras" *ngIf="configuracion.notificarAntesHoras">Notificar <span class="datosUsuario">
+                {{alerta.notificarAntesHoras}}</span></label>
+        <label class="notificarAntesMinutos" *ngIf="configuracion.notificarAntesMinutos">Notificar <span class="datosUsuario">
+                {{alerta.notificarAntesMinutos}} </span></label>
+        <label class="repetirCadaHoras" *ngIf="configuracion.repetirHoras">Sonara cada <span class="datosUsuario">
+                {{alerta.repetirHoras}} </span>horas</label>
+        <label class="repetirCadaMinutos" *ngIf="alerta.repetirMinutos">Sonara cada <span class="datosUsuario">
+                {{alerta.repetirMinutos}} </span>minutos</label>
+        <!-- tono?: string, -->
     </li>
     <li class="datosFinales">
         <span class="dias" *ngIf="configuracion.dias">
@@ -37,12 +60,15 @@
             <label class="diaActivo">S</label>
             <label class="diaActivo">D</label>
         </span>
+        <span class="descripcion" *ngIf="configuracion.descripcion">
+            <p class="descripcion_parrafo">{{alerta.descripcion}}</p>
+        </span>
 
         <!-- mover los botones fuera de este contenedor -->
         <span class="botones">
-            <!--button id="Tono" class="limpiarBoton" onclick="tono"><img src="../../../assets/media/icono-tono.png" alt="config" width="20" height="20"></button-->
-                <img src="../../../assets/media/icono-bote-basura.png" alt="borrar" width="20" height="20" (click)="delete()">
-                <img src="../../../assets/media/icono-tuerca.png" alt="config" width="20" height="20" (click)="modificar()">
+            <img src="../../../assets/media/icono-bote-basura.png" alt="borrar" width="20" height="20"
+                (click)="delete()">
+            <img src="../../../assets/media/icono-tuerca.png" alt="config" width="20" height="20" (click)="modificar()">
         </span>
     </li>
 </ng-template>

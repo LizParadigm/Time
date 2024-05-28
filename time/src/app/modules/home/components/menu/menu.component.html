@@ -2,12 +2,12 @@
     <li class="subcuerpoPrincipal">
         Secciones
         <ul class="menuSecciones">
-            <li> <a [routerLink]="('./seccion/alarmas')">Alarmas</a> </li>
-            <li> <a >Recordatorios</a> </li>
-            <li> <a >Medicamentosa</a> </li>
+            <li *ngFor="let alerta of alertas; let i = index">
+                <a (click)="seccion(alerta, i)">{{ alerta.nombre }}</a>
+            </li>
         </ul>
     </li>
     <li class="opcionCrearSeccion"><a >Crear nueva seccion</a></li>
     <li> <a >Ajustes</a> </li>
-    <li><a >Cerrar sesion</a></li>
+    <li><a [routerLink]="('/auth/iniciar-sesion')">Cerrar sesion</a></li>
 </ul>

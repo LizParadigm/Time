@@ -90,17 +90,19 @@
                         "dias": false,
                         "descripcion": true
                     },
-                    "alertasRegistradas": {
-                        "id_alertaRegistrada": 2,
-                        "titulo": "Cena importante",
-                        "icono": "assets/media/icono-cena.png",
-                        "fecha": "15/07/2024",
-                        "inicia": "08:00",
-                        "termina": "09:30",
-                        "repetirMinutos": null,
-                        "tono": "predeterminado",
-                        "descripcion": "mi novio me invito a cenar esta noche en el restaurante de la Av 5. vestimenta formal."
-                    }
+                    "alertasRegistradas": [
+                        {
+                            "id_alertaRegistrada": 2,
+                            "titulo": "Cena importante",
+                            "icono": "assets/media/icono-cena.png",
+                            "fecha": "15/07/2024",
+                            "inicia": "08:00",
+                            "termina": "09:30",
+                            "repetirMinutos": null,
+                            "tono": "predeterminado",
+                            "descripcion": "mi novio me invito a cenar esta noche en el restaurante de la Av 5. vestimenta formal."
+                        }
+                    ]
                 },
                 {
                     "id_tipoAlerta": 3,
@@ -124,16 +126,165 @@
                         "dias": false,
                         "descripcion": true
                     },
-                    "alertasRegistradas": {
-                        "id_alertaRegistrada": 3,
-                        "titulo": "paracetamol",
-                        "imagen": "assets/media/paracetamol.png",
-                        "cantidad": "1 pastilla de 500mg",
-                        "duracion": "3 dias",
-                        "repetirHoras": "8 horas",
-                        "tono": "predeterminado",
-                        "descripcion": "recetado para aliviar el dolor leve en mi cuerpo."
-                    }
+                    "alertasRegistradas": [
+                        {
+                            "id_alertaRegistrada": 3,
+                            "titulo": "paracetamol",
+                            "imagen": "assets/media/paracetamol.png",
+                            "cantidad": "1 pastilla de 500mg",
+                            "duracion": {
+                                "duracion1": 3,
+                                "duracion2":"dias"
+                            },
+                            "repetirHoras": 8,
+                            "tono": "predeterminado",
+                            "descripcion": "Recetado para aliviar el dolor leve en mi cuerpo."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id_usuario": 2,
+            "nombre": "luis",
+            "apellido": "laurel",
+            "correo": "usuario2@gmail.com",
+            "contraseña": "contraseña2",
+            "alertas": [
+                {
+                    "id_tipoAlerta": 4,
+                    "nombre": "alarmas",
+                    "configuracion": {
+                        "id": 4,
+                        "titulo": true,
+                        "reloj": true,
+                        "icono": false,
+                        "imagen": false,
+                        "cantidad": false,
+                        "duracion": false,
+                        "fecha": false,
+                        "inicia": true,
+                        "termina": true,
+                        "repetirMinutos": true,
+                        "repetirHoras": false,
+                        "notificarAntesMinutos": false,
+                        "notificarAntesHoras": false,
+                        "tono": true,
+                        "dias": true,
+                        "descripcion": false
+                    },
+                    "alertasRegistradas": [
+                        {
+                            "id_alertaRegistrada": 5,
+                            "titulo": "hora de despertar",
+                            "reloj": "assets/media/reloj1.png",
+                            "inicia": "06:00",
+                            "termina": "06:30",
+                            "repetirMinutos": null,
+                            "tono": "predeterminado",
+                            "dias": {
+                                "lunes": true,
+                                "martes": true,
+                                "miercoles": true,
+                                "jueves": true,
+                                "viernes": true,
+                                "sabado": false,
+                                "domingo": false
+                            }
+                        },
+                        {
+                            "id_alertaRegistrada": 6,
+                            "titulo": "hora de merendar",
+                            "reloj": "assets/media/reloj2.png",
+                            "inicia": "12:00",
+                            "termina": "12:30",
+                            "repetirMinutos": 5,
+                            "tono": "predeterminado",
+                            "dias": {
+                                "lunes": true,
+                                "martes": true,
+                                "miercoles": true,
+                                "jueves": true,
+                                "viernes": true,
+                                "sabado": false,
+                                "domingo": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id_tipoAlerta": 5,
+                    "nombre": "recordatorios",
+                    "configuracion": {
+                        "id": 2,
+                        "titulo": true,
+                        "reloj": false,
+                        "icono": true,
+                        "imagen": false,
+                        "cantidad": false,
+                        "duracion": false,
+                        "fecha": true,
+                        "inicia": true,
+                        "termina": true,
+                        "repetirMinutos": true,
+                        "repetirHoras": false,
+                        "notificarAntesMinutos": false,
+                        "notificarAntesHoras": false,
+                        "tono": true,
+                        "dias": false,
+                        "descripcion": true
+                    },
+                    "alertasRegistradas": [
+                        {
+                            "id_alertaRegistrada": 7,
+                            "titulo": "Cena importante",
+                            "icono": "assets/media/icono-cena.png",
+                            "fecha": "15/07/2024",
+                            "inicia": "08:00",
+                            "termina": "09:30",
+                            "repetirMinutos": null,
+                            "tono": "predeterminado",
+                            "descripcion": "mi novio me invito a cenar esta noche en el restaurante de la Av 5. vestimenta formal."
+                        }
+                    ]
+                },
+                {
+                    "id_tipoAlerta": 8,
+                    "nombre": "medicamentos",
+                    "configuracion": {
+                        "id": 3,
+                        "titulo": true,
+                        "reloj": false,
+                        "icono": false,
+                        "imagen": true,
+                        "cantidad": true,
+                        "duracion": true,
+                        "fecha": false,
+                        "inicia": false,
+                        "termina": false,
+                        "repetirMinutos": false,
+                        "repetirHoras": true,
+                        "notificarAntesMinutos": false,
+                        "notificarAntesHoras": false,
+                        "tono": true,
+                        "dias": false,
+                        "descripcion": true
+                    },
+                    "alertasRegFistradas": [
+                        {
+                            "id_alertaRegistrada": 9,
+                            "titulo": "paracetamol",
+                            "imagen": "assets/media/paracetamol.png",
+                            "cantidad": "1 pastilla de 500mg",
+                            "duracion": {
+                                "duracion1":5,
+                                "duracion2":"meses"
+                            },
+                            "repetirHoras": "12",
+                            "tono": "predeterminado",
+                            "descripcion": "recetado para aliviar el dolor leve en mi cuerpo."
+                        }
+                    ]
                 }
             ]
         }

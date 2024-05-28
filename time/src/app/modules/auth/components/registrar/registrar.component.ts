@@ -91,6 +91,8 @@ export class RegistrarComponent implements OnInit{
     this.mensajesError();
     if (this.forma.valid && this.contraseñaConcuerda && !this.correoExistente){
       if(this.authservice.registrar((this.forma.value))) { 
+      sessionStorage.setItem('correo', this.forma.get('correoElectronico')?.value);
+      sessionStorage.setItem('contraseña', this.forma.get('contrasena')?.value);
         this.router.navigateByUrl('/inicio')
       }
       else{

@@ -1,0 +1,4 @@
+buscar por que no se cambia a false el checkbox de deshabilitar repetirCada en modificarAlerta
+buscar por que no se cambia la fecha en modificarAlerta
+buscar por que hay problemas al leer los datos de un segundo usuario
+crear Componente para recuperar cuenta

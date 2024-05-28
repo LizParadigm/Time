@@ -1,0 +1,52 @@
+.contenedor_alertaDelete {
+    width: 350px;
+    background: var(--color-comun-2);
+    border: var(--border-2);
+    text-align: center;
+    color: var(--font-color-1);
+}
+
+.etiquetaSuperior {
+    width: 100%;
+    background: var(--color-comun-1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    margin-bottom: 9px;
+}
+
+.parrafo {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.alertaDelete_parrafo {
+    padding: 0px 10px;
+    width: 100%;
+}
+
+.remarcarNombreAlerta {
+    color: var(--font-color-7);
+}
+
+.alertaDelete_botones {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 9px;
+}
+
+.confirmar,
+.salir {
+    color: var(--font-color-1);
+    border: var(--border-1);
+    width: 90px;
+}
+
+.confirmar {
+    background: var(--color-botton-2);
+}
+
+.salir {
+    background: var(--color-botton-1);
+}

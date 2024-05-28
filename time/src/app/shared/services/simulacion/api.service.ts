@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import * as data from '@data/usuarios.json'
+import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
 import { usuario } from 'src/app/core/models/usuario.model';
 
 @Injectable({
@@ -33,26 +35,16 @@ export class ApiService {
     return correcta;
   }
 
-  obtenerUsuario(correo:string, contra:string): usuario | string{
+  obtenerUsuario(correo:string, contra:string): usuario{
     const { usuarios }: any = (data as any).default;
     let datosUsuario!: usuario;
-    let error!: string;
     usuarios.forEach((usuario:usuario) => {
       if (usuario.correo === correo && usuario.contraseña === contra) {
         datosUsuario=usuario;
-        error='';
         return;
       }
-      else{
-        error='no encontrado';
-      }
     });
-    if(error === ''){
-      return datosUsuario;
-    }
-    else{
-      return error
-    }
+    return datosUsuario;
   }
 
   obtenerReloj(hora:string):string{
@@ -60,4 +52,15 @@ export class ApiService {
     reloj='assets/media/relog-vacio.png';
     return reloj;
   }
+
+  alertaDelete(id:number | null, seccion : number | null): boolean{
+    let terminado: boolean = true;
+    return terminado
+  }
+
+  modificarAlerta(correo:string, contra:string, seccion:number,id_alerta:number,configuracion:AlertaConfiguracion,datos:FormGroup):boolean{
+    /*se envian los datos que la funcion recibe y se retorna un boolean indicando si el proceso fue un exito o no*/
+    return true
+  }
+
 }

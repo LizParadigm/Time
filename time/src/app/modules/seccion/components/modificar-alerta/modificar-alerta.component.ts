@@ -4,16 +4,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormgroupsService } from '@modules/seccion/services/control/formgroups.service';
 import { MensajeErrorService } from '@shared/services/mensajeError/mensaje-error.service';
 import { ApiService } from '@shared/services/simulacion/api.service';
+import { TransportarService } from '@shared/services/transportador/transportar.service';
 import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
-import { usuario } from 'src/app/core/models/usuario.model';
+import { AlertaRegistrada } from 'src/app/core/models/alertaRegistrada.model';
 
 @Component({
-  selector: 'app-crear-alerta',
-  templateUrl: './crear-alerta.component.html',
-  styleUrl: './crear-alerta.component.css'
+  selector: 'app-modificar-alerta',
+  templateUrl: './modificar-alerta.component.html',
+  styleUrl: './modificar-alerta.component.css'
 })
-export class CrearAlertaComponent implements OnInit {
-  configuracion!: AlertaConfiguracion;
+export class ModificarAlertaComponent implements OnInit {
+  data!: AlertaRegistrada | any;
+  configuracion!: AlertaConfiguracion | any;
   reloj: string = 'assets/media/relog-vacio.png';
   icono: string = 'assets/media/icono-cena.png';
   imagen: string = 'assets/media/icono-medicamento.png';
@@ -40,13 +42,15 @@ export class CrearAlertaComponent implements OnInit {
     private fb: FormBuilder,
     private api: ApiService,
     private mensajeerror: MensajeErrorService,
-    private controlFormgroup: FormgroupsService
+    private controlFormgoup: FormgroupsService,
+    private recibir: TransportarService
   ) { }
 
   ngOnInit(): void {
-    let usuario: usuario | any = this.api.obtenerUsuario(sessionStorage.getItem('correo') ?? '', sessionStorage.getItem('contraseña') ?? '');
-    this.configuracion = usuario.alertas[parseInt(sessionStorage.getItem('seccion') ?? '')].configuracion;
-    console.log(this.configuracion)
+    this.recibir.dataAlerta$.subscribe(datos => {
+      [this.data, this.configuracion] = datos;
+    });
+    console.log(this.configuracion);
 
     this.datosCrear = this.fb.group({
       reloj: [''],
@@ -77,8 +81,8 @@ export class CrearAlertaComponent implements OnInit {
       descripcion: ['']
     });
 
-    this.datosCrear= this.controlFormgroup.configurar(this.configuracion, this.datosCrear);
-
+    this.datosCrear = this.controlFormgoup.configurar(this.configuracion, this.datosCrear);
+    
     if (this.configuracion.inicia) {
       this.datosCrear.get('inicia')?.valueChanges.subscribe((hora) => {
         this.reloj = this.api.obtenerReloj(hora);
@@ -105,7 +109,7 @@ export class CrearAlertaComponent implements OnInit {
         }
       });
     }
-
+    
     if (this.configuracion.repetirMinutos) {
       this.datosCrear.get('deshabilitarRepetirCada')?.valueChanges.subscribe(value => {
         if (value) {
@@ -125,6 +129,7 @@ export class CrearAlertaComponent implements OnInit {
           });
         }
       });
+      this.datosCrear = this.controlFormgoup.prepararCampos(this.configuracion, this.data, this.datosCrear)
     }
 
     if (this.configuracion.notificarAntesMinutos) {
@@ -168,10 +173,10 @@ export class CrearAlertaComponent implements OnInit {
         }
       });
     };
-  }
+  };
 
   //botones//
-  public crear() {
+  public modificar() {
 
     if (this.configuracion.reloj) {
       this.datosCrear.get('reloj')?.setValue(this.reloj);
@@ -191,10 +196,16 @@ export class CrearAlertaComponent implements OnInit {
 
     this.mensajesError();
 
-    if (this.datosCrear.valid && 
-      this.controlFormgroup.validarFecha(this.configuracion.fecha,this.datosCrear) && 
-      !this.controlFormgroup.validarDescripcion(this.configuracion.descripcion,this.datosCrear)) {
-      this.dialog.close();
+    if (this.datosCrear.valid &&
+      this.controlFormgoup.validarFecha(this.configuracion.fecha, this.datosCrear) &&
+      !this.controlFormgoup.validarDescripcion(this.configuracion.descripcion, this.datosCrear)) {
+      if( this.api.modificarAlerta(sessionStorage.getItem('correo') ?? '', sessionStorage.getItem('contraseña') ?? '', parseInt(sessionStorage.getItem('seccion') ?? ''), this.data.id_alertaRegistrada, this.configuracion, this.datosCrear)){
+        console.log('modificacion exitosa!')
+        this.dialog.close();
+      }
+      else{
+        console.log('ha ocurrido un error en la modificacion');
+      }
       /*continuar cuando se cree el back y la base de datos/api */
     }
   }
@@ -205,7 +216,9 @@ export class CrearAlertaComponent implements OnInit {
     //investigar una forma de reconocer que la imagen ingresada no se rompe y es utilizable.
     //si no hay problemas, se carga a direccion a imagen.
     //si hay problemas entonces se envia el mensaje
-    this.imagen = this.datosCrear.get('imgSubida')?.value;
+    console.log(this.imagen)
+    this.imagen = this.datosCrear.get('imgSubida')?.value.toString();
+    console.log(this.imagen)
   }
 
   //metodos
@@ -213,7 +226,7 @@ export class CrearAlertaComponent implements OnInit {
   private mensajesError() {
     this.errorTitulo = this.mensajeerror.crearTitulo(this.datosCrear.get('titulo')?.hasError('required') ?? false);
 
-    this.errorFecha = this.mensajeerror.crearFecha(this.datosCrear.get('fecha')?.hasError('required') ?? false, this.controlFormgroup.validarFecha(this.configuracion.fecha,this.datosCrear));
+    this.errorFecha = this.mensajeerror.crearFecha(this.datosCrear.get('fecha')?.hasError('required') ?? false, this.controlFormgoup.validarFecha(this.configuracion.fecha, this.datosCrear));
 
     this.errorCantidad = this.mensajeerror.crearCantidad(this.datosCrear.get('cantidad')?.hasError('required') ?? false);
 
@@ -237,6 +250,6 @@ export class CrearAlertaComponent implements OnInit {
 
     this.errorTono = this.mensajeerror.crearTono(this.datosCrear.get('tono')?.hasError('required') ?? false);
 
-    this.errorDescripcion = this.mensajeerror.crearDescripcion(this.datosCrear.get('descripcion')?.hasError('required') ?? false, this.controlFormgroup.validarDescripcion(this.configuracion.descripcion,this.datosCrear));
+    this.errorDescripcion = this.mensajeerror.crearDescripcion(this.datosCrear.get('descripcion')?.hasError('required') ?? false, this.controlFormgoup.validarDescripcion(this.configuracion.descripcion, this.datosCrear));
   }
 }

@@ -31,16 +31,16 @@ export class AuthService {
     }
   }
 
-  ingresar(correo:string,contra:string) {
-    console.log(correo, contra)
-    let datosUsuario: any = this.api.obtenerUsuario(correo, contra);
-    if (datosUsuario === 'no encontrado'){
-      return [false, [] ];
-    }
-    else{
-      return [true, datosUsuario]
-    }
-  }
+  // ingresar(correo:string,contra:string) {
+  //   console.log(correo, contra)
+  //   let datosUsuario: any = this.api.obtenerUsuario(correo, contra);
+  //   if (datosUsuario === 'no encontrado'){
+  //     return [false, [] ];
+  //   }
+  //   else{
+  //     return [true, datosUsuario]
+  //   }
+  // }
 
   registrar(user:JSON): boolean {
     let usuarioCreado:boolean=true;

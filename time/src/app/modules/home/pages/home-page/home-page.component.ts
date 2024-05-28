@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnDestroy{
+
+  constructor() {}
+
+  ngOnDestroy(): void {
+    sessionStorage.clear();
+  }
 
 }

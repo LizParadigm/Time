@@ -25,9 +25,9 @@
         <li class="menuDesplegable_cuerpo">
             <div>Secciones</div>
             <ul class="menuSecciones">
-                <li [routerLink]="('/home/seccion/alarmas')"><a>Alarmas</a></li>
-                <li><a>Recordatorios</a></li>
-                <li><a>Medicamentos</a></li>
+                <li *ngFor="let alerta of alertas; let i = index">
+                    <a (click)="seccion(alerta, i)">{{ alerta.nombre }}</a>
+                </li>
             </ul>
         </li>
         <li class="menuDesplegable_cuerpo"><a>Crear nueva seccion</a></li>

@@ -1,5 +1,5 @@
 export interface AlertaConfiguracion {
-    id_alertaConfiguracion: number
+    id: number
     titulo: boolean;
     reloj: boolean;
     icono: boolean;

@@ -203,6 +203,42 @@ export class MensajeErrorService {
     return error;
   }
 
+  crearFecha(required: boolean, futuro: boolean): string {
+    let error: string;
+    if (required) {
+      error = 'Campo necesario.';
+    }
+    else if (futuro === false) {
+      error = 'Debe ser una fecha futura.';
+    }
+    else {
+      error = '';
+    }
+    return error;
+  }
+
+  crearCantidad(required: boolean): string {
+    let error:string;
+    if(required){
+      error='Campo necesario.';
+    }
+    else{
+      error='';
+    }
+    return error;
+  }
+
+  crearDuracion(required1:boolean, required2:boolean){
+    let error:string;
+    if(required1 || required2){
+      error='Campo necesario';
+    }
+    else{
+      error='';
+    }
+    return error;
+  }
+
   crearInicia(required: boolean): string {
     let error: string;
     if (required) {
@@ -213,12 +249,7 @@ export class MensajeErrorService {
     }
     return error;
   }
-  // "reloj": true,
-  // "icono": false,
-  // "imagen": false,
-  // "cantidad": false,
-  // "duracion": false,
-  // "fecha": false,
+
   crearTermina(required: boolean): string {
     let error: string;
     if (required) {
@@ -235,7 +266,60 @@ export class MensajeErrorService {
     if (valor === null) {
       error = '';
     }
-    else if (required || valor === null || pattern1) {
+    else if (required || valor === null) {
+      error = 'Campo necesario.';
+    }
+    else if (pattern1) {
+      error = 'Seleccione un numero dentro del rango permitido (1-60).';
+    }
+    else {
+      error = '';
+    }
+    return error;
+  }
+  crearRepetirHoras(valor: number, required: boolean, pattern1: boolean): string {
+    let error: string;
+    console.log('crearRepetirHoras:')
+    console.log('valor:', valor, 'required:',required,'pattern1:',pattern1)
+
+
+    if 
+    // (valor === null) {
+    //   error = '';
+    // }
+    // else if 
+    (required || valor === null) {
+      error = 'Campo necesario.';
+    }
+    else if (pattern1) {
+      error = 'Seleccione un numero dentro del rango permitido (1-60).';
+    }
+    else {
+      error = '';
+    }
+    console.log('error:', error)
+    return error;
+  }
+
+  crearNotificar(valor: any,required:boolean):string{
+    let error:string;
+    if(valor === null){
+      error ='';
+    }
+    else if(required){
+      error = 'Campo necesario.';
+    }
+    else{
+      error='';
+    }
+    return error;
+  }
+
+  // "notificarAntesMinutos": false,
+  // "notificarAntesHoras": false,
+  crearTono(required: boolean): string {
+    let error;
+    if (required) {
       error = 'Campo necesario.';
     }
     else {
@@ -243,13 +327,11 @@ export class MensajeErrorService {
     }
     return error;
   }
-  // "repetirHoras": false,
-  // "notificarAntesMinutos": false,
-  // "notificarAntesHoras": false,
-  crearTono(required: boolean): string {
-    let error;
-    if (required) {
-      error = 'Campo necesario.';
+
+  crearDescripcion(required: boolean, vacio: boolean): string {
+    let error: string;
+    if (required || vacio) {
+      error = 'Campo necesario';
     }
     else {
       error = '';

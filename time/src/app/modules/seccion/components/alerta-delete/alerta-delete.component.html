@@ -1,0 +1,35 @@
+<div class="colita">
+    <div class="contenedor_alertaDelete">
+        <div class="etiquetaSuperior">
+            <span class="econoIzquierda" style="width: 30px; height:30px;margin-left:2.5px;"><img
+                    src="../../../assets/media/icono-advertencia-delete.png" alt="error :c" width="30"
+                    height="30"></span>
+            <label style="font-size:25px;color:white;">Eliminando</label>
+            <span class="econoDerecha" style="width: 30px; height:30px;margin-right:2.5px;"><img
+                    src="../../../assets/media/icono-advertencia-delete.png" alt="error :c" width="30"
+                    height="30"></span>
+        </div>
+
+        <ng-container *ngTemplateOutlet="principal"></ng-container>
+        <ng-container *ngTemplateOutlet="secundario"></ng-container>
+
+        <div class="alertaDelete_botones">
+            <button class="confirmar" *ngIf="delete" (click)="eliminar()">Confirmar</button>
+            <button class="salir" *ngIf="delete" (click)="salir()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #principal>
+    <span class="parrafo" *ngIf="delete">
+        <p class="alertaDelete_parrafo">¿Esta seguro de eliminar <span
+                class="remarcarNombreAlerta">"{{alerta?.titulo}}"</span>?<br>Eso lo borraria de su registro.</p>
+    </span>
+</ng-template>
+
+<ng-template #secundario>
+    <span class="parrafo" *ngIf="!delete">
+        <p class="alertaDelete_parrafo" *ngIf="deleteCorrecto"><span class="remarcarNombreAlerta">{{alerta?.titulo}}</span> eliminada.</p>
+        <p class="alertaDelete_parrafo" *ngIf="!deleteCorrecto">Ha ocurrido un error, por favor intentalo mas tarde.</p>
+    </span>
+</ng-template>
