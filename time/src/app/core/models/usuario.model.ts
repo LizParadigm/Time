@@ -1,3 +1,4 @@
+import { Ajustes } from "./ajustes.model";
 import { TipoAlerta } from "./tipoAlerta.model";
 
 export interface usuario {
@@ -7,4 +8,5 @@ export interface usuario {
     correo: string;
     contraseña: string;
     alertas: TipoAlerta[];
+    ajustes: Ajustes;
 }

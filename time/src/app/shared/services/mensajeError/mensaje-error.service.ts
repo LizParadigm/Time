@@ -218,23 +218,23 @@ export class MensajeErrorService {
   }
 
   crearCantidad(required: boolean): string {
-    let error:string;
-    if(required){
-      error='Campo necesario.';
+    let error: string;
+    if (required) {
+      error = 'Campo necesario.';
     }
-    else{
-      error='';
+    else {
+      error = '';
     }
     return error;
   }
 
-  crearDuracion(required1:boolean, required2:boolean){
-    let error:string;
-    if(required1 || required2){
-      error='Campo necesario';
+  crearDuracion(required1: boolean, required2: boolean) {
+    let error: string;
+    if (required1 || required2) {
+      error = 'Campo necesario';
     }
-    else{
-      error='';
+    else {
+      error = '';
     }
     return error;
   }
@@ -280,15 +280,15 @@ export class MensajeErrorService {
   crearRepetirHoras(valor: number, required: boolean, pattern1: boolean): string {
     let error: string;
     console.log('crearRepetirHoras:')
-    console.log('valor:', valor, 'required:',required,'pattern1:',pattern1)
+    console.log('valor:', valor, 'required:', required, 'pattern1:', pattern1)
 
 
-    if 
-    // (valor === null) {
-    //   error = '';
-    // }
-    // else if 
-    (required || valor === null) {
+    if
+      // (valor === null) {
+      //   error = '';
+      // }
+      // else if 
+      (required || valor === null) {
       error = 'Campo necesario.';
     }
     else if (pattern1) {
@@ -301,16 +301,16 @@ export class MensajeErrorService {
     return error;
   }
 
-  crearNotificar(valor: any,required:boolean):string{
-    let error:string;
-    if(valor === null){
-      error ='';
+  crearNotificar(valor: any, required: boolean): string {
+    let error: string;
+    if (valor === null) {
+      error = '';
     }
-    else if(required){
+    else if (required) {
       error = 'Campo necesario.';
     }
-    else{
-      error='';
+    else {
+      error = '';
     }
     return error;
   }
@@ -331,7 +331,7 @@ export class MensajeErrorService {
   crearDescripcion(required: boolean, vacio: boolean): string {
     let error: string;
     if (required || vacio) {
-      error = 'Campo necesario';
+      error = 'Campo necesario.';
     }
     else {
       error = '';
@@ -340,4 +340,21 @@ export class MensajeErrorService {
   }
   // "dias": true,
   // "descripcion": false
+  ingresarCodigoRecuperacion(required: boolean, minlength: boolean, correcto: boolean): string {
+    let error: string;
+    if(required){
+      error='Campo necesario.';
+    }
+    else if(minlength){
+      error='Ingrese los 7 digitos.';
+    }
+    else if(correcto){
+      error='Codigo incorrecto.';
+    }
+    else {
+      error='';
+    }
+    return error;
+
+  }
 }

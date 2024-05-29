@@ -1,17 +1,17 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, Input, OnInit } from '@angular/core';
+import { TransportarService } from '@shared/services/transportador/transportar.service';
+import { AlertaDeleteComponent } from '../alerta-delete/alerta-delete.component';
+import { ModificarAlertaComponent } from '../modificar-alerta/modificar-alerta.component';
 import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
 import { AlertaRegistrada } from 'src/app/core/models/alertaRegistrada.model';
-import { AlertaDeleteComponent } from '../alerta-delete/alerta-delete.component';
-import { TransportarService } from '@shared/services/transportador/transportar.service';
-import { ModificarAlertaComponent } from '../modificar-alerta/modificar-alerta.component';
 
 @Component({
-  selector: 'app-alarmas',
-  templateUrl: './alarmas.component.html',
-  styleUrl: './alarmas.component.css'
+  selector: 'app-alerta',
+  templateUrl: './alerta.component.html',
+  styleUrl: './alerta.component.css'
 })
-export class AlarmasComponent implements OnInit {
+export class AlertaComponent implements OnInit {
   @Input() alerta!: AlertaRegistrada;
   @Input() configuracion!: AlertaConfiguracion;
 

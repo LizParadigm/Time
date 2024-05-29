@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     private _dialog: Dialog,
     private router: Router,
     private rut: RutService,
-    private api:ApiService,
+    private api: ApiService,
     private pasar: TransportarService
   ) {
     this.cargarBotones()
@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
   cargarBotones() {
     if (this.router.url === '/home') {
       this.izquierda = false;
-      this.derecha = true;
+      this.derecha = false;
     }
     else {
       this.izquierda = true;
@@ -64,8 +64,8 @@ export class HeaderComponent implements OnInit {
   seccion(alarma: TipoAlerta, i: number) {
     console.log('desde menu!', alarma)
     // this.pasar.seccion.emit( alarma );
-    this.pasar.changeSeccion(alarma,i);
-    this.router.navigateByUrl('/home/seccion/alarmas');
+    this.pasar.changeSeccion(alarma, i);
+    this.router.navigateByUrl('/home/seccion');
   }
 
 }

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlarmasPageComponent } from './pages/alarmas-page/alarmas-page.component';
-import { AlertaComponent } from './components/alerta/alerta.component';
+import { GeneralesComponent } from './components/generales/generales.component';
 
 const routes: Routes = [
   {
     path:'',
-    component:AlarmasPageComponent
+    component:GeneralesComponent
   }
 ];
 
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SeccionRoutingModule { }
+export class SettingRoutingModule { }

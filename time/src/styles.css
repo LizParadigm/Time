@@ -1,17 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-	margin: 		0;
-	padding: 		0;
-	-webkit-box-sizing:	border-box;
-	-moz-box-sizing:	border-box;
-	box-sizing:		border-box;
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 :root {
 	--color-comun-1: #674ea7;
 	--color-comun-2: #333333;
 	--color-comun-3: #ffffff7c;
-	--color-filtro-modal: rgba(0,0,0,0.5);
+	--color-filtro-modal: rgba(0, 0, 0, 0.5);
 	--color-botton-1: #b50000;
 	--color-botton-2: #358500dc;
 	--color-botton-3: white;
@@ -33,8 +34,15 @@
 }
 
 body {
+	transition: background-color 0.3s, color 0.3s;
+}
+
+body.oscuro {
 	background: var(--background-principal-1);
-	/* background: var(--background-principal-2); */
+}
+
+body.claro {
+	background-color: #ffffff;
 }
 
 /*comodines*/
@@ -63,17 +71,17 @@ botton:disabled {
 }
 
 .colita {
-    position: 		fixed; 
 	position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

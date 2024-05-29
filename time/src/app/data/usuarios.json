@@ -142,7 +142,10 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "ajustes":{
+                "tema":"oscuro"
+            }
         },
         {
             "id_usuario": 2,
@@ -286,7 +289,10 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "ajustes":{
+                "tema":"claro"
+            }
         }
     ]
 }

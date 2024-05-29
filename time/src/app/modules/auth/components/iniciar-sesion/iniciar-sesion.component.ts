@@ -55,6 +55,7 @@ export class IniciarSesionComponent implements OnInit {
       console.log('redireccionando')
       sessionStorage.setItem('correo', this.datosIngreso.get('correoElectronico')?.value);
       sessionStorage.setItem('contraseña', this.datosIngreso.get('contrasena')?.value);
+      sessionStorage.setItem('tema', 'oscuro');
       this.router.navigateByUrl('/home');
     }
     else {

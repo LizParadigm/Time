@@ -3,6 +3,8 @@ import { FormGroup } from '@angular/forms';
 import * as data from '@data/usuarios.json'
 import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
 import { usuario } from 'src/app/core/models/usuario.model';
+import * as codigosR from '@data/codigosRecuperacion.json';
+import { CodigosRecuperacion } from 'src/app/core/models/codigosRecuperacion.modal';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +63,25 @@ export class ApiService {
   modificarAlerta(correo:string, contra:string, seccion:number,id_alerta:number,configuracion:AlertaConfiguracion,datos:FormGroup):boolean{
     /*se envian los datos que la funcion recibe y se retorna un boolean indicando si el proceso fue un exito o no*/
     return true
+  }
+
+  verificarCodigo(codigo:string, correo:string):boolean{
+    const {codigos}:any = (codigosR as any).default;
+    let codigoCorrecto: boolean = false;
+
+    codigos.forEach((dato:CodigosRecuperacion) => {
+      if (dato.correo === correo && dato.codigo === codigo){
+        codigoCorrecto = true;
+      }
+    })
+    usuarios.forEach((usuario:usuario) => {
+      if (usuario.correo === correo && usuario.contraseña === contra) {
+        datosUsuario=usuario;
+        return;
+      }
+    });
+    return datosUsua
+    return codigoCorrecto;
   }
 
 }

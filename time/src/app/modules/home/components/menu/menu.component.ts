@@ -30,6 +30,6 @@ export class MenuComponent implements OnInit {
     console.log('desde menu!', alarma)
     // this.pasar.seccion.emit( alarma );
     this.pasar.changeSeccion(alarma,i);
-    this.router.navigateByUrl('/home/seccion/alarmas');
+    this.router.navigateByUrl('/home/seccion');
   }
 }

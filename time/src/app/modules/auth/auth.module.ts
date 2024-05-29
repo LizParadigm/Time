@@ -7,13 +7,15 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { RegistrarComponent } from './components/registrar/registrar.component';
+import { RecuperarComponent } from './components/recuperar/recuperar.component';
 
 
 @NgModule({
   declarations: [
     AuthPageComponent,
     IniciarSesionComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    RecuperarComponent
   ],
   imports: [
     CommonModule,

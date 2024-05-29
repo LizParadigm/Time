@@ -9,93 +9,94 @@ import { MensajeErrorService } from '@shared/services/mensajeError/mensaje-error
   templateUrl: './registrar.component.html',
   styleUrl: './registrar.component.css'
 })
-export class RegistrarComponent implements OnInit{
+export class RegistrarComponent implements OnInit {
   /*atributos*/
   errorNombre: string = "";
-  errorApellido: string ="";
+  errorApellido: string = "";
   errorCorreoElectronico: string = "";
   errorContrasena: string = "";
   errorConfirmarContrasena: string = "";
   correoExistente!: boolean;
   contraseñaConcuerda!: boolean;
 
-  botonAccesible:boolean=true;
+  botonAccesible: boolean = true;
 
-  forma!:FormGroup;
+  forma!: FormGroup;
 
-  
+
   /*constructor*/
   constructor(
-    private fb:FormBuilder,
-    private router:Router,
-    private mensajeError:MensajeErrorService,
+    private fb: FormBuilder,
+    private router: Router,
+    private mensajeError: MensajeErrorService,
     private authservice: AuthService
-  ){
+  ) {
   }
 
   /*cliclo inicio*/
   ngOnInit(): void {
     this.forma = this.fb.group({
-      nombre:['',[
+      nombre: ['', [
         Validators.required,
         Validators.minLength(3),
         Validators.pattern(/^[a-zA-Z\s]+$/)]
       ],
 
-      apellido:['',[
+      apellido: ['', [
         Validators.required,
         Validators.pattern(/^[a-zA-Z\s]+$/)
       ]],
 
-      correoElectronico:['',[
+      correoElectronico: ['', [
         Validators.required,
         Validators.email],
       ],
 
-      contrasena:['',[
+      contrasena: ['', [
         Validators.required,
         Validators.minLength(8)],
       ],
 
-      confirmarContrasena:['',[
+      confirmarContrasena: ['', [
         Validators.required],
       ],
 
-      politicasDePrivacidad:[false],
+      politicasDePrivacidad: [false],
 
-      usosYCondiciones:[false]
+      usosYCondiciones: [false]
     })
 
     this.forma.get('politicasDePrivacidad')?.valueChanges.subscribe((politicas) => {
       this.botonAccesible = !(politicas && this.forma.get('usosYCondiciones')?.value);
     });
-  
+
     this.forma.get('usosYCondiciones')?.valueChanges.subscribe((usos) => {
       this.botonAccesible = !(this.forma.get('politicasDePrivacidad')?.value && usos);
     });
 
     this.forma.get('confirmarContrasena')?.valueChanges.subscribe((contra2) => {
-      console.log(this.forma.get('contrasena')?.value,contra2)
-      if(this.forma.get('contrasena')?.value===contra2){
-        this.contraseñaConcuerda=true;
+      console.log(this.forma.get('contrasena')?.value, contra2)
+      if (this.forma.get('contrasena')?.value === contra2) {
+        this.contraseñaConcuerda = true;
       }
-      else{
-        this.contraseñaConcuerda=false;
+      else {
+        this.contraseñaConcuerda = false;
       }
     });
   }
   /*botones*/
-  registrar(){
+  registrar() {
     this.correoExistente = this.authservice.validarCorreoExistente(this.forma.get('correoElectronico')?.value)
-    console.log('el correo existe: ',this.correoExistente)
+    console.log('el correo existe: ', this.correoExistente)
     this.mensajesError();
-    if (this.forma.valid && this.contraseñaConcuerda && !this.correoExistente){
-      if(this.authservice.registrar((this.forma.value))) { 
-      sessionStorage.setItem('correo', this.forma.get('correoElectronico')?.value);
-      sessionStorage.setItem('contraseña', this.forma.get('contrasena')?.value);
+    if (this.forma.valid && this.contraseñaConcuerda && !this.correoExistente) {
+      if (this.authservice.registrar((this.forma.value))) {
+        sessionStorage.setItem('correo', this.forma.get('correoElectronico')?.value);
+        sessionStorage.setItem('contraseña', this.forma.get('contrasena')?.value);
+        sessionStorage.setItem('tema', 'oscuro');
         this.router.navigateByUrl('/inicio')
       }
-      else{
+      else {
         //notificacion error con servicios terceros
       }
     }
@@ -103,7 +104,7 @@ export class RegistrarComponent implements OnInit{
 
   //mensajes de error
   //consultar si se deberia fragmentar de un solo metodo de mensajes de error, a un metodo para cada atributo "error..."
-  mensajesError(){
+  mensajesError() {
     this.errorNombre = this.mensajeError.registrarNombre(
       (this.forma.get('nombre')?.hasError('required') ?? false),
       (this.forma.get('nombre')?.hasError('pattern') ?? false),
@@ -115,11 +116,11 @@ export class RegistrarComponent implements OnInit{
       (this.forma.get('apellido')?.hasError('pattern') ?? false),
     ),
 
-    this.errorCorreoElectronico = this.mensajeError.registrarCorreo(
-      (this.forma.get('correoElectronico')?.hasError('required') ?? false),
-      (this.forma.get('correoElectronico')?.hasError('email') ?? false),
-      (this.correoExistente)
-    );
+      this.errorCorreoElectronico = this.mensajeError.registrarCorreo(
+        (this.forma.get('correoElectronico')?.hasError('required') ?? false),
+        (this.forma.get('correoElectronico')?.hasError('email') ?? false),
+        (this.correoExistente)
+      );
 
     this.errorContrasena = this.mensajeError.registrarContrasena(
       (this.forma.get('contrasena')?.hasError('required') ?? false),

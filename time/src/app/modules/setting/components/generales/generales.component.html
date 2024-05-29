@@ -1,0 +1,35 @@
+<form [formGroup]="datosAjustes" (ngSubmit)="guardarAjustes()" class="contenedorAjustes">
+    <div class="tema">
+        <label for="cambiarTema">Tema:</label>
+        <select id="cambiarTema" name="cTema" formControlName="temaStyle"
+            (change)="cTema()">
+            <option value="oscuro">Oscuro</option>
+            <option value="claro">Claro</option>
+        </select>
+    </div>
+
+    <div class="contenedorSecciones">
+        <div class="registroDeSecciones">
+            <h1 style="font-size: 30px;">Secciones existentes</h1>
+            <div class="seccionesDelUsuario">
+                <label
+                    *ngFor="let alerta of secciones">{{alerta.nombre}}</label><!--buscar aplicar una condicion: si son mas de 4 elementos, se vuelve visible el hidde-->
+            </div>
+        </div>
+
+        <div class="seleccionandoAndo">
+            <label for="seleccionarSeccion">Seccion:</label>
+            <select id="seleccionarSeccion" name="cTema" formControlName="seccionSeleccionada">
+                <option value="default">--seleccionar seccion--</option>
+                <option *ngFor="let alerta of secciones; let i = index" value="{{i}}">{{alerta.nombre}}</option>
+            </select>
+            <button id="borrarSeccion" type="button" (click)="borrando()">Borrar</button>
+            <label class="scxs">{{mensajeError}}</label>
+        </div>
+    </div>
+
+    <div class="botonesss">
+        <button id="confirmarAjustes" typ="button" (click)="confirmarCambios()">confirmar</button>
+        <button id="cancelarCambios" typ="button" (click)="cancelar()">cancelar</button>
+    </div>
+</form>
