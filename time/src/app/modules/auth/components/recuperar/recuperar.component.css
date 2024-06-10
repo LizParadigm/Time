@@ -56,3 +56,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.mensajeFin {
+    justify-content: center;
+    text-align: center;
+}

@@ -7,11 +7,16 @@
         <form [formGroup]="datosIngreso" (ngSubmit)="ingresar()">
 
             <div>
-                <label for="campoCorreoElectronico">Correo electronico:</label>
-                <input type="text" id="campoCorreoElectronico" name="CorreoElectronico" placeholder="Correo electronico"
-                    formControlName="correoElectronico" maxlength="254">
+                <label for="campoNickName">Nickname: </label>
+                <input
+                type="text"
+                id="campoNickName"
+                placeholder="Nickname"
+                formControlName="nickname"
+                maxlength="25"
+                >
             </div>
-            <div class="formatoError">{{errorCorreoElectronico}}</div>
+            <div class="formatoError">{{errorNickname}}</div>
 
             <div>
                 <label for="campoContraseña">Contraseña:</label>

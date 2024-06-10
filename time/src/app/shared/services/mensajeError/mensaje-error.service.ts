@@ -42,22 +42,38 @@ export class MensajeErrorService {
     return error;
   }
 
-  registrarCorreo(required: boolean, email: boolean, existe: boolean) {
+  registrarCorreo(required: boolean, email: boolean, /*existe: boolean*/) {
     let errorCorreoElectronico: string;
     if (required) {
       errorCorreoElectronico = 'Campo necesario.';
     }
     else if (email) {
       errorCorreoElectronico = 'Correo invalido.'
-    }
+    }/*
     else if (existe) {
       errorCorreoElectronico = 'Alguien ya registro ese correo.'
-    }
+    }*/
     else {
       errorCorreoElectronico = '';
     }
 
     return errorCorreoElectronico;
+  }
+
+  registrarNickname(required: boolean,minlength: boolean) {
+    let errorNombre: string;
+
+    if (required) {
+      errorNombre = 'Campo necesario.';
+    }
+    else if (minlength) {
+      errorNombre = 'Debe tener mas de 3 letras.'
+    }
+    else {
+      errorNombre = '';
+    }
+
+    return errorNombre;
   }
 
   registrarContrasena(required: boolean, minlength: boolean) {
@@ -92,7 +108,7 @@ export class MensajeErrorService {
     return errorConfirmarContrasena;
   }
 
-  ingresarCorreo(required: boolean, email: boolean, existe: boolean) {
+  ingresarCorreo(required: boolean, email: boolean) {
     let errorCorreoElectronico: string;
     if (required) {
       errorCorreoElectronico = 'Campo necesario.';
@@ -100,9 +116,7 @@ export class MensajeErrorService {
     else if (email) {
       errorCorreoElectronico = 'Correo invalido.';
     }
-    else if (existe) {
-      errorCorreoElectronico = 'Correo no encontrado';
-    }
+ 
     else {
       errorCorreoElectronico = '';
     }
@@ -110,14 +124,24 @@ export class MensajeErrorService {
     return errorCorreoElectronico;
   }
 
-  ingresarContrasena(required: boolean, incorrecta: boolean) {
+  ingresarNickname(required: boolean) {
+    let errorNombre: string;
+
+    if (required) {
+      errorNombre = 'Campo necesario.';
+    }
+    else {
+      errorNombre = '';
+    }
+
+    return errorNombre;
+  }
+
+  ingresarContrasena(required: boolean) {
     let errorContrasena: string;
 
     if (required) {
       errorContrasena = 'Campo necesario.';
-    }
-    else if (incorrecta) {
-      errorContrasena = 'Contraseña incorrecta.';
     }
     else {
       errorContrasena = '';
@@ -342,17 +366,17 @@ export class MensajeErrorService {
   // "descripcion": false
   ingresarCodigoRecuperacion(required: boolean, minlength: boolean, correcto: boolean): string {
     let error: string;
-    if(required){
-      error='Campo necesario.';
+    if (required) {
+      error = 'Campo necesario.';
     }
-    else if(minlength){
-      error='Ingrese los 7 digitos.';
+    else if (minlength) {
+      error = 'Ingrese los 7 digitos.';
     }
-    else if(correcto){
-      error='Codigo incorrecto.';
+    else if (correcto) {
+      error = 'Codigo incorrecto.';
     }
     else {
-      error='';
+      error = '';
     }
     return error;
 

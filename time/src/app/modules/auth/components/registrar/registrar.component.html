@@ -15,7 +15,12 @@
                     id="campoNombre"
                     placeholder="Nombre"
                     formControlName="nombre"
-                    maxlength="100">
+                    maxlength="100"
+                    
+                    
+                    
+                    >
+                    
             </div>
             <div class="formatoError">{{errorNombre}}</div>
             
@@ -29,28 +34,42 @@
                     maxlength="100">
             </div>
             <div class="formatoError">{{errorApellido}}</div>
-
+                    
             <div>
                 <label for="campoCorreoElectronico">Correo electronico:</label>
                 <input 
-                    type="text"
-                    id="campoCorreoElectronico"
+                type="text"
+                id="campoCorreoElectronico"
                     name="correoElectronico"
                     placeholder="Correo electronico"
                     formControlName="correoElectronico" 
-                    maxlength="254">
-            </div>
-            <div class="formatoError">{{errorCorreoElectronico}}</div>
-            
-            <div>
-                <label for="campoContraseña">Contraseña:</label>
-                <input 
-                    type="password"
-                    id="campoContraseña"
-                    name="contraseña"
-                    placeholder="contraseña"
-                    formControlName="contrasena"
-                    maxlength="50">
+                    maxlength="254"
+                    >
+                    </div>
+                    <div class="formatoError">{{errorCorreoElectronico}}</div>
+                    
+                    <div>
+                        <label for="campoNickName">Nickname: </label>
+                        <input
+                        type="text"
+                        id="campoNickName"
+                        placeholder="Nickname"
+                        formControlName="nickname"
+                        maxlength="25"
+                        >
+                    </div>
+                    <div class="formatoError">{{errorNickname}}</div>
+                        
+                        <div>
+                            <label for="campoContraseña">Contraseña:</label>
+                            <input 
+                            type="password"
+                            id="campoContraseña"
+                            name="contraseña"
+                            placeholder="contraseña"
+                            formControlName="contrasena"
+                            maxlength="50"
+                    >
             </div>
             <div class="formatoError">{{errorContrasena}}</div>
             
