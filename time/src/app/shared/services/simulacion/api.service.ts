@@ -183,7 +183,6 @@ export class ApiService {
   ) { }
 
   obtenerAlertas() {
-    console.log('-----------------------')
     return this.apollo
       .watchQuery({
         query: OBTENERALERTASPORSECCION,
@@ -193,23 +192,19 @@ export class ApiService {
       })
       .valueChanges.pipe(map((result: any) => result.data.alertasPorSeccion));
   }
-  
 
   crearAlerta(input: Alerta) {
     this.mandarAlerta(input).subscribe((response: any) => {
-      console.log(response)
     }, (error) => {
       console.log(error)
     })
   }
 
   mandarAlerta(input: Alerta) {
-    let seccionId = sessionStorage.getItem('idSeccion')
     return this.apollo.mutate({
       mutation: CREARALERTA,
       variables: {
         input: {
-          // seccionId,
           ...input
         }
       }
@@ -221,7 +216,6 @@ export class ApiService {
     this.obtenerSeccion(parseInt(sessionStorage.getItem("idSeccion") ?? '')).subscribe((response: any) => {
       this.pasa.seccionConfig(response.data.seccionPorId.config)
       // this.pasa.alertas(response.data.seccionPorId.alertas)
-      console.log('seccion: ', response)
     }, (error) => {
       alert(error)
     }
@@ -229,7 +223,6 @@ export class ApiService {
   }
 
   obtenerSeccion(id: number) {
-    console.log('id: ', id)
     return this.apollo.query({
       query: OBTENER_SECCION_POR_ID,
       variables: {
@@ -239,7 +232,6 @@ export class ApiService {
   }
 
   obtenerSecciones() {
-    console.log('paso 3', parseInt(sessionStorage.getItem("idUsuario") ?? ''));
     return this.apollo.query({
       query: OBTENERSECCIONES,
       variables: {
@@ -248,30 +240,6 @@ export class ApiService {
     });
   }
   // ----------------------------------------------------------
-  buscarCorreo(correo: string): boolean {
-    const { usuarios }: any = (data as any);
-    let existe: boolean = false;
-    usuarios.forEach((usuario: usuario) => {
-      if (usuario.correo === correo) {
-        existe = true;
-        return;
-      }
-    });
-    return existe
-  }
-
-  comprobarContrasena(correo: string, contra: string): boolean {
-    const { usuarios }: any = (data as any).default;
-    let correcta: boolean = false;
-    usuarios.forEach((usuario: usuario) => {
-      if (usuario.contraseña === contra) {
-        correcta = true;
-        return;
-      }
-    });
-    return correcta;
-  }
-
   obtenerUsuario(correo: string, contra: string): usuario {
     const { usuarios }: any = (data as any).default;
     let datosUsuario!: usuario;

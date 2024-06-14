@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { ComunService } from '@shared/services/comun/comun.service';
 import { ApiService } from '@shared/services/simulacion/api.service';
 import { TransportarService } from '@shared/services/transportador/transportar.service';
@@ -16,7 +15,6 @@ export class MenuSeccionesComponent {
 
   constructor(
     private api: ApiService,
-    private router: Router,
     private pasar: TransportarService,
     public comun:ComunService
   ) { }
@@ -24,7 +22,6 @@ export class MenuSeccionesComponent {
   ngOnInit(): void {
     this.api.obtenerSecciones().subscribe((response: any) => {
       this.secciones= response.data.seccionesUsuario;
-      console.log('secciones',this.secciones)
     }, (error) => {
       alert(error)
     })

@@ -6,9 +6,7 @@ import { MensajeErrorService } from '@shared/services/mensajeError/mensaje-error
 import { ApiService } from '@shared/services/simulacion/api.service';
 import { TransportarService } from '@shared/services/transportador/transportar.service';
 import { Alerta } from 'src/app/core/models/alerta.model';
-import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
 import { seccionConfiguracion } from 'src/app/core/models/seccionConfiguracion.model';
-import { usuario } from 'src/app/core/models/usuario.model';
 
 @Component({
   selector: 'app-crear-alerta',
@@ -62,7 +60,6 @@ export class CrearAlertaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.datosCrear = this.fb.group({
       reloj: [],
       icono: [],
@@ -94,23 +91,15 @@ export class CrearAlertaComponent implements OnInit {
 
     this.obtener.seccionConfig$.subscribe(confi => {
       this.configuracion = confi
-      console.log(confi)
       this.obtener.seccionNombre$.subscribe(nombre => {
         this.establecer(confi,nombre)
       });
 
     })
 
-    console.log(this.configuracion)
-    console.log(this.datosCrear)
-
     if (this.configuracion.repetirHoras) {
       this.datosCrear.get('deshabilitarRepetirCada')?.valueChanges.subscribe(value => {
-        console.log('repetirhoras 0')
-
         if (!value) {
-          console.log('repetirhoras 1')
-
           this.deshabilitarRepetirCada = true;
           this.datosCrear.patchValue({
             repetirHoras: null
@@ -119,8 +108,6 @@ export class CrearAlertaComponent implements OnInit {
           this.datosCrear.get('repetirHoras')?.updateValueAndValidity();
         }
         else {
-          console.log('repetirhoras 2')
-
           this.deshabilitarRepetirCada = false;
           this.datosCrear.get('repetirHoras')?.clearValidators();
           this.datosCrear.get('repetirHoras')?.updateValueAndValidity();
@@ -132,13 +119,8 @@ export class CrearAlertaComponent implements OnInit {
     }
 
     if (this.configuracion.repetirMinutos) {
-      console.log(this.datosCrear.get('deshabilitarRepetirCada')?.value)
-
       this.datosCrear.get('deshabilitarRepetirCada')?.valueChanges.subscribe(value => {
-
         if (!value) {
-          console.log('repetirhoras 1')
-
           this.deshabilitarRepetirCada = true;
           this.datosCrear.patchValue({
             repetirMinutos: null
@@ -147,8 +129,6 @@ export class CrearAlertaComponent implements OnInit {
           this.datosCrear.get('repetirMinutos')?.updateValueAndValidity();
         }
         else {
-          console.log('repetirhoras 2')
-
           this.deshabilitarRepetirCada = false;
           this.datosCrear.get('repetirMinutos')?.clearValidators();
           this.datosCrear.get('repetirMinutos')?.updateValueAndValidity();
@@ -221,27 +201,24 @@ export class CrearAlertaComponent implements OnInit {
     }
   }
 
-
   //botones//
   public crear() {
     this.mensajesError();
 
-    console.log('formulario: ', this.datosCrear.valid)
-    console.log('fecha valida: ', this.controlFormgroup.validarFecha(this.configuracion.fecha, this.datosCrear))
-    console.log('descripcion valida: ', this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear))
-    console.log('formulario: ', this.datosCrear.value)
+    // console.log('formulario: ', this.datosCrear.valid)
+    // console.log('fecha valida: ', this.controlFormgroup.validarFecha(this.configuracion.fecha, this.datosCrear))
+    // console.log('descripcion valida: ', this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear))
+    // console.log('formulario: ', this.datosCrear.value)
 
     if (this.datosCrear.valid &&
       this.controlFormgroup.validarFecha(this.configuracion.fecha, this.datosCrear) &&
       this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear)) {
-      console.log('formulario correcto!: ', this.datosCrear)
+      // console.log('formulario correcto!: ', this.datosCrear)
       this.controlFormgroup.nuevaAlerta(this.configuracion, this.datosCrear);
-      // this.dialog.close();
-      /*continuar cuando se cree el back y la base de datos/api */
+      this.dialog.close();
     }
   }
 
-  // salir del crear
   public cancelar(): void {
     this.dialog.close();
   }
@@ -258,7 +235,6 @@ export class CrearAlertaComponent implements OnInit {
     this.configuracion = config;
     this.seccionName=nombre;
     [this.datosCrear,this.placeholders] = this.controlFormgroup.configurar(this.configuracion, this.datosCrear)
-    console.log(this.placeholders)
   }
   private mensajesError() {
     this.errorTitulo = this.mensajeerror.crearTitulo(this.datosCrear.get('titulo')?.hasError('required') ?? false);
@@ -278,7 +254,6 @@ export class CrearAlertaComponent implements OnInit {
       this.errorRepetirCada = this.mensajeerror.crearRepetirMinutos(this.datosCrear.get('repetirMinutos')?.value, this.datosCrear.get('repetirMinutos')?.hasError('required') ?? false, this.datosCrear.get('repetirMinutos')?.hasError('pattern') ?? false);
     }
 
-    console.log('configuracion.repetirHoras:', this.configuracion.repetirHoras)
     if (this.configuracion.repetirHoras) {
       this.errorRepetirCada = this.mensajeerror.crearRepetirHoras(this.datosCrear.get('repetirHoras')?.value, this.datosCrear.get('repetirHoras')?.hasError('required') ?? false, this.datosCrear.get('repetirHoras')?.hasError('pattern') ?? false);
     }
@@ -290,15 +265,3 @@ export class CrearAlertaComponent implements OnInit {
     this.errorDescripcion = this.mensajeerror.crearDescripcion(this.datosCrear.get('descripcion')?.hasError('required') ?? false, this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear));
   }
 }
-
-
-
-
-// this.dataAlerta = datos;
-// this.alertas = datos?.alertasRegistradas;
-// if (this.dataAlerta === null) {
-//   let datosUsuario: any = this.api.obtenerUsuario(sessionStorage.getItem('correo') ?? '', sessionStorage.getItem('contraseña') ?? '');
-//   this.dataAlerta = datosUsuario.alertas[this.seccion].alertasRegistradas;
-//   this.configuracion = datosUsuario.alertas[parseInt(sessionStorage.getItem('seccion') ?? '')].configuracion;
-//   this.alertas = datosUsuario.alertas[parseInt(sessionStorage.getItem('seccion') ?? '')].alertasRegistradas;
-// };

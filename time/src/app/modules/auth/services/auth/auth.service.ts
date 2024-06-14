@@ -134,16 +134,6 @@ export class AuthService {
     });
   }
 
-  validarContrasenaCorrecta(correo: string, contra: string): boolean {
-    let correcta = this.api.comprobarContrasena(correo, contra);
-    if (correcta) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
   crearUsuario(user: User) {
     return this.apollo.mutate({
       mutation: CREATEUSER,

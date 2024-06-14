@@ -54,19 +54,6 @@ export class IniciarSesionComponent implements OnInit {
     )
 
     if(error){
-      // investigar como meter validaciones en el back sin romper el codigo
-      // para mensajes especifico de usuario no encontrado y contraseña incorrecta
-      // switch(error.message){
-      //   case'':
-      //     this.errorNickname='El usuario no existe.';
-      //     break;
-      //   case'':
-      //     this.errorContrasena='Contraseña incorrecta.';
-      //     break;
-      //   default:
-      //     alert(error);
-      //     break;
-      // }
       this.errorNickname='Usuario o contraseña incorrectos.';
       this.datosIngreso.patchValue({
         nickname:'',

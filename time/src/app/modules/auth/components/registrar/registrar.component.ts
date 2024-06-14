@@ -4,7 +4,6 @@ import { AuthService } from '@modules/auth/services/auth/auth.service';
 import { MensajeErrorService } from '@shared/services/mensajeError/mensaje-error.service';
 import { Credential } from 'src/app/core/models/users/credencial';
 import { User } from 'src/app/core/models/users/user';
-import { CreateUserResponse } from 'src/app/core/models/usuarioCreado.model';
 
 @Component({
   selector: 'app-registrar',
@@ -52,7 +51,6 @@ export class RegistrarComponent implements OnInit {
     });
 
     this.forma.get('confirmarContrasena')?.valueChanges.subscribe((contra2) => {
-      // console.log(this.forma.get('contrasena')?.value, contra2)
       if (this.forma.get('contrasena')?.value === contra2) {
         this.contraseñaConcuerda = true;
       }

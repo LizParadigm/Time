@@ -8,377 +8,288 @@ export class MensajeErrorService {
   constructor() { }
 
   registrarNombre(required: boolean, pattern1: boolean, minlength: boolean) {
-    let errorNombre: string;
-
     if (required) {
-      errorNombre = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (pattern1) {
-      errorNombre = 'solo se permiten letras.';
+      return 'solo se permiten letras.';
     }
     else if (minlength) {
-      errorNombre = 'Debe tener mas de 3 letras.'
+      return 'Debe tener mas de 3 letras.'
     }
     else {
-      errorNombre = '';
+      return '';
     }
-
-    return errorNombre;
   }
 
   registrarApellido(required: boolean, pattern1: boolean): string {
-    let error: string;
-
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (pattern1) {
-      error = 'solo se permiten letras.';
+      return 'solo se permiten letras.';
     }
     else {
-      error = '';
+      return '';
     }
-
-    return error;
   }
 
   registrarCorreo(required: boolean, email: boolean, /*existe: boolean*/) {
-    let errorCorreoElectronico: string;
     if (required) {
-      errorCorreoElectronico = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (email) {
-      errorCorreoElectronico = 'Correo invalido.'
-    }/*
-    else if (existe) {
-      errorCorreoElectronico = 'Alguien ya registro ese correo.'
-    }*/
-    else {
-      errorCorreoElectronico = '';
+      return 'Correo invalido.'
     }
-
-    return errorCorreoElectronico;
+    else {
+      return '';
+    }
   }
 
-  registrarNickname(required: boolean,minlength: boolean) {
-    let errorNombre: string;
-
+  registrarNickname(required: boolean, minlength: boolean) {
     if (required) {
-      errorNombre = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (minlength) {
-      errorNombre = 'Debe tener mas de 3 letras.'
+      return 'Debe tener mas de 3 letras.'
     }
     else {
-      errorNombre = '';
+      return '';
     }
-
-    return errorNombre;
   }
 
   registrarContrasena(required: boolean, minlength: boolean) {
-    let errorContrasena: string;
-
     if (required) {
-      errorContrasena = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (minlength) {
-      errorContrasena = 'Debe tener mas de 8 caracteres';
+      return 'Debe tener mas de 8 caracteres';
     }
     else {
-      errorContrasena = '';
+      return '';
     }
-
-    return errorContrasena;
   }
 
   registrarConfirmarContrasena(required: boolean, parentesco: boolean) {
-    let errorConfirmarContrasena: string;
-
     if (required) {
-      errorConfirmarContrasena = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (parentesco == false) {
-      errorConfirmarContrasena = 'Las contraseñas deben coincidir.';
+      return 'Las contraseñas deben coincidir.';
     }
     else {
-      errorConfirmarContrasena = '';
+      return '';
     }
-
-    return errorConfirmarContrasena;
   }
 
   ingresarCorreo(required: boolean, email: boolean) {
-    let errorCorreoElectronico: string;
     if (required) {
-      errorCorreoElectronico = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (email) {
-      errorCorreoElectronico = 'Correo invalido.';
-    }
- 
-    else {
-      errorCorreoElectronico = '';
+      return 'Correo invalido.';
     }
 
-    return errorCorreoElectronico;
+    else {
+      return '';
+    }
   }
 
   ingresarNickname(required: boolean) {
-    let errorNombre: string;
-
     if (required) {
-      errorNombre = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      errorNombre = '';
+      return '';
     }
-
-    return errorNombre;
   }
 
   ingresarContrasena(required: boolean) {
-    let errorContrasena: string;
-
     if (required) {
-      errorContrasena = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      errorContrasena = '';
+      return '';
     }
-
-    return errorContrasena;
   }
 
   ingresarNumerosDeTarjeta(required: boolean, numeros: boolean, minlength: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo requerido.';
+      return 'Campo requerido.';
     }
     else if (numeros) {
-      error = 'Ingrese los numeros de su tarjeta.';
+      return 'Ingrese los numeros de su tarjeta.';
     }
     else if (minlength) {
-      error = 'Deben ser los 16 digitos de su tarjeta';
+      return 'Deben ser los 16 digitos de su tarjeta';
     }
     else {
-      error = '';
+      return '';
     }
-
-    return error;
   }
 
   ingresarFechaExpiraTarjeta(required: boolean, minlength: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo requerido.';
+      return 'Campo requerido.';
     }
     else if (minlength) {
-      error = 'Ingrese la fecha que expira ejemplo: 06/24 .';
+      return 'Ingrese la fecha que expira ejemplo: 06/24 .';
     }
     else {
-      error = '';
+      return '';
     }
-
-    return error;
   }
 
   ingresarCvv(required: boolean, numeros: boolean, minlength: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo requerido.';
+      return 'Campo requerido.';
     }
     else if (numeros) {
-      error = 'Ingrese los numeros correspondientes a su cvv.';
+      return 'Ingrese los numeros correspondientes a su cvv.';
     }
     else if (minlength) {
-      error = 'Deben ser los 4 numeros de su cvv';
+      return 'Deben ser los 4 numeros de su cvv';
     }
     else {
-      error = '';
+      return '';
     }
-
-    return error;
   }
 
   ingresarTitular(required: boolean, pattern1: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario';
+      return 'Campo necesario';
     }
     else if (pattern1) {
-      error = 'Solo letras'
+      return 'Solo letras'
     }
     else {
-      error = '';
+      return '';
     }
-
-    return error;
   }
 
   crearTitulo(required: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearFecha(required: boolean, futuro: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (futuro === false) {
-      error = 'Debe ser una fecha futura.';
+      return 'Debe ser una fecha futura.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearCantidad(required: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearDuracion(required1: boolean, required2: boolean) {
-    let error: string;
     if (required1 || required2) {
-      error = 'Campo necesario';
+      return 'Campo necesario';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearInicia(required: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearTermina(required: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearRepetirMinutos(valor: number, required: boolean, pattern1: boolean): string {
-    let error: string;
-    if (valor === null) {
-      error = '';
-    }
-    else if (required || valor === null) {
-      error = 'Campo necesario.';
+     if (required || valor === null) {
+      return 'Campo necesario.';
     }
     else if (pattern1) {
-      error = 'Seleccione un numero dentro del rango permitido (1-60).';
+      return 'Seleccione un numero dentro del rango permitido (1-60).';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
   crearRepetirHoras(valor: number, required: boolean, pattern1: boolean): string {
-    let error: string;
-    console.log('crearRepetirHoras:')
-    console.log('valor:', valor, 'required:', required, 'pattern1:', pattern1)
-
-
     if
-      // (valor === null) {
-      //   error = '';
-      // }
-      // else if 
       (required || valor === null) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (pattern1) {
-      error = 'Seleccione un numero dentro del rango permitido (1-60).';
+      return 'Seleccione un numero dentro del rango permitido (1-60).';
     }
     else {
-      error = '';
+      return '';
     }
-    console.log('error:', error)
-    return error;
   }
 
   crearNotificar(valor: any, required: boolean): string {
-    let error: string;
     if (valor === null) {
-      error = '';
+      return '';
     }
     else if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
-  // "notificarAntesMinutos": false,
-  // "notificarAntesHoras": false,
   crearTono(required: boolean): string {
-    let error;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
 
   crearDescripcion(required: boolean, vacio: boolean): string {
-    console.log(required,vacio)
-    let error: string;
     if (required || !vacio) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
   }
-  
+
   ingresarCodigoRecuperacion(required: boolean, minlength: boolean, correcto: boolean): string {
-    let error: string;
     if (required) {
-      error = 'Campo necesario.';
+      return 'Campo necesario.';
     }
     else if (minlength) {
-      error = 'Ingrese los 7 digitos.';
+      return 'Ingrese los 7 digitos.';
     }
     else if (correcto) {
-      error = 'Codigo incorrecto.';
+      return 'Codigo incorrecto.';
     }
     else {
-      error = '';
+      return '';
     }
-    return error;
-
   }
 }

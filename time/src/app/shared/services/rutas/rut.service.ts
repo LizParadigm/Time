@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -10,7 +9,6 @@ export class RutService {
   nombreSeccion$ = this.nombreSeccionSubject.asObservable();
 
   constructor(
-    private router: Router
   ) { }
 
   cambiarTitulo(): any {

@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '@shared/services/simulacion/api.service';
 import { TransportarService } from '@shared/services/transportador/transportar.service';
 import { Alerta } from 'src/app/core/models/alerta.model';
-import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
-import { AlertaRegistrada } from 'src/app/core/models/alertaRegistrada.model';
-import { seccionConfiguracion } from 'src/app/core/models/seccionConfiguracion.model';
 import { TipoAlerta } from 'src/app/core/models/tipoAlerta.model';
-import { usuario } from 'src/app/core/models/usuario.model';
 
 @Component({
   selector: 'app-alarmas-page',
@@ -41,29 +37,22 @@ export class AlarmasPageComponent implements OnInit {
     }
 
     this.api.obtenerAlertas().subscribe((data) => {
-      console.log('--------------------------')
-      console.log(data)
+      // console.log('--------------------------')
+      // console.log(data)
       this.definir3(data);
     });
   };
 
   definir(seccionConfig: any) {
     this.configuracion = seccionConfig
-    console.log('desde alarmas-page!');
-    console.log('1. configuracion: ', this.configuracion)
-
   }
 
   definir2(seccionConfig: any) {
     this.configuracion = seccionConfig
     this.pasar.seccionConfig(seccionConfig)
-    console.log('desde alarmas-page!');
-    console.log('1. configuracion: ', this.configuracion)
   }
 
   definir3(alertas: Alerta[]) {
-    console.log('desde alarmas-page  definir3!');
-    console.log('1. configuracion: ', alertas)
     this.alertas=alertas
   }
 }
