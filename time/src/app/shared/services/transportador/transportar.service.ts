@@ -1,7 +1,9 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Alerta } from 'src/app/core/models/alerta.model';
 import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
 import { AlertaRegistrada } from 'src/app/core/models/alertaRegistrada.model';
+import { seccionConfiguracion } from 'src/app/core/models/seccionConfiguracion.model';
 import { TipoAlerta } from 'src/app/core/models/tipoAlerta.model';
 import { __values } from 'tslib';
 
@@ -11,7 +13,7 @@ import { __values } from 'tslib';
 export class TransportarService {
   // @Output() seccion:EventEmitter<TipoAlerta> = new EventEmitter();
 
-  private seccionSubject = new BehaviorSubject<TipoAlerta | null>(null);
+  private seccionSubject = new BehaviorSubject<number | null>(null);
   seccion$ = this.seccionSubject.asObservable();
 
   private alertaSubject = new BehaviorSubject<[AlertaRegistrada, AlertaConfiguracion] | null>(null);
@@ -20,14 +22,22 @@ export class TransportarService {
   private alertaDeleteSubject = new BehaviorSubject<[AlertaRegistrada, number] | [null, null]>([null, null]);
   alertaDelete$ = this.alertaDeleteSubject.asObservable();
 
-  private dataAlertaSubject = new BehaviorSubject<[AlertaRegistrada, AlertaConfiguracion] | [null,null]>([null, null]);
+  private dataAlertaSubject = new BehaviorSubject<[AlertaRegistrada, AlertaConfiguracion] | [null, null]>([null, null]);
   dataAlerta$ = this.dataAlertaSubject.asObservable();
+
+  private seccionConfigSubject = new BehaviorSubject<seccionConfiguracion | null>(null);
+  seccionConfig$ = this.seccionConfigSubject.asObservable();
+
+  private alertasSubject = new BehaviorSubject<Alerta[] | null>(null);
+  alertas$ = this.alertasSubject.asObservable();
+
+  private seccionNombreSubject = new BehaviorSubject < String|null >(null);
+  seccionNombre$ = this.seccionNombreSubject.asObservable() ;
 
   constructor() { }
 
-  changeSeccion(alarma: TipoAlerta, i: number) {
-    sessionStorage.setItem('seccion', i.toString())
-    this.seccionSubject.next(alarma);
+  seccion(id: number) {
+    this.seccionSubject.next(id);
   }
 
   alerta(alerta: AlertaRegistrada, configuracion: AlertaConfiguracion) {
@@ -41,4 +51,16 @@ export class TransportarService {
   dataAlerta(alerta: AlertaRegistrada, configuracion: AlertaConfiguracion) {
     this.dataAlertaSubject.next([alerta, configuracion]);
   };
+
+  seccionConfig(config: seccionConfiguracion) {
+    this.seccionConfigSubject.next(config);
+  }
+
+  alertas(alertas: Alerta[]) {
+    this.alertasSubject.next(alertas);
+  }
+
+  seccionNombre(nombre:String){
+    this.seccionNombreSubject.next(nombre);
+  }
 }

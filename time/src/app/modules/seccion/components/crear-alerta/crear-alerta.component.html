@@ -33,13 +33,13 @@
                 <!-- cuerpo -->
                 <li *ngIf="configuracion.titulo">
                     <label for="crearNombre">Nombre:</label>
-                    <input type="text" id="crearNombre" placeholder="Nombre" formControlName="titulo">
+                    <input type="text" id="crearNombre" placeholder="Nombre." formControlName="titulo">
                 </li>
                 <label class="formatoError" *ngIf="configuracion.titulo">{{errorTitulo}}</label>
 
                 <li *ngIf="configuracion.fecha">
                     <label for="crerFecha">Fecha: </label>
-                    <input type="date" id="crearFecha" formControlName="fecha">
+                    <input type="date" id="crearFecha" formControlName="fecha" placeholder="{{placeholders.fecha}}">
                 </li>
                 <label class="formatoError" *ngIf="configuracion.fecha">{{errorFecha}}</label>
 
@@ -52,9 +52,9 @@
                 <li *ngIf="configuracion.duracion">
                     <label>Duracion:</label>
                     <div>
-                        <input type="number" id="crearDuracion1" min="0" max="60" value="0" formControlName="duracion1">
+                        <input type="number" id="crearDuracion1" min="1" max="60" value="0" formControlName="duracion1">
                         <select id="etiquetaDuracion2" formControlName="duracion2">
-                            <option value="default">Dias</option>
+                            <option value="dias">Dias</option>
                             <option value="semanas">Semanas</option>
                             <option value="meses">Meses</option>
                             <option value="años">Años</option>
@@ -108,7 +108,7 @@
                 <li *ngIf="configuracion.tono">
                     <label for="crearTono">Tono:</label>
                     <select id="crearTono" formControlName="tono">
-                        <option value="default">predeterminado</option>
+                        <option value="predeterminado">predeterminado</option>
                     </select>
                 </li>
                 <label class="formatoError" *ngIf="configuracion.tono">{{errorTono}}</label>
@@ -151,7 +151,7 @@
 
                 <div id="contDescripcion" *ngIf="configuracion.descripcion">
                     <label>Descripcion:</label>
-                    <textarea id="etiquedaDescripcion" rows="1" formControlName="descripcion"></textarea>
+                    <textarea id="etiquedaDescripcion" rows="1" placeholder="Una pequeña descripcion." formControlName="descripcion"></textarea>
                 </div>
                 <label class="formatoError" *ngIf="configuracion.descripcion">{{errorDescripcion}}</label>
 

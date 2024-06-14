@@ -6,6 +6,42 @@ import { User } from 'src/app/core/models/users/user';
 import { Router } from '@angular/router';
 import { handleError } from '@apollo/client/link/http/parseAndCheckHttpResponse';
 
+const OBTENERIDUSUARIOPORUSERNAME = gql`
+  query ObtenerIdUsuario($username: String!) {
+    obtenerIdUserPorUsername(username: $username)
+  }
+`;
+
+const CREARSECCIONESPREDETERMINADAS = gql`
+  mutation ConfigurarSeccionesPredeterminadas($userId: ID!) {
+    crearSeccionesPredeterminadas(userId: $userId) {
+      secciones {
+        id
+        nombre
+        configuration {
+          id
+          titulo
+          reloj
+          icono
+          imagen
+          cantidad
+          duracion 
+          fecha
+          inicia
+          termina
+          repetirMinutos
+          repetirHoras
+          notificarAntesMinutos
+          notificarAntesHoras
+          tono
+          dias 
+          descripcion
+        }
+      }
+    }
+  }
+`;
+
 const TOKENAUTH = gql`
   mutation TokenAuth($username: String!, $password: String!) {
     tokenAuth(username: $username, password: $password) {
@@ -46,24 +82,50 @@ export class AuthService {
     private apollo: Apollo,
   ) { }
 
+  configurarSeccionesPredeterminadas(usuarioID: number) {
+    this.seccionesPredeterminadas(usuarioID).subscribe(({ data }) => {
+    }, (error) => {
+      alert(error.message)
+      console.log(error)
+    })
+  }
+
   iniciarSesion(credencial: Credential, handleError: (error: any) => void) {
     this.tokenAuth(credencial).subscribe(({ data }) => {
-      sessionStorage.setItem("username", credencial.username.toString());
-      sessionStorage.setItem("token", JSON.parse(JSON.stringify(data)).tokenAuth.token);
-      sessionStorage.setItem('tema', 'oscuro');
-
-      this.router.navigate(['/home']);
-      alert("Usuario creado, redirigiendo al menu.");
+      this.obtenerIdUsuarioPorUsername(credencial.username).subscribe((response: any) => {
+        sessionStorage.setItem("idUsuario", response.data.obtenerIdUserPorUsername);
+        sessionStorage.setItem("username", credencial.username.toString());
+        sessionStorage.setItem("token", JSON.parse(JSON.stringify(data)).tokenAuth.token);
+        sessionStorage.setItem('tema', 'oscuro');
+        this.router.navigate(['/home']);
+        alert("Usuario creado, redirigiendo al menu.");
+      }, (error) => {
+        handleError(error);
+      });
     }, (error) => {
       handleError(error);
     });
   }
 
+  obtenerIdUsuarioPorUsername($username: String) {
+    return this.apollo.query({
+      query: OBTENERIDUSUARIOPORUSERNAME,
+      variables: {
+        username: $username
+      }
+    });
+  }
 
-
+  seccionesPredeterminadas(idUsuario: number) {
+    return this.apollo.mutate({
+      mutation: CREARSECCIONESPREDETERMINADAS,
+      variables: {
+        userId: idUsuario
+      }
+    })
+  }
 
   verificarCorreoExistente(email: string) {
-    console.log('paso 1', email)
     return this.apollo.query({
       query: VERIFICARCORREOEXISTENTE,
       variables: {

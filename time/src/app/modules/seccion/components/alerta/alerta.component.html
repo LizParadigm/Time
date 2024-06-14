@@ -11,13 +11,13 @@
 <!-- media -->
 <ng-template #media>
     <div class="contenedor_media">
-        <div class="reloj" *ngIf="configuracion.reloj">
+        <div class="reloj" *ngIf="configuracion.reloj && (alerta.reloj !== null)">
             <img src="{{alerta.reloj}}" alt="error :(">
         </div>
-        <div class="icono" *ngIf="configuracion.icono">
+        <div class="icono" *ngIf="configuracion.icono && (alerta.icono !== null)">
             <img src="{{alerta.icono}}" alt="error :(">
         </div>
-        <div class="imagen" *ngIf="configuracion.imagen">
+        <div class="imagen" *ngIf="configuracion.imagen && (alerta.imagen !== null)">
             <img src="{{alerta.imagen}}" alt="error :(">
         </div>
     </div>
@@ -26,27 +26,27 @@
 
 <!-- datos -->
 <ng-template #datos>
-    <li class="titulo" *ngIf="configuracion.titulo">
+    <li class="titulo" *ngIf="configuracion.titulo && (alerta.titulo !== null)">
         <label>{{alerta.titulo}}</label>
     </li>
     <li class="cuerpo">
-        <label class="cantidad" *ngIf="configuracion.cantidad">Cantidad: <span class="datosUsuario">
+        <label class="cantidad" *ngIf="configuracion.cantidad && (alerta.cantidad !== null)">Cantidad: <span class="datosUsuario">
                 {{alerta.cantidad}} </span></label>
-        <label class="duracion" *ngIf="configuracion.duracion">Falta{{this.pos()}}: <span class="datosUsuario">
+        <label class="duracion" *ngIf="configuracion.duracion && (alerta.duracion?.duracion1 !== null || alerta.duracion?.duracion2 !== null)">Falta{{this.pos()}}: <span class="datosUsuario">
                 {{alerta.duracion?.duracion1}} {{alerta.duracion?.duracion2}}</span></label>
-        <label class="fecha" *ngIf="configuracion.fecha">Fecha: <span class="datosUsuario">
+        <label class="fecha" *ngIf="configuracion.fecha && (alerta.fecha !== null)">Fecha: <span class="datosUsuario">
                 {{alerta.fecha}} </span></label>
-        <label class="inicia" *ngIf="configuracion.inicia">Sonara a las: <span class="datosUsuario">
+        <label class="inicia" *ngIf="configuracion.inicia && (alerta.inicia !== null)">Sonara a las: <span class="datosUsuario">
                 {{alerta.inicia}}</span></label>
-        <label class="termina" *ngIf="configuracion.termina">Hora limite:<span class="datosUsuario">
+        <label class="termina" *ngIf="configuracion.termina && (alerta.termina !== null)">Hora limite:<span class="datosUsuario">
                 {{alerta.termina}}</span></label>
-        <label class="notificarAntesHoras" *ngIf="configuracion.notificarAntesHoras">Notificar <span class="datosUsuario">
+        <label class="notificarAntesHoras" *ngIf="configuracion.notificarAntesHoras && (alerta.notificarAntesHoras !== null)">Notificar <span class="datosUsuario">
                 {{alerta.notificarAntesHoras}}</span></label>
-        <label class="notificarAntesMinutos" *ngIf="configuracion.notificarAntesMinutos">Notificar <span class="datosUsuario">
+        <label class="notificarAntesMinutos" *ngIf="configuracion.notificarAntesMinutos && (alerta.notificarAntesMinutos !== null)">Notificar <span class="datosUsuario">
                 {{alerta.notificarAntesMinutos}} </span></label>
-        <label class="repetirCadaHoras" *ngIf="configuracion.repetirHoras">Sonara cada <span class="datosUsuario">
+        <label class="repetirCadaHoras" *ngIf="configuracion.repetirHoras && (alerta.repetirHoras !== null)">Sonara cada <span class="datosUsuario">
                 {{alerta.repetirHoras}} </span>horas</label>
-        <label class="repetirCadaMinutos" *ngIf="alerta.repetirMinutos">Sonara cada <span class="datosUsuario">
+        <label class="repetirCadaMinutos" *ngIf="alerta.repetirMinutos && (alerta.repetirMinutos !== null)">Sonara cada <span class="datosUsuario">
                 {{alerta.repetirMinutos}} </span>minutos</label>
         <!-- tono?: string, -->
     </li>
@@ -60,7 +60,7 @@
             <label class="diaActivo">S</label>
             <label class="diaActivo">D</label>
         </span>
-        <span class="descripcion" *ngIf="configuracion.descripcion">
+        <span class="descripcion" *ngIf="configuracion.descripcion && (alerta.descripcion !== null)">
             <p class="descripcion_parrafo">{{alerta.descripcion}}</p>
         </span>
 

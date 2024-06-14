@@ -353,8 +353,9 @@ export class MensajeErrorService {
   }
 
   crearDescripcion(required: boolean, vacio: boolean): string {
+    console.log(required,vacio)
     let error: string;
-    if (required || vacio) {
+    if (required || !vacio) {
       error = 'Campo necesario.';
     }
     else {
@@ -362,8 +363,7 @@ export class MensajeErrorService {
     }
     return error;
   }
-  // "dias": true,
-  // "descripcion": false
+  
   ingresarCodigoRecuperacion(required: boolean, minlength: boolean, correcto: boolean): string {
     let error: string;
     if (required) {

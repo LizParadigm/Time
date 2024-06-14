@@ -1,0 +1,3 @@
+<li *ngFor="let seccion of secciones">
+    <a (click)="cargarSeccion(seccion.id, seccion.nombre, seccion.configuration)">{{ seccion.nombre }}</a>
+</li>

@@ -5,6 +5,8 @@ import { AlertaDeleteComponent } from '../alerta-delete/alerta-delete.component'
 import { ModificarAlertaComponent } from '../modificar-alerta/modificar-alerta.component';
 import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
 import { AlertaRegistrada } from 'src/app/core/models/alertaRegistrada.model';
+import { Alerta } from 'src/app/core/models/alerta.model';
+import { seccionConfiguracion } from 'src/app/core/models/seccionConfiguracion.model';
 
 @Component({
   selector: 'app-alerta',
@@ -12,8 +14,8 @@ import { AlertaRegistrada } from 'src/app/core/models/alertaRegistrada.model';
   styleUrl: './alerta.component.css'
 })
 export class AlertaComponent implements OnInit {
-  @Input() alerta!: AlertaRegistrada;
-  @Input() configuracion!: AlertaConfiguracion;
+  @Input() alerta!: Alerta;
+  @Input() configuracion!: seccionConfiguracion;
 
   constructor(
     private _dialog: Dialog,
@@ -27,15 +29,15 @@ export class AlertaComponent implements OnInit {
   };
 
   public delete(): void {
-    this.pasar.alertaDelete(this.alerta, parseInt(sessionStorage.getItem('seccion') ?? ''));
-    this._dialog.open(AlertaDeleteComponent);
+    // this.pasar.alertaDelete(this.alerta, parseInt(sessionStorage.getItem('seccion') ?? ''));
+    // this._dialog.open(AlertaDeleteComponent);
 
     console.log(' :3 ')
   };
 
   public modificar(): void {
-    this.pasar.dataAlerta(this.alerta, this.configuracion);
-    this._dialog.open(ModificarAlertaComponent);
+    // this.pasar.dataAlerta(this.alerta, this.configuracion);
+    // this._dialog.open(ModificarAlertaComponent);
     console.log(' :) ')
   }
 

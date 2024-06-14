@@ -4,6 +4,7 @@ import { AuthService } from '@modules/auth/services/auth/auth.service';
 import { MensajeErrorService } from '@shared/services/mensajeError/mensaje-error.service';
 import { Credential } from 'src/app/core/models/users/credencial';
 import { User } from 'src/app/core/models/users/user';
+import { CreateUserResponse } from 'src/app/core/models/usuarioCreado.model';
 
 @Component({
   selector: 'app-registrar',
@@ -70,7 +71,8 @@ export class RegistrarComponent implements OnInit {
       usuario.email = this.forma.get('correoElectronico')?.value;
       usuario.username = this.forma.get('nickname')?.value;
       usuario.password = this.forma.get('contrasena')?.value;
-      this.peticiones.crearUsuario(usuario).subscribe(({ data }) => {
+      this.peticiones.crearUsuario(usuario).subscribe((response:any ) => {
+        this.peticiones.configurarSeccionesPredeterminadas(response.data.createUser.user.id)
         let credencial = new Credential();
         credencial.username = this.forma.get('nickname')?.value;
         credencial.password = this.forma.get('contrasena')?.value;

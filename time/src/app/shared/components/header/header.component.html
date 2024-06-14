@@ -21,13 +21,11 @@
     <img src="../../../assets/media/icono-tres-puntos.png" alt="menu" width="35" height="35" *ngIf="izquierda">
     <ul class="menuDesplegable" *ngIf="izquierda">
         <li class="menuDesplegable_titulo menuDesplegable_cuerpo">Menu</li>
-        <li class="menuDesplegable_cuerpo"><a [routerLink]="('/home')">Inicio</a></li>
+        <li class="menuDesplegable_cuerpo"><a (click)="inicio()">Inicio</a></li>
         <li class="menuDesplegable_cuerpo">
             <div>Secciones</div>
             <ul class="menuSecciones">
-                <li *ngFor="let alerta of alertas; let i = index">
-                    <a (click)="seccion(alerta, i)">{{ alerta.nombre }}</a>
-                </li>
+                <app-menu-secciones></app-menu-secciones>
             </ul>
         </li>
         <!-- <li class="menuDesplegable_cuerpo"><a>Crear nueva seccion</a></li> -->

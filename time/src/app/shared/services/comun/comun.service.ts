@@ -1,4 +1,5 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ export class ComunService {
   private renderer: Renderer2;
 
   constructor(
-    private rendererFactory: RendererFactory2
+    private rendererFactory: RendererFactory2,
+    private router:Router
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
@@ -22,4 +24,12 @@ export class ComunService {
       this.renderer.addClass(document.body, 'claro');
     }
   }
-}
+
+  cargarSeccion(idSeccion:number, nombreSeccion:String) {
+    console.log('desde header!', idSeccion)
+    // this.pasar.seccion.emit( alarma );
+    sessionStorage.setItem('idSeccion',idSeccion.toString());
+    sessionStorage.setItem('nombreSeccion',nombreSeccion.toString());
+    this.router.navigateByUrl('/home/seccion');
+  }
+} 

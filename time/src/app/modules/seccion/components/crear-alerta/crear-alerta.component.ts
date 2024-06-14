@@ -4,7 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormgroupsService } from '@modules/seccion/services/control/formgroups.service';
 import { MensajeErrorService } from '@shared/services/mensajeError/mensaje-error.service';
 import { ApiService } from '@shared/services/simulacion/api.service';
+import { TransportarService } from '@shared/services/transportador/transportar.service';
+import { Alerta } from 'src/app/core/models/alerta.model';
 import { AlertaConfiguracion } from 'src/app/core/models/alertaConfiguracion.model';
+import { seccionConfiguracion } from 'src/app/core/models/seccionConfiguracion.model';
 import { usuario } from 'src/app/core/models/usuario.model';
 
 @Component({
@@ -13,14 +16,27 @@ import { usuario } from 'src/app/core/models/usuario.model';
   styleUrl: './crear-alerta.component.css'
 })
 export class CrearAlertaComponent implements OnInit {
-  configuracion!: AlertaConfiguracion;
-  reloj: string = 'assets/media/relog-vacio.png';
-  icono: string = 'assets/media/icono-cena.png';
-  imagen: string = 'assets/media/icono-medicamento.png';
-  errorImagen: string = '';
+  seccionName!: string | null;
+  configuracion!: seccionConfiguracion | any;
+  placeholders!:{
+    fecha: any, 
+    inicia: any,
+    termina: any,
+    repetirHorasa: any,
+    repetirMinutosa: any,
+    notificarAntesMinutosa: any,
+    notificarAntesHorasa: any,
+  };
+
+  reloj: string = 'assets/media/relog-vacio.png'; //buscar una api de relogs
+  icono: string = 'assets/media/icono-cena.png'; //buscar un buen paquete de iconos
+  imagen: string = 'assets/media/icono-medicamento.png'; //buscar como cargar las fotos
+
   deshabilitarRepetirCada: boolean = true;
   deshabilitarNotificar: boolean = true;
   deshabilitarDias: boolean = true;
+
+  errorImagen: string = '';
   errorTitulo: string = '';
   errorFecha: string = '';
   errorCantidad: string = '';
@@ -31,64 +47,71 @@ export class CrearAlertaComponent implements OnInit {
   errorNotificar: string = '';
   errorTono: string = '';
   errorDescripcion: string = '';
-  datosCrear!: FormGroup;
 
-  //constructor//
+  datosCrear!: FormGroup;
+  alerta!: Alerta;
+
   constructor(
     private dialog: DialogRef,
     public dialogRef: DialogRef,
     private fb: FormBuilder,
     private api: ApiService,
     private mensajeerror: MensajeErrorService,
-    private controlFormgroup: FormgroupsService
+    private controlFormgroup: FormgroupsService,
+    private obtener: TransportarService
   ) { }
 
   ngOnInit(): void {
-    let usuario: usuario | any = this.api.obtenerUsuario(sessionStorage.getItem('correo') ?? '', sessionStorage.getItem('contraseña') ?? '');
-    this.configuracion = usuario.alertas[parseInt(sessionStorage.getItem('seccion') ?? '')].configuracion;
-    console.log(this.configuracion)
 
     this.datosCrear = this.fb.group({
-      reloj: [''],
-      icono: [''],
-      imagen: [''],
-      titulo: [''],
-      cantidad: [''],
-      duracion1: [''],
-      duracion2: [''],
-      fecha: [''],
-      inicia: [''],
-      termina: [''],
-      repetirHoras: [''],
-      repetirMinutos: [''],
-      deshabilitarRepetirCada: [false],
-      notificarAntesMinutos: [''],
-      notificarAntesHoras: [''],
-      deshabilitarNotificar: [false],
-      tono: [''],
-      lunes: [false],
-      martes: [false],
-      miercoles: [false],
-      jueves: [false],
-      viernes: [false],
-      sabado: [false],
-      domingo: [false],
-      deshabilitarDias: [false],
-      descripcion: ['']
+      reloj: [],
+      icono: [],
+      imagen: [],
+      titulo: [],
+      cantidad: [],
+      duracion1: [],
+      duracion2: [],
+      fecha: [],
+      inicia: [],
+      termina: [],
+      repetirHoras: [],
+      repetirMinutos: [],
+      deshabilitarRepetirCada: [],
+      notificarAntesMinutos: [],
+      notificarAntesHoras: [],
+      deshabilitarNotificar: [],
+      tono: [],
+      lunes: [],
+      martes: [],
+      miercoles: [],
+      jueves: [],
+      viernes: [],
+      sabado: [],
+      domingo: [],
+      deshabilitarDias: [],
+      descripcion: []
     });
 
-    this.datosCrear= this.controlFormgroup.configurar(this.configuracion, this.datosCrear);
-
-    if (this.configuracion.inicia) {
-      this.datosCrear.get('inicia')?.valueChanges.subscribe((hora) => {
-        this.reloj = this.api.obtenerReloj(hora);
+    this.obtener.seccionConfig$.subscribe(confi => {
+      this.configuracion = confi
+      console.log(confi)
+      this.obtener.seccionNombre$.subscribe(nombre => {
+        this.establecer(confi,nombre)
       });
-    }
+
+    })
+
+    console.log(this.configuracion)
+    console.log(this.datosCrear)
 
     if (this.configuracion.repetirHoras) {
       this.datosCrear.get('deshabilitarRepetirCada')?.valueChanges.subscribe(value => {
-        if (value) {
-          this.deshabilitarRepetirCada = false;
+        console.log('repetirhoras 0')
+
+        if (!value) {
+          console.log('repetirhoras 1')
+
+          this.deshabilitarRepetirCada = true;
           this.datosCrear.patchValue({
             repetirHoras: null
           });
@@ -96,20 +119,27 @@ export class CrearAlertaComponent implements OnInit {
           this.datosCrear.get('repetirHoras')?.updateValueAndValidity();
         }
         else {
-          this.deshabilitarRepetirCada = true;
+          console.log('repetirhoras 2')
+
+          this.deshabilitarRepetirCada = false;
           this.datosCrear.get('repetirHoras')?.clearValidators();
           this.datosCrear.get('repetirHoras')?.updateValueAndValidity();
           this.datosCrear.patchValue({
-            repetirHoras: 0
+            repetirHoras: null
           });
         }
       });
     }
 
     if (this.configuracion.repetirMinutos) {
+      console.log(this.datosCrear.get('deshabilitarRepetirCada')?.value)
+
       this.datosCrear.get('deshabilitarRepetirCada')?.valueChanges.subscribe(value => {
-        if (value) {
-          this.deshabilitarRepetirCada = false;
+
+        if (!value) {
+          console.log('repetirhoras 1')
+
+          this.deshabilitarRepetirCada = true;
           this.datosCrear.patchValue({
             repetirMinutos: null
           });
@@ -117,7 +147,9 @@ export class CrearAlertaComponent implements OnInit {
           this.datosCrear.get('repetirMinutos')?.updateValueAndValidity();
         }
         else {
-          this.deshabilitarRepetirCada = true;
+          console.log('repetirhoras 2')
+
+          this.deshabilitarRepetirCada = false;
           this.datosCrear.get('repetirMinutos')?.clearValidators();
           this.datosCrear.get('repetirMinutos')?.updateValueAndValidity();
           this.datosCrear.patchValue({
@@ -126,7 +158,7 @@ export class CrearAlertaComponent implements OnInit {
         }
       });
     }
-
+    // 
     if (this.configuracion.notificarAntesMinutos) {
       this.datosCrear.get('deshabilitarNotificar')?.valueChanges.subscribe(value => {
         if (value) {
@@ -168,39 +200,53 @@ export class CrearAlertaComponent implements OnInit {
         }
       });
     };
+
+    // dependiendo de la hora que inicia, se cambiara la imagen del relog
+    if (this.configuracion.inicia) {
+      this.datosCrear.get('inicia')?.valueChanges.subscribe((hora) => {
+        this.reloj = this.api.obtenerReloj(hora);
+
+        // cuando se defina el url del reloj en this.reloj, se le pasa el valor al reloj del formulario
+        this.datosCrear.get('reloj')?.setValue(this.reloj);
+      });
+    }
+    // codificar un menu de iconos y designarlos al form, a su vez cambiar el icono impreso en pantalla
+    if (this.configuracion.icono) {
+      this.datosCrear.get('icono')?.setValue(this.icono);
+    }
+
+    // lo mismo que con iconos pero en vez de un menu, solo sera que añadan la imagen
+    if (this.configuracion.imagen) {
+      this.datosCrear.get('imagen')?.setValue(this.imagen);
+    }
   }
+
 
   //botones//
   public crear() {
-
-    if (this.configuracion.reloj) {
-      this.datosCrear.get('reloj')?.setValue(this.reloj);
-    }
-    else if (this.configuracion.icono) {
-      this.datosCrear.get('icono')?.setValue(this.icono);
-    }
-    else if (this.configuracion.imagen) {
-      this.datosCrear.get('imagen')?.setValue(this.imagen);
-    }
-
-    if (this.configuracion.duracion) {
-      if (this.datosCrear.get('duracion1')?.hasError('required') && this.datosCrear.get('duracion2')?.hasError('required')) {
-        this.datosCrear.get('duracion')?.setValue(this.datosCrear.get('duracion1')?.value + ' ' + this.datosCrear.get('duracion2')?.value)
-      }
-    }
-
     this.mensajesError();
 
-    if (this.datosCrear.valid && 
-      this.controlFormgroup.validarFecha(this.configuracion.fecha,this.datosCrear) && 
-      !this.controlFormgroup.validarDescripcion(this.configuracion.descripcion,this.datosCrear)) {
-      this.dialog.close();
+    console.log('formulario: ', this.datosCrear.valid)
+    console.log('fecha valida: ', this.controlFormgroup.validarFecha(this.configuracion.fecha, this.datosCrear))
+    console.log('descripcion valida: ', this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear))
+    console.log('formulario: ', this.datosCrear.value)
+
+    if (this.datosCrear.valid &&
+      this.controlFormgroup.validarFecha(this.configuracion.fecha, this.datosCrear) &&
+      this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear)) {
+      console.log('formulario correcto!: ', this.datosCrear)
+      this.controlFormgroup.nuevaAlerta(this.configuracion, this.datosCrear);
+      // this.dialog.close();
       /*continuar cuando se cree el back y la base de datos/api */
     }
   }
 
-  public cancelar(): void { this.dialog.close(); }
+  // salir del crear
+  public cancelar(): void {
+    this.dialog.close();
+  }
 
+  // se cambia la imagen de imagen
   public cargarImagen(): void {
     //investigar una forma de reconocer que la imagen ingresada no se rompe y es utilizable.
     //si no hay problemas, se carga a direccion a imagen.
@@ -208,12 +254,16 @@ export class CrearAlertaComponent implements OnInit {
     this.imagen = this.datosCrear.get('imgSubida')?.value;
   }
 
-  //metodos
-  /*mensajes de error*/
+  establecer(config: seccionConfiguracion | any, nombre: String | any) {
+    this.configuracion = config;
+    this.seccionName=nombre;
+    [this.datosCrear,this.placeholders] = this.controlFormgroup.configurar(this.configuracion, this.datosCrear)
+    console.log(this.placeholders)
+  }
   private mensajesError() {
     this.errorTitulo = this.mensajeerror.crearTitulo(this.datosCrear.get('titulo')?.hasError('required') ?? false);
 
-    this.errorFecha = this.mensajeerror.crearFecha(this.datosCrear.get('fecha')?.hasError('required') ?? false, this.controlFormgroup.validarFecha(this.configuracion.fecha,this.datosCrear));
+    this.errorFecha = this.mensajeerror.crearFecha(this.datosCrear.get('fecha')?.hasError('required') ?? false, this.controlFormgroup.validarFecha(this.configuracion.fecha, this.datosCrear));
 
     this.errorCantidad = this.mensajeerror.crearCantidad(this.datosCrear.get('cantidad')?.hasError('required') ?? false);
 
@@ -237,6 +287,18 @@ export class CrearAlertaComponent implements OnInit {
 
     this.errorTono = this.mensajeerror.crearTono(this.datosCrear.get('tono')?.hasError('required') ?? false);
 
-    this.errorDescripcion = this.mensajeerror.crearDescripcion(this.datosCrear.get('descripcion')?.hasError('required') ?? false, this.controlFormgroup.validarDescripcion(this.configuracion.descripcion,this.datosCrear));
+    this.errorDescripcion = this.mensajeerror.crearDescripcion(this.datosCrear.get('descripcion')?.hasError('required') ?? false, this.controlFormgroup.validarDescripcion(this.configuracion.descripcion, this.datosCrear));
   }
 }
+
+
+
+
+// this.dataAlerta = datos;
+// this.alertas = datos?.alertasRegistradas;
+// if (this.dataAlerta === null) {
+//   let datosUsuario: any = this.api.obtenerUsuario(sessionStorage.getItem('correo') ?? '', sessionStorage.getItem('contraseña') ?? '');
+//   this.dataAlerta = datosUsuario.alertas[this.seccion].alertasRegistradas;
+//   this.configuracion = datosUsuario.alertas[parseInt(sessionStorage.getItem('seccion') ?? '')].configuracion;
+//   this.alertas = datosUsuario.alertas[parseInt(sessionStorage.getItem('seccion') ?? '')].alertasRegistradas;
+// };

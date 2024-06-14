@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RutService {
+  private nombreSeccionSubject = new BehaviorSubject<string | null>(this.cambiarTitulo());
+  nombreSeccion$ = this.nombreSeccionSubject.asObservable();
 
   constructor(
-    private router:Router
+    private router: Router
   ) { }
 
-  cambiarTitulo():string{
-    console.log(this.router.url)
-    switch(this.router.url){
-      case '/home':
-        return 'Bienvenido';
-      case '/home/seccion/alarmas':
-        return 'Alarmas';
-        default:
-          return 'T I M E';
-    }
+  cambiarTitulo(): any {
+    return sessionStorage.getItem('nombreSeccion') ?? 'T I M E';
   }
 }
