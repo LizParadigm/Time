@@ -26,8 +26,6 @@ export class ComunService {
   }
 
   cargarSeccion(idSeccion:number, nombreSeccion:String) {
-    console.log('desde header!', idSeccion)
-    // this.pasar.seccion.emit( alarma );
     sessionStorage.setItem('idSeccion',idSeccion.toString());
     sessionStorage.setItem('nombreSeccion',nombreSeccion.toString());
     this.router.navigateByUrl('/home/seccion');
